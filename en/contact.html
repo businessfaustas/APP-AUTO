@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a quote — AUTAPLATE</title>
+  <meta name="description" content="Send photos of the car and get a written price. AUTAPLATE, Klaipėda.">
+  <link rel="canonical" href="https://autaplate.lt/en/contact.html">
+  <link rel="alternate" hreflang="lt" href="https://autaplate.lt/lt/contact.html">
+  <link rel="alternate" hreflang="en" href="https://autaplate.lt/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://autaplate.lt/lt/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AUTAPLATE">
+  <meta property="og:title" content="Request a quote — AUTAPLATE">
+  <meta property="og:description" content="Send photos of the car and get a written price. AUTAPLATE, Klaipėda.">
+  <meta property="og:url" content="https://autaplate.lt/en/contact.html">
+  <meta property="og:image" content="https://autaplate.lt/images/og.jpg">
+  <meta property="og:locale" content="en_GB">
+  <meta name="theme-color" content="#080808">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="../main.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="wrap header-inner">
+    <!-- Wordmark: replace the text with <img src="../images/logo.svg" alt="AUTAPLATE" width="…" height="…"> once logo.svg is supplied. -->
+    <a class="brand" href="index.html" aria-label="AUTAPLATE — home"><span class="wordmark">AUTAPLATE</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-list"><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul>
+      <div class="nav-tools">
+        <p class="lang" aria-label="Language"><a href="../lt/contact.html" hreflang="lt" lang="lt">LT</a><span aria-hidden="true">/</span><a href="../en/contact.html" hreflang="en" lang="en" aria-current="true">EN</a></p>
+        <a class="tel" href="tel:+37062405636">+370 62405636</a>
+        <a class="btn btn-line" href="contact.html#quote">Get a quote</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="page-hero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>CONTACT</p>
+    <h1 class="h1" id="h1" data-reveal>Request a quote</h1>
+    <p class="lede" data-reveal>Three short steps. Photos of the car make the first reply specific.</p>
+  </div>
+</section>
+
+<section class="section section-tight" id="quote" aria-label="Quote form">
+  <div class="wrap contact-grid">
+    <form class="quote" data-quote novalidate enctype="multipart/form-data">
+      <p class="quote-progress eyebrow" aria-live="polite" data-quote-progress>01 / 03</p>
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <fieldset class="q-step" data-step="1">
+        <legend class="h3">Car and service</legend>
+        <div class="field"><label for="f-vehicle">Car — make, model, year</label>
+          <input id="f-vehicle" name="vehicle" type="text" required autocomplete="off"></div>
+        <div class="field"><label for="f-service">Service</label>
+          <select id="f-service" name="service" required><option value="">Choose one</option><option value="custom-orders">Custom orders</option><option value="full-vehicle-projects">Full vehicle projects</option><option value="oem-emission-labels">OEM emission control labels</option><option value="wrapping-livery-design">Wrapping and livery design</option><option value="custom-decals">Custom vehicle decals</option><option value="engraved-badges">Engraved badges</option><option value="not-sure">Not sure yet</option></select></div>
+        <div class="q-nav"><button type="button" class="btn btn-accent" data-next>Next</button></div>
+      </fieldset>
+
+      <fieldset class="q-step" data-step="2">
+        <legend class="h3">Photos and details</legend>
+        <div class="field"><label for="f-files">Photos of the car (optional)</label>
+          <input id="f-files" name="photos" type="file" accept="image/*" multiple data-files>
+          <p class="small muted" data-files-list></p></div>
+        <div class="field"><label for="f-message">What do you want done?</label>
+          <textarea id="f-message" name="message" rows="6"></textarea></div>
+        <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="button" class="btn btn-accent" data-next>Next</button></div>
+      </fieldset>
+
+      <fieldset class="q-step" data-step="3">
+        <legend class="h3">Your details</legend>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-accent">Send request</button></div>
+      </fieldset>
+
+      <p class="q-status" role="status" data-quote-status
+         data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
+         data-err="That didn&#x27;t send. Please call +370 62405636."
+         data-sending="Sending…"></p>
+    </form>
+
+    <aside class="contact-aside" aria-label="Contact details">
+      <dl class="record">
+        <div><dt>PHONE</dt><dd><a href="tel:+37062405636">+370 62405636</a></dd></div>
+        <div><dt>EMAIL</dt><dd><!-- TODO: email --><span class="muted">TO FILL</span></dd></div>
+        <div><dt>ADDRESS</dt><dd><!-- TODO: street address -->Klaipėda, Lithuania</dd></div>
+        <div><dt>HOURS</dt><dd><!-- TODO: opening hours --><span class="muted">TO FILL</span></dd></div>
+        <div><dt>REPLY</dt><dd>Within one working day, Monday to Friday.</dd></div>
+      </dl>
+      <div class="map" data-map data-map-src="https://www.google.com/maps?q=Klaip%C4%97da&amp;output=embed">
+        <!-- Map loads only on click, so Google Fonts stays the only request on page load. Update the q= parameter to the street address. -->
+        <div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: MAP — WORKSHOP LOCATION — 4:3"><span>MAP — WORKSHOP LOCATION — 4:3</span></div>
+        <button type="button" class="btn btn-line map-btn" data-map-load>Show map</button>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <p class="wordmark">AUTAPLATE</p>
+      <p class="small">Cast film only. Parts come off. Price fixed before work starts.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Services</p>
+      <ul class="footer-list"><li><a href="services/custom-orders.html">Custom orders</a></li><li><a href="services/full-vehicle-projects.html">Full vehicle projects</a></li><li><a href="services/oem-emission-labels.html">OEM emission control labels</a></li><li><a href="services/wrapping-livery-design.html">Wrapping and livery design</a></li><li><a href="services/custom-decals.html">Custom vehicle decals</a></li><li><a href="services/engraved-badges.html">Engraved badges</a></li></ul>
+    </div>
+    <div>
+      <p class="eyebrow">Pages</p>
+      <ul class="footer-list"><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+    <div>
+      <p class="eyebrow">Contact</p>
+      <ul class="footer-list">
+        <li><a href="tel:+37062405636">+370 62405636</a></li>
+        <!-- TODO: email address — not supplied yet -->
+        <!-- TODO: street address — not supplied yet -->
+        <li>Klaipėda, Lithuania</li>
+        <!-- TODO: opening hours — not supplied yet -->
+        <!-- Optional: ONE messaging link (WhatsApp or Messenger) goes here, footer only. -->
+      </ul>
+      <p class="small muted">We reply within one working day, Monday to Friday.</p>
+    </div>
+  </div>
+  <div class="wrap footer-base">
+    <p class="small">© 2026 AUTAPLATE · Klaipėda</p>
+    <p class="small"><a href="../lt/contact.html" hreflang="lt" lang="lt">LT</a> / <a href="../en/contact.html" hreflang="en" lang="en">EN</a></p>
+  </div>
+</footer>
+</body>
+</html>
