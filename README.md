@@ -3,9 +3,10 @@
 Static site. Plain HTML, CSS and JS: no framework, no build step, no npm.
 Google Fonts is the only external request on page load.
 
-**Status: structure pass.** Every page and section exists, with real headings.
-Photo slots are labelled placeholders (`.ph`). Body copy is marked `COPY — …` (`.ph-copy`).
-Both get filled in the next pass.
+**Status: copy pass done.** All body copy is written in Lithuanian and English, FAQ answers are in, and each service page has FAQPage JSON-LD.
+Photos are still labelled placeholders (`.ph`) until the images are supplied.
+Facts not yet supplied (owner, address, email, hours, durations, prices) are left out of the visible page and marked with `<!-- TODO -->` comments.
+The home page case study shows the generic arrival-to-handover path until a real job is chosen.
 
 ## Layout
 
@@ -102,8 +103,9 @@ Replace the `<div class="ph">…</div>` with:
 - [ ] Real domain. Canonical and OG URLs currently assume `https://autaplate.lt`
 - [ ] Home case study: which car, the facts, and three photos from arrival to finish
 - [ ] Before/after pair shot from the same tripod position
-- [ ] Real duration for each of the five process steps
-- [ ] Honest "from" price for OEM labels and custom decals, or delete those two blocks
+- [ ] Real duration for each of the five process steps (slot marked in the process section)
+- [ ] Real job records for the Work page (car, materials, duration)
+- [ ] Honest "from" price for OEM labels and custom decals (the blocks are switched off until then)
 - [ ] Who runs the workshop (for the About page)
 - [ ] Optional: one messaging link (WhatsApp **or** Messenger), footer only
 - [ ] Photos, `logo.svg`, `reviews.json`

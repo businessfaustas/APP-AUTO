@@ -271,13 +271,11 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
 .cs-state { padding-left: var(--s-2); border-left: 1px solid var(--line); transition: opacity 600ms var(--ease), border-color 600ms var(--ease); }
 .js .cs-state { opacity: .28; }
 .js .cs-state.is-active { opacity: 1; border-left-color: var(--ink); }
-.cs-state .ph-copy { margin-block: var(--s-1) 0; }
 @media (max-width: 899px) {
   .case-media .ph { aspect-ratio: 4/3; }
   .case-grid { gap: var(--s-2); }
   .case .h2 { font-size: 1.75rem; }
-  .cs-state .ph-copy { display: none; }
-  .cs-state.is-active .ph-copy { display: block; }
+  .js .cs-state:not(.is-active) .cs-copy { display: none; }
 }
 @media (min-width: 900px) { .case-grid { grid-template-columns: .85fr 1.15fr; gap: var(--s-8); } }
 
@@ -504,5 +502,21 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
   .case-sticky { position: static; height: auto; padding-block: var(--section-y); }
   .js .cs-state { opacity: 1; }
   .js .cs-frame { opacity: 0; } .js .cs-frame:first-child { opacity: 1; }
-  .cs-state .ph-copy { display: block !important; }
+  .cs-state .cs-copy { display: block !important; }
 }
+
+/* ------------------------------------------------------------------ copy pass: text blocks */
+.prose p + p { margin-top: var(--s-2); }
+.prose { margin-top: var(--s-3); }
+.split-1585 > div > .prose:first-child { margin-top: 0; }
+.proof-list .small { margin-top: var(--s-1); max-width: 40ch; }
+.cs-copy { margin-top: var(--s-1); color: var(--muted); max-width: 52ch; }
+/* (mobile only: inactive captions collapse — see case study block) */
+.step p:not(.step-num):not(.step-dur) { margin-top: var(--s-1); }
+.mat p, .rule p { margin-top: var(--s-2); }
+.versus p { max-width: 52ch; }
+.svc-row-cols p { color: var(--muted); }
+.faq-a p { color: var(--muted); }
+.wont li { display: grid; grid-template-columns: 48px 1fr; gap: var(--s-2); padding-block: var(--s-3); font: 700 var(--fs-h3)/1.15 var(--f-display); letter-spacing: -.01em; }
+.wont li:last-child { border-bottom: 1px solid var(--line-paper); }
+.wont .mono-index { padding-top: 6px; }
