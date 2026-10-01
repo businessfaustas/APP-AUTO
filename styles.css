@@ -551,3 +551,125 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
     linear-gradient(to right, color-mix(in srgb, var(--bg) 78%, transparent) 0%, color-mix(in srgb, var(--bg) 35%, transparent) 50%, transparent 75%),
     linear-gradient(to top, var(--bg) 4%, transparent 45%); }
 }
+
+/* ================================================================== motion & layout upgrade */
+:root { --ease-out: cubic-bezier(.16, 1, .3, 1); }
+
+/* Film grain — tactile, photographic; no new colour (greyscale noise at low opacity) */
+body::after {
+  content: ""; position: fixed; inset: -50%; z-index: 90; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(6) infinite;
+}
+@keyframes grain { 0%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-1%)} 80%{transform:translate(3%,3%)} 100%{transform:translate(0,0)} }
+
+/* Masked line reveal for H1/H2 (lines built by main.js) */
+.js .split[data-reveal] { opacity: 1; transform: none; }
+.split .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.js .split .line > span { display: block; transform: translateY(108%); transition: transform 800ms var(--ease-out) calc(var(--d, 0ms) + var(--i, 0) * 90ms); }
+.js .split.is-in .line > span { transform: none; }
+.js .split.is-now .line > span { transition: none; }
+
+/* Image wipe: container uncovers bottom-up, image settles from 1.12 */
+/* clip sits on the image, not the observed frame: a fully clipped target never intersects */
+.js .wipe .pic { clip-path: inset(100% 0 0 0); transform: scale(1.12); transition: clip-path 800ms var(--ease-out) var(--d, 0ms), transform 800ms var(--ease-out) var(--d, 0ms); }
+.js .wipe.is-in .pic { clip-path: inset(0 0 0 0); transform: none; }
+.js .wipe.is-now .pic { transition: none; }
+@media (hover: hover) { .card:hover .wipe.is-in .pic { transform: scale(1.04); transition-duration: 700ms; transition-delay: 0ms; } }
+
+/* Hero: settle-in, parallax drift (var set by JS), scroll cue */
+.hero { overflow: clip; }
+.hero-media { overflow: hidden; transform: translate3d(0, var(--py, 0px), 0); will-change: transform; }
+.hero-media .hero-pic { animation: hero-settle 1600ms var(--ease-out) both; }
+@keyframes hero-settle { from { transform: scale(1.14); opacity: .2; } to { transform: scale(1.04); opacity: 1; } }
+.scroll-cue {
+  position: absolute; right: var(--gutter); bottom: var(--s-6); z-index: 2; display: flex; align-items: center; gap: var(--s-2);
+  font: 500 var(--fs-eyebrow)/1 var(--f-mono); letter-spacing: .22em; color: var(--ink); text-decoration: none; min-height: 44px;
+}
+.scroll-cue i { position: relative; display: block; width: 1px; height: 48px; background: var(--line); overflow: hidden; }
+.scroll-cue i::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform: translateY(-100%); animation: cue 2.4s var(--ease-out) infinite 1.2s; }
+@keyframes cue { 0% { transform: translateY(-100%); } 55% { transform: translateY(0); } 100% { transform: translateY(100%); } }
+@media (max-width: 699px) { .scroll-cue { display: none; } }
+
+/* Header hides on scroll down, returns on scroll up */
+.site-header { transition: height 300ms var(--ease), background-color 300ms var(--ease), border-color 300ms var(--ease), transform 400ms var(--ease-out); }
+.site-header.is-hidden { transform: translateY(-100%); }
+.nav-open .site-header { transform: none; }
+.nav-list a { position: relative; text-decoration: none !important; }
+.nav-list a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 300ms var(--ease-out); }
+.nav-list a:hover::after, .nav-list a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+@media (max-width: 1080px) { .nav-list a::after { display: none; } }
+
+/* Buttons: fill sweeps in from the left (inset shadow, no layout change) */
+.btn { transition: box-shadow 450ms var(--ease-out), color 300ms var(--ease), border-color 300ms var(--ease); }
+.btn-accent:hover, .btn-line:hover { background: transparent; box-shadow: inset 24em 0 0 0 var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-accent:hover { background: var(--accent); }
+.paper .btn-line:hover { background: transparent; box-shadow: inset 24em 0 0 0 var(--bg); color: var(--paper); }
+.btn:active { transform: scale(.98); }
+
+/* Outline numerals: process steps and rules */
+.step-num, .rule-num { color: transparent; -webkit-text-stroke: 1px var(--muted); font-size: clamp(2.6rem, 1.8rem + 3vw, 4.4rem); line-height: .9; }
+.paper .step-num { -webkit-text-stroke-color: var(--bg); }
+.step:hover .step-num { color: var(--bg); transition: color 400ms var(--ease); }
+
+/* Services grid: index + arrow motion */
+.svc-card .link-arrow { color: var(--muted); transition: color 300ms var(--ease); }
+.svc-card a:hover .link-arrow { color: var(--ink); }
+.svc-card .h3 { transition: transform 400ms var(--ease-out); }
+@media (hover: hover) { .svc-card a:hover .h3 { transform: translateX(8px); } }
+
+/* Recent work rail — contained horizontal scroll, snap, no page overflow */
+.rail-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-6); }
+.rail-ctrl { display: flex; align-items: center; gap: var(--s-1); }
+.rail-ctrl .link-arrow { margin: 0 0 0 var(--s-3); }
+.rail-btn { width: 48px; height: 48px; display: grid; place-items: center; background: none; border: 1px solid var(--line); color: var(--ink); font: 500 16px/1 var(--f-mono); cursor: pointer; transition: border-color 300ms var(--ease), background-color 300ms var(--ease); }
+.rail-btn:hover { border-color: var(--ink); }
+ul.rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 360px); gap: var(--s-3);
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(var(--gutter), (100vw - var(--max)) / 2);
+  padding-inline: max(var(--gutter), (100vw - var(--max)) / 2); padding-bottom: var(--s-3);
+  scrollbar-width: thin; scrollbar-color: var(--muted) transparent; overscroll-behavior-x: contain;
+}
+.rail-item { scroll-snap-align: start; }
+.rail-item a { display: block; text-decoration: none; }
+.rail-cap { display: block; margin-top: var(--s-2); }
+.rail-cap .h3 { margin-top: 4px; font-size: 1.25rem; }
+@media (max-width: 699px) { .rail-ctrl .rail-btn { display: none; } .rail-ctrl .link-arrow { margin: 0; } }
+
+/* Cursor label (desktop pointers only, built by main.js) */
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 95; width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--ink); color: var(--bg); pointer-events: none;
+  font: 500 var(--fs-eyebrow)/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase;
+  transform: translate3d(var(--cx, -200px), var(--cy, -200px), 0) scale(0); transition: transform 350ms var(--ease-out); will-change: transform;
+}
+.cursor.is-on { transform: translate3d(var(--cx), var(--cy), 0) scale(1); }
+
+/* Breadcrumb */
+.crumbs a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.crumbs a:hover { border-bottom-color: var(--ink); }
+
+/* Work cards: caption lifts on hover */
+@media (hover: hover) { .job-open:hover .job-meta .h3 { transform: translateX(8px); } }
+.job-meta .h3 { transition: transform 400ms var(--ease-out); }
+
+/* Dialog entry from its trigger area */
+.job-dialog[open] { animation: dlg-in 400ms var(--ease-out); }
+.job-dialog[open]::backdrop { animation: fade-in 300ms var(--ease); }
+@keyframes dlg-in { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+@keyframes fade-in { from { opacity: 0; } }
+
+/* Back to top */
+.to-top { font: 500 var(--fs-eyebrow)/1 var(--f-mono); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.to-top:hover { color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation: none; }
+  .js .split .line > span, .js .wipe .pic { transform: none !important; }
+  .js .wipe .pic { clip-path: none !important; }
+  .hero-media .hero-pic { animation: none; }
+  .hero-media { transform: none; }
+  .scroll-cue i::after { animation: none; transform: none; }
+  .site-header.is-hidden { transform: none; }
+  .cursor { display: none; }
+}

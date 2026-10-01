@@ -15,11 +15,31 @@ const FORM_ENDPOINT = '';
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
+  /* ---------------------------------------------------------------- headline line split + image wipes
+     Runs before the reveal observer so both are picked up by it. */
+  $$('.h1[data-reveal], .h2[data-reveal]').forEach((h) => {
+    const parts = h.innerHTML.split(/<br\s*\/?>/i).map((p) => p.trim()).filter(Boolean);
+    h.innerHTML = parts.map((p, i) => `<span class="line" style="--i:${i}"><span>${p}</span></span>`).join('');
+    h.classList.add('split');
+  });
+  $$('.card-media, .svc-hero-media, .mat-media, .svc-row-media, .gallery figure, .stack-24').forEach((m) => m.classList.add('wipe'));
+
   /* ---------------------------------------------------------------- header condense (40px) */
   const header = $('[data-header]');
   if (header) {
     let ticking = false;
-    const update = () => { header.classList.toggle('is-condensed', window.scrollY > 40); ticking = false; };
+    const heroMedia = $('.hero-media');
+    let lastY = window.scrollY;
+    const update = () => {
+      const y = window.scrollY;
+      header.classList.toggle('is-condensed', y > 40);
+      // hide on scroll down, return on scroll up; never while the menu is open or focus is inside
+      const hide = y > lastY && y > 480 && !root.classList.contains('nav-open') && !header.contains(document.activeElement);
+      if (Math.abs(y - lastY) > 4) header.classList.toggle('is-hidden', hide);
+      lastY = y;
+      if (heroMedia && !reduced && y < window.innerHeight * 1.2) heroMedia.style.setProperty('--py', `${(y * 0.28).toFixed(1)}px`);
+      ticking = false;
+    };
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     update();
   }
@@ -50,7 +70,7 @@ const FORM_ENDPOINT = '';
   window.addEventListener('pageswap', setVT);
 
   /* ---------------------------------------------------------------- scroll reveal + H2 hairline */
-  const revealEls = $$('[data-reveal]');
+  const revealEls = $$('[data-reveal], .wipe');
   if (reduced || !('IntersectionObserver' in window)) {
     revealEls.forEach((el) => el.classList.add('is-in'));
   } else {
@@ -244,4 +264,30 @@ const FORM_ENDPOINT = '';
       map.replaceChildren(f);
     });
   });
+  /* ---------------------------------------------------------------- recent work rail */
+  const rail = $('[data-rail]');
+  if (rail) {
+    const step = (dir) => rail.scrollBy({ left: dir * rail.clientWidth * 0.8, behavior: reduced ? 'auto' : 'smooth' });
+    const prev = $('[data-rail-prev]'), next = $('[data-rail-next]');
+    if (prev) prev.addEventListener('click', () => step(-1));
+    if (next) next.addEventListener('click', () => step(1));
+  }
+
+  /* ---------------------------------------------------------------- cursor label (fine pointers only) */
+  if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches && $('[data-cursor]')) {
+    const cur = document.createElement('div');
+    cur.className = 'cursor'; cur.setAttribute('aria-hidden', 'true');
+    document.body.append(cur);
+    let x = -200, y = -200, raf = 0;
+    const paint = () => { cur.style.setProperty('--cx', `${x}px`); cur.style.setProperty('--cy', `${y}px`); raf = 0; };
+    document.addEventListener('mousemove', (e) => { x = e.clientX; y = e.clientY; if (!raf) raf = requestAnimationFrame(paint); }, { passive: true });
+    document.addEventListener('mouseover', (e) => {
+      const t = e.target.closest('[data-cursor]');
+      if (t) { cur.textContent = t.dataset.cursor; cur.classList.add('is-on'); }
+    });
+    document.addEventListener('mouseout', (e) => {
+      const t = e.target.closest('[data-cursor]');
+      if (t && !t.contains(e.relatedTarget)) cur.classList.remove('is-on');
+    });
+  }
 })();
