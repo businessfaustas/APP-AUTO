@@ -188,7 +188,7 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
   border-bottom-color: var(--line);
 }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); }
-.brand { text-decoration: none; view-transition-name: brand; }
+.brand { text-decoration: none; }
 .wordmark { font: 800 20px/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; }
 .site-nav { display: flex; align-items: center; gap: var(--s-4); }
 .nav-list { display: flex; gap: var(--s-3); }
@@ -473,26 +473,6 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 .js [data-reveal].is-now { transition: none; }
 
-/* ------------------------------------------------------------------ logo page transition
-   Native cross-document View Transitions: no click interception, no added latency.
-   Unsupported browsers simply load the next page. */
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition { navigation: auto; }
-}
-::view-transition { background: var(--bg); }
-::view-transition-old(root) { animation: vt-fade-out 240ms var(--ease) both; }
-::view-transition-new(root) { animation: vt-wipe-in 560ms var(--ease) 420ms both; }
-::view-transition-group(brand) { animation-duration: 1000ms; animation-timing-function: var(--ease); }
-::view-transition-image-pair(brand) { animation: vt-brand 1000ms var(--ease) both; }
-@keyframes vt-fade-out { to { opacity: 0; } }
-@keyframes vt-wipe-in { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
-/* scale up from header position → hold ≈180ms over --bg → return as the new page wipes in */
-@keyframes vt-brand {
-  0%        { transform: none; }
-  24%, 42%  { transform: translate(var(--vt-dx), var(--vt-dy)) scale(var(--vt-s)); }
-  100%      { transform: none; }
-}
-
 /* ------------------------------------------------------------------ reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; scroll-behavior: auto !important; }
@@ -538,9 +518,6 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
 }
 .hero-media::after { inset: 25% 0 0; background: linear-gradient(to top, var(--bg) 8%, color-mix(in srgb, var(--bg) 55%, transparent) 55%, transparent); }
 
-.brand img { display: block; height: 26px; width: auto; }
-.site-header.is-condensed .brand img { height: 26px; } /* logo never shrinks with the header */
-.footer-logo img { display: block; height: 56px; width: auto; margin-bottom: var(--s-2); }
 
 .job-dialog-media .pic { aspect-ratio: 4/3; }
 .cs-frame .pic { max-height: 70svh; }
@@ -673,3 +650,84 @@ ul.rail {
   .site-header.is-hidden { transform: none; }
   .cursor { display: none; }
 }
+
+/* ================================================================== brand mark */
+.mark { display: block; overflow: visible; }
+.mark .m-a { fill: var(--ink); }
+.mark .m-p { fill: var(--accent); }
+.brand { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; }
+.brand-mark { height: 30px; width: auto; }
+.brand-word { font: 800 17px/1 var(--f-display); letter-spacing: .06em; color: var(--ink); }
+@media (hover: hover) {
+  .brand .m-p { transition: transform 500ms var(--ease-out); transform-box: fill-box; }
+  .brand:hover .m-p { transform: translateX(6%); }
+}
+@media (max-width: 420px) { .brand-word { display: none; } }
+.footer-logo { display: flex; align-items: center; gap: 16px; margin-bottom: var(--s-2); }
+.footer-mark { height: 56px; width: auto; }
+.footer-logo .brand-word { font-size: 28px; }
+
+/* ================================================================== loader / page transition
+   Every page carries the loader. A head script picks the mode before first paint:
+   full  = first page of the visit (A draws, P slides in, word rises, panel lifts) ~1.7s
+   short = every following page (A and P snap together, panel lifts)              ~0.95s
+   none  = reduced motion, or no JS (loader never shown)                                  */
+.loader { display: none; }
+[data-loader="full"] .loader, [data-loader="short"] .loader {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--bg);
+  pointer-events: none; animation: loader-out 480ms var(--ease-out) var(--out) both;
+}
+[data-loader="full"] { --out: 1300ms; }
+[data-loader="short"] { --out: 600ms; }
+.loader-inner { display: grid; justify-items: center; gap: 28px; animation: loader-inner-out 420ms var(--ease) var(--out) both; }
+.loader-mark { width: min(46vw, 260px); height: auto; }
+.loader-mark .m-a, .loader-mark .m-p { transform-box: fill-box; }
+.loader-word { display: flex; overflow: hidden; font: 800 clamp(14px, 1rem + .4vw, 20px)/1.2 var(--f-display); letter-spacing: .32em; color: var(--ink); margin-right: -.32em; }
+.loader-word span { display: block; }
+.loader-bar { position: relative; display: block; width: min(46vw, 260px); height: 1px; background: var(--line); overflow: hidden; }
+.loader-bar i { position: absolute; inset: 0; background: var(--ink); transform: scaleX(0); transform-origin: left; }
+
+/* full: draw the A, fill it, slide the P in, raise the word, fill the bar */
+[data-loader="full"] .loader-mark .m-a { fill-opacity: 0; stroke: var(--ink); stroke-width: 7; stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: a-draw 700ms var(--ease) 80ms forwards, a-fill 320ms var(--ease) 620ms forwards; }
+[data-loader="full"] .loader-mark .m-a2 { animation-delay: 260ms, 720ms; }
+[data-loader="full"] .loader-mark .m-p { opacity: 0; animation: p-slide 640ms cubic-bezier(.34, 1.56, .64, 1) 480ms forwards; }
+[data-loader="full"] .loader-word span { transform: translateY(110%); animation: word-up 520ms var(--ease-out) calc(820ms + var(--k) * 32ms) forwards; }
+[data-loader="full"] .loader-bar i { animation: bar-fill 620ms var(--ease) 640ms forwards; }
+
+/* short: pieces snap together from opposite sides */
+[data-loader="short"] .loader-mark .m-a { opacity: 0; animation: a-in 420ms var(--ease-out) 60ms forwards; }
+[data-loader="short"] .loader-mark .m-p { opacity: 0; animation: p-in 460ms var(--ease-out) 100ms forwards; }
+[data-loader="short"] .loader-word, [data-loader="short"] .loader-bar { display: none; }
+
+@keyframes a-draw { to { stroke-dashoffset: 0; } }
+@keyframes a-fill { to { fill-opacity: 1; stroke-width: 0; } }
+@keyframes p-slide { from { opacity: 0; transform: translateX(28%); } 30% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes a-in { from { opacity: 0; transform: translateX(-22%); } to { opacity: 1; transform: none; } }
+@keyframes p-in { from { opacity: 0; transform: translateX(22%); } to { opacity: 1; transform: none; } }
+@keyframes word-up { to { transform: none; } }
+@keyframes bar-fill { to { transform: scaleX(1); } }
+@keyframes loader-out { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
+@keyframes loader-inner-out { to { opacity: 0; transform: translateY(-48px) scale(.96); } }
+
+/* hero starts moving as the panel lifts */
+[data-loader="full"] .hero-media .hero-pic { animation-delay: 1150ms; }
+[data-loader="short"] .hero-media .hero-pic { animation-delay: 450ms; }
+
+/* Cross-document View Transition: old page sinks and dims while the new page
+   (its loader panel) sweeps up over it. No click interception, no added latency. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+::view-transition { background: var(--bg); }
+::view-transition-old(root) { animation: vt-sink 520ms var(--ease) both; transform-origin: 50% 30%; }
+::view-transition-new(root) { animation: vt-sweep 520ms var(--ease-out) both; }
+@keyframes vt-sink { to { transform: scale(.92) translateY(-3%); opacity: .25; filter: brightness(.5); } }
+@keyframes vt-sweep { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .loader { display: none !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+.footer-base { flex-wrap: wrap; align-items: center; row-gap: var(--s-2); }
+.footer-base > * { white-space: nowrap; }

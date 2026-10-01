@@ -76,12 +76,16 @@ const FORM_ENDPOINT = '';
   } else {
     // Anything already in view on load appears immediately — never waits for a scroll.
     const vh = window.innerHeight;
-    const pending = [];
+    const pending = [], inView = [];
     revealEls.forEach((el) => {
       const r = el.getBoundingClientRect();
-      if (r.top < vh && r.bottom > 0) { el.classList.add('is-now', 'is-in'); }
+      if (r.top < vh && r.bottom > 0) inView.push(el);
       else pending.push(el);
     });
+    // While the loader panel covers the page, hold the first-screen reveals so they play as it lifts.
+    const introMs = { full: 1250, short: 520 }[root.getAttribute('data-loader')] || 0;
+    if (introMs) setTimeout(() => inView.forEach((el) => el.classList.add('is-in')), introMs);
+    else inView.forEach((el) => el.classList.add('is-now', 'is-in'));
     requestAnimationFrame(() => requestAnimationFrame(() => $$('.is-now').forEach((el) => el.classList.remove('is-now'))));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

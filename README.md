@@ -67,7 +67,7 @@ While `reviews` is empty, the home page review section stays hidden.
 
 - `images/originals/` holds the photos as uploaded. They are never linked from the pages.
 - `images/web/` holds the web versions: each photo at up to three widths (600 / 1200 / 2000 px), rotated upright, with metadata removed.
-- `images/logo.png` is the wordmark with a transparent background. `favicon.png` and `apple-touch-icon.png` come from the AP monogram. `og.jpg` is the social share image.
+- The AP mark is inline SVG in every page (header, footer, loader), traced from the supplied logo. `images/mark.svg` is the browser-tab icon; `favicon.png` and `apple-touch-icon.png` are rendered from it. `images/logo.png` (old wordmark) is no longer used. `og.jpg` is the social share image.
 - Every image uses the same `.pic` style: same fit, same light `saturate(.95) contrast(1.05)` filter, with the ratio set per slot.
 
 AI-generated or AI-rendered images (studio shots on white, the top view, "ChatGPT Image…", "Gemini…") are kept in `originals/` but deliberately not used. The site shows evidence of real work only.
@@ -104,3 +104,13 @@ To add photos, upload them to `images/originals/`. The web versions are made fro
 - [ ] Who runs the workshop (for the About page)
 - [ ] Optional: one messaging link (WhatsApp **or** Messenger), footer only
 - [ ] Google reviews for `data/reviews.json`
+
+## Page loader and transitions
+
+Every page has a `.loader` panel. A small script in `<head>` chooses the mode before the first paint:
+
+- `full`: first page of a visit. The A draws, the P slides in, AUTAPLATE rises, then the panel lifts (about 1.7 s).
+- `short`: every page after that. The A and P snap together, then the panel lifts (under 1 s). Between pages, the old page sinks and dims while the new one sweeps up (native View Transitions, so links aren't delayed).
+- `none`: reduced-motion users, or JavaScript disabled. The loader never shows.
+
+Timings live in `styles.css` (`--out`) and in `main.js` (`introMs`). Keep the two in step.
