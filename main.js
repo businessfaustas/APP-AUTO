@@ -181,11 +181,19 @@ const FORM_ENDPOINT = '';
     chips.forEach((chip) => chip.addEventListener('click', () => {
       const f = chip.dataset.filter;
       chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      chip.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduced ? 'auto' : 'smooth' });
+      const jobs = $$('.job', grid);
       let n = 0;
-      $$('.job', grid).forEach((job) => {
-        const show = f === 'all' || job.dataset.service === f;
-        job.hidden = !show; if (show) { n++; job.classList.add('is-in'); }
-      });
+      const show = [], hide = [];
+      jobs.forEach((job) => { const on = f === 'all' || job.dataset.service === f; if (on) { n++; show.push(job); } else hide.push(job); });
+      const swap = () => {
+        hide.forEach((j) => { j.hidden = true; j.classList.remove('is-out'); });
+        show.forEach((j) => { const was = j.hidden; j.hidden = false; j.classList.add('is-in'); if (was && !reduced) { j.classList.add('is-pre'); } });
+        requestAnimationFrame(() => requestAnimationFrame(() => show.forEach((j, i) => { j.style.transitionDelay = `${Math.min(i, 8) * 40}ms`; j.classList.remove('is-pre'); })));
+        setTimeout(() => show.forEach((j) => { j.style.transitionDelay = ''; }), 800);
+      };
+      if (reduced) swap();
+      else { hide.forEach((j) => { if (!j.hidden) j.classList.add('is-out'); }); setTimeout(swap, 240); }
       if (status) status.textContent = `${n}`;
     }));
 
@@ -293,5 +301,62 @@ const FORM_ENDPOINT = '';
       const t = e.target.closest('[data-cursor]');
       if (t && !t.contains(e.relatedTarget)) cur.classList.remove('is-on');
     });
+  }
+  /* ---------------------------------------------------------------- stacking proof cards (mobile) */
+  const proof = $('[data-proof]');
+  if (proof && !reduced) {
+    const cards = $$('.proof-card', proof);
+    const mq = window.matchMedia('(max-width: 899px)');
+    let tick = false;
+    const cover = () => {
+      tick = false;
+      cards.forEach((card, i) => {
+        const next = cards[i + 1];
+        let v = 0;
+        if (mq.matches && next) {
+          const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
+          v = Math.min(1, Math.max(0, (a.bottom - b.top) / a.height));
+        }
+        card.style.setProperty('--cover', v.toFixed(3));
+      });
+    };
+    window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(cover); } }, { passive: true });
+    window.addEventListener('resize', cover);
+    cover();
+  }
+
+  /* ---------------------------------------------------------------- rail focus + progress */
+  if (rail) {
+    const items = $$('.rail-item', rail);
+    const bar = $('[data-rail-bar]');
+    let tick = false;
+    const focus = () => {
+      tick = false;
+      const max = rail.scrollWidth - rail.clientWidth;
+      if (bar) bar.style.setProperty('--p', (0.12 + 0.88 * (max > 0 ? rail.scrollLeft / max : 1)).toFixed(3));
+      if (reduced) return;
+      const anchor = rail.getBoundingClientRect().left + parseFloat(getComputedStyle(rail).paddingLeft);
+      items.forEach((it) => {
+        const d = Math.min(1, Math.abs(it.getBoundingClientRect().left - anchor) / it.offsetWidth);
+        it.style.setProperty('--rs', (1 - d * 0.07).toFixed(3));
+        it.style.setProperty('--ro', (1 - d * 0.45).toFixed(3));
+      });
+    };
+    rail.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(focus); } }, { passive: true });
+    window.addEventListener('resize', focus);
+    focus();
+  }
+
+  /* ---------------------------------------------------------------- stat counters */
+  const stats = $$('[data-count]');
+  if (stats.length && !reduced && 'IntersectionObserver' in window) {
+    const run = (el) => {
+      const end = +el.dataset.count, t0 = performance.now(), dur = 800;
+      const step = (t) => { const k = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(2, -10 * k))); if (k < 1) requestAnimationFrame(step); else el.textContent = end; };
+      el.textContent = '0'; requestAnimationFrame(step);
+    };
+    const delay = { full: 1250, short: 520 }[root.getAttribute('data-loader')] || 0;
+    const io2 = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { io2.unobserve(en.target); setTimeout(() => run(en.target), en.time < 2000 ? delay : 0); } }), { threshold: 0.4 });
+    stats.forEach((el) => io2.observe(el));
   }
 })();
