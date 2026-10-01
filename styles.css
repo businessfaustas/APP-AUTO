@@ -731,3 +731,5 @@ ul.rail {
 }
 .footer-base { flex-wrap: wrap; align-items: center; row-gap: var(--s-2); }
 .footer-base > * { white-space: nowrap; }
+/* mark only — no wordmark text */
+.brand-mark { height: 34px; }
