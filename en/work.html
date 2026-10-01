@@ -17,6 +17,8 @@
   <meta property="og:image" content="https://autaplate.lt/images/og.jpg">
   <meta property="og:locale" content="en_GB">
   <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
@@ -28,8 +30,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" data-header>
   <div class="wrap header-inner">
-    <!-- Wordmark: replace the text with <img src="../images/logo.svg" alt="AUTAPLATE" width="…" height="…"> once logo.svg is supplied. -->
-    <a class="brand" href="index.html" aria-label="AUTAPLATE — home"><span class="wordmark">AUTAPLATE</span></a>
+        <a class="brand" href="index.html"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE — home"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul class="nav-list"><li><a href="services.html">Services</a></li><li><a href="work.html" aria-current="page">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
@@ -55,53 +56,189 @@
     <ul class="filters" aria-label="Filter by service"><li><button type="button" class="chip" aria-pressed="true" data-filter="all">All</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="custom-orders">Custom orders</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="full-vehicle-projects">Full vehicle projects</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="oem-emission-labels">OEM emission control labels</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="wrapping-livery-design">Wrapping and livery design</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="custom-decals">Custom vehicle decals</button></li><li><button type="button" class="chip" aria-pressed="false" data-filter="engraved-badges">Engraved badges</button></li></ul>
     <p class="visually-hidden" aria-live="polite" data-filter-status></p>
     <ul class="job-grid" data-job-grid>
-      <li class="job card" data-service="custom-orders" data-reveal style="--d:0ms">
-        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 01 — CUSTOM ORDERS — LEAD PHOTO — 4:3"><span>JOB 01 — CUSTOM ORDERS — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 01</span><span class="h3">Custom orders</span></span>
-        </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>Custom orders</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 01 — DETAIL 1 — 4:3"><span>JOB 01 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 01 — DETAIL 2 — 4:3"><span>JOB 01 — DETAIL 2 — 4:3</span></div></template>
-      </li>
-      <li class="job card" data-service="full-vehicle-projects" data-reveal style="--d:80ms">
-        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 02 — FULL VEHICLE PROJECTS — LEAD PHOTO — 4:3"><span>JOB 02 — FULL VEHICLE PROJECTS — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 02</span><span class="h3">Full vehicle projects</span></span>
-        </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>Full vehicle projects</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 02 — DETAIL 1 — 4:3"><span>JOB 02 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 02 — DETAIL 2 — 4:3"><span>JOB 02 — DETAIL 2 — 4:3</span></div></template>
-      </li>
-      <li class="job card" data-service="oem-emission-labels" data-reveal style="--d:160ms">
-        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 03 — OEM EMISSION CONTROL LABELS — LEAD PHOTO — 4:3"><span>JOB 03 — OEM EMISSION CONTROL LABELS — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 03</span><span class="h3">OEM emission control labels</span></span>
-        </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>OEM emission control labels</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 03 — DETAIL 1 — 4:3"><span>JOB 03 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 03 — DETAIL 2 — 4:3"><span>JOB 03 — DETAIL 2 — 4:3</span></div></template>
-      </li>
       <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:0ms">
         <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 04 — WRAPPING AND LIVERY DESIGN — LEAD PHOTO — 4:3"><span>JOB 04 — WRAPPING AND LIVERY DESIGN — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 04</span><span class="h3">Wrapping and livery design</span></span>
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-hex-side-1200.jpg" srcset="../images/web/mustang-hex-side-600.jpg 600w, ../images/web/mustang-hex-side-1200.jpg 1200w, ../images/web/mustang-hex-side-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Grey Ford Mustang side profile with hexagon graphics" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 01 — Wrapping and livery design</span><span class="h3">Ford Mustang</span></span>
         </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 04 — DETAIL 1 — 4:3"><span>JOB 04 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 04 — DETAIL 2 — 4:3"><span>JOB 04 — DETAIL 2 — 4:3</span></div></template>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>4</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-hex-side-1200.jpg" srcset="../images/web/mustang-hex-side-600.jpg 600w, ../images/web/mustang-hex-side-1200.jpg 1200w, ../images/web/mustang-hex-side-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Grey Ford Mustang side profile with hexagon graphics" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-hex-front-1200.jpg" srcset="../images/web/mustang-hex-front-600.jpg 600w, ../images/web/mustang-hex-front-1200.jpg 1200w, ../images/web/mustang-hex-front-1512.jpg 1512w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="1600" alt="Grey Ford Mustang with a hexagon pattern across the bonnet" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-hex-hood-1200.jpg" srcset="../images/web/mustang-hex-hood-600.jpg 600w, ../images/web/mustang-hex-hood-1200.jpg 1200w, ../images/web/mustang-hex-hood-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Close view of the hexagon graphic on the bonnet" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-hex-detail-1200.jpg" srcset="../images/web/mustang-hex-detail-600.jpg 600w, ../images/web/mustang-hex-detail-1200.jpg 1200w, ../images/web/mustang-hex-detail-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Close view of the film edge at the side vent" loading="lazy" decoding="async"></template>
       </li>
       <li class="job card" data-service="custom-decals" data-reveal style="--d:80ms">
         <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 05 — CUSTOM VEHICLE DECALS — LEAD PHOTO — 4:3"><span>JOB 05 — CUSTOM VEHICLE DECALS — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 05</span><span class="h3">Custom vehicle decals</span></span>
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/hero-challenger-bay-1200.jpg" srcset="../images/web/hero-challenger-bay-600.jpg 600w, ../images/web/hero-challenger-bay-1200.jpg 1200w, ../images/web/hero-challenger-bay-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="White Dodge Challenger with blue stripes in the AUTAPLATE workshop" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 02 — Custom vehicle decals</span><span class="h3">Dodge Challenger</span></span>
         </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 05 — DETAIL 1 — 4:3"><span>JOB 05 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 05 — DETAIL 2 — 4:3"><span>JOB 05 — DETAIL 2 — 4:3</span></div></template>
+        <dl class="record"><div><dt>CAR</dt><dd>Dodge Challenger</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>2</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/hero-challenger-bay-1200.jpg" srcset="../images/web/hero-challenger-bay-600.jpg 600w, ../images/web/hero-challenger-bay-1200.jpg 1200w, ../images/web/hero-challenger-bay-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="White Dodge Challenger with blue stripes in the AUTAPLATE workshop" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/challenger-392-rear-1200.jpg" srcset="../images/web/challenger-392-rear-600.jpg 600w, ../images/web/challenger-392-rear-1200.jpg 1200w, ../images/web/challenger-392-rear-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Rear of a Dodge Challenger with 392 SRT lettering and stripes" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/giulia-side-1200.jpg" srcset="../images/web/giulia-side-600.jpg 600w, ../images/web/giulia-side-1200.jpg 1200w, ../images/web/giulia-side-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Grey Alfa Romeo Giulia with a yellow livery" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 03 — Wrapping and livery design</span><span class="h3">Alfa Romeo Giulia</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Alfa Romeo Giulia</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>2</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/giulia-side-1200.jpg" srcset="../images/web/giulia-side-600.jpg 600w, ../images/web/giulia-side-1200.jpg 1200w, ../images/web/giulia-side-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Grey Alfa Romeo Giulia with a yellow livery" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/giulia-front-1200.jpg" srcset="../images/web/giulia-front-600.jpg 600w, ../images/web/giulia-front-1200.jpg 1200w, ../images/web/giulia-front-1512.jpg 1512w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="1600" alt="Alfa Romeo Giulia with a yellow stripe over the bonnet" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="full-vehicle-projects" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-red-side-1200.jpg" srcset="../images/web/mustang-red-side-600.jpg 600w, ../images/web/mustang-red-side-1200.jpg 1200w, ../images/web/mustang-red-side-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Red Ford Mustang with number 1 and stripes" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 04 — Full vehicle projects</span><span class="h3">Ford Mustang</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang</dd></div><div><dt>SERVICE</dt><dd>Full vehicle projects</dd></div><div><dt>PHOTOS</dt><dd>3</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-red-side-1200.jpg" srcset="../images/web/mustang-red-side-600.jpg 600w, ../images/web/mustang-red-side-1200.jpg 1200w, ../images/web/mustang-red-side-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Red Ford Mustang with number 1 and stripes" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-red-front-1200.jpg" srcset="../images/web/mustang-red-front-600.jpg 600w, ../images/web/mustang-red-front-1200.jpg 1200w, ../images/web/mustang-red-front-1512.jpg 1512w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="1600" alt="Red Ford Mustang with white stripes, front view" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-red-34-1200.jpg" srcset="../images/web/mustang-red-34-600.jpg 600w, ../images/web/mustang-red-34-1200.jpg 1200w, ../images/web/mustang-red-34-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Red Ford Mustang with a number 1 graphic in the workshop" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="full-vehicle-projects" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-green-1200.jpg" srcset="../images/web/mustang-green-600.jpg 600w, ../images/web/mustang-green-1200.jpg 1200w, ../images/web/mustang-green-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Green Ford Mustang with black details" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 05 — Full vehicle projects</span><span class="h3">Ford Mustang</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang</dd></div><div><dt>SERVICE</dt><dd>Full vehicle projects</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-green-1200.jpg" srcset="../images/web/mustang-green-600.jpg 600w, ../images/web/mustang-green-1200.jpg 1200w, ../images/web/mustang-green-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Green Ford Mustang with black details" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/ram-skull-640.jpg" srcset="../images/web/ram-skull-600.jpg 600w, ../images/web/ram-skull-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="RAM pickup with skull graphics" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 06 — Wrapping and livery design</span><span class="h3">RAM 1500</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>RAM 1500</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/ram-skull-640.jpg" srcset="../images/web/ram-skull-600.jpg 600w, ../images/web/ram-skull-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="RAM pickup with skull graphics" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/durango-hex-480.jpg" srcset="../images/web/durango-hex-480.jpg 480w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="480" height="640" alt="Black Dodge Durango with hexagon stripes" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 07 — Wrapping and livery design</span><span class="h3">Dodge Durango</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Dodge Durango</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>2</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/durango-hex-480.jpg" srcset="../images/web/durango-hex-480.jpg 480w" sizes="(min-width: 700px) 45vw, 100vw" width="480" height="640" alt="Black Dodge Durango with hexagon stripes" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/durango-hex-detail-640.jpg" srcset="../images/web/durango-hex-detail-600.jpg 600w, ../images/web/durango-hex-detail-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Close view of a hexagon stripe with a red edge" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/dodge-hellcat-side-640.jpg" srcset="../images/web/dodge-hellcat-side-600.jpg 600w, ../images/web/dodge-hellcat-side-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="Grey graphic on the side of a black Dodge" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 08 — Custom vehicle decals</span><span class="h3">Dodge</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Dodge</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>4</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/dodge-hellcat-side-640.jpg" srcset="../images/web/dodge-hellcat-side-600.jpg 600w, ../images/web/dodge-hellcat-side-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Grey graphic on the side of a black Dodge" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/dodge-hood-tonal-640.jpg" srcset="../images/web/dodge-hood-tonal-600.jpg 600w, ../images/web/dodge-hood-tonal-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Tonal graphic on a matte bonnet" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/dodge-tonal-lettering-640.jpg" srcset="../images/web/dodge-tonal-lettering-600.jpg 600w, ../images/web/dodge-tonal-lettering-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Tonal lettering on a black panel" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/dodge-sill-640.jpg" srcset="../images/web/dodge-sill-600.jpg 600w, ../images/web/dodge-sill-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Door sill decal with Demon lettering" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/van-tss-side-640.jpg" srcset="../images/web/van-tss-side-600.jpg 600w, ../images/web/van-tss-side-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="Van with company lettering, side view" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 09 — Custom vehicle decals</span><span class="h3">Van</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Van</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>2</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/van-tss-side-640.jpg" srcset="../images/web/van-tss-side-600.jpg 600w, ../images/web/van-tss-side-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Van with company lettering, side view" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/van-tss-rear-640.jpg" srcset="../images/web/van-tss-rear-600.jpg 600w, ../images/web/van-tss-rear-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Van with company lettering" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-orders" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/boat-fishon-1200.jpg" srcset="../images/web/boat-fishon-600.jpg 600w, ../images/web/boat-fishon-1200.jpg 1200w, ../images/web/boat-fishon-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Boat with fishon.lt lettering" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 10 — Custom orders</span><span class="h3">Boat</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Boat</dd></div><div><dt>SERVICE</dt><dd>Custom orders</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/boat-fishon-1200.jpg" srcset="../images/web/boat-fishon-600.jpg 600w, ../images/web/boat-fishon-1200.jpg 1200w, ../images/web/boat-fishon-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Boat with fishon.lt lettering" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/minibus-chevrons-1200.jpg" srcset="../images/web/minibus-chevrons-600.jpg 600w, ../images/web/minibus-chevrons-1200.jpg 1200w, ../images/web/minibus-chevrons-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Minibus with red and white chevron markings" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 11 — Custom vehicle decals</span><span class="h3">Minibus</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Minibus</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/minibus-chevrons-1200.jpg" srcset="../images/web/minibus-chevrons-600.jpg 600w, ../images/web/minibus-chevrons-1200.jpg 1200w, ../images/web/minibus-chevrons-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Minibus with red and white chevron markings" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-orders" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/slingshot-640.jpg" srcset="../images/web/slingshot-600.jpg 600w, ../images/web/slingshot-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="Green Polaris Slingshot with graphics" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 12 — Custom orders</span><span class="h3">Polaris Slingshot</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Polaris Slingshot</dd></div><div><dt>SERVICE</dt><dd>Custom orders</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/slingshot-640.jpg" srcset="../images/web/slingshot-600.jpg 600w, ../images/web/slingshot-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Green Polaris Slingshot with graphics" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-8-side-1200.jpg" srcset="../images/web/mustang-8-side-600.jpg 600w, ../images/web/mustang-8-side-1200.jpg 1200w, ../images/web/mustang-8-side-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="White Ford Mustang convertible with race number 8" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 13 — Custom vehicle decals</span><span class="h3">Ford Mustang convertible</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang convertible</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>2</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-8-side-1200.jpg" srcset="../images/web/mustang-8-side-600.jpg 600w, ../images/web/mustang-8-side-1200.jpg 1200w, ../images/web/mustang-8-side-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="White Ford Mustang convertible with race number 8" loading="lazy" decoding="async"><img class="pic" style="--ar:4/3" src="../images/web/mustang-8-detail-1200.jpg" srcset="../images/web/mustang-8-detail-600.jpg 600w, ../images/web/mustang-8-detail-1200.jpg 1200w, ../images/web/mustang-8-detail-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Ford Racing decal and stripes on the wing" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/challenger-demon-decal-1200.jpg" srcset="../images/web/challenger-demon-decal-600.jpg 600w, ../images/web/challenger-demon-decal-1200.jpg 1200w, ../images/web/challenger-demon-decal-1920.jpg 1920w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="675" alt="Red Dodge Challenger with Demon 170 decals" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 14 — Custom vehicle decals</span><span class="h3">Dodge Challenger</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Dodge Challenger</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/challenger-demon-decal-1200.jpg" srcset="../images/web/challenger-demon-decal-600.jpg 600w, ../images/web/challenger-demon-decal-1200.jpg 1200w, ../images/web/challenger-demon-decal-1920.jpg 1920w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="675" alt="Red Dodge Challenger with Demon 170 decals" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-supersnake-640.jpg" srcset="../images/web/mustang-supersnake-600.jpg 600w, ../images/web/mustang-supersnake-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="White Ford Mustang with Super Snake decals" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 15 — Custom vehicle decals</span><span class="h3">Ford Mustang</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-supersnake-640.jpg" srcset="../images/web/mustang-supersnake-600.jpg 600w, ../images/web/mustang-supersnake-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="White Ford Mustang with Super Snake decals" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-darkhorse-640.jpg" srcset="../images/web/mustang-darkhorse-600.jpg 600w, ../images/web/mustang-darkhorse-640.jpg 640w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="640" height="480" alt="Grey Ford Mustang with Dark Horse lettering" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 16 — Custom vehicle decals</span><span class="h3">Ford Mustang</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-darkhorse-640.jpg" srcset="../images/web/mustang-darkhorse-600.jpg 600w, ../images/web/mustang-darkhorse-640.jpg 640w" sizes="(min-width: 700px) 45vw, 100vw" width="640" height="480" alt="Grey Ford Mustang with Dark Horse lettering" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="custom-decals" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/mustang-blue-conv-1200.jpg" srcset="../images/web/mustang-blue-conv-600.jpg 600w, ../images/web/mustang-blue-conv-1200.jpg 1200w, ../images/web/mustang-blue-conv-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="Blue Ford Mustang convertible with a side stripe" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 17 — Custom vehicle decals</span><span class="h3">Ford Mustang convertible</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang convertible</dd></div><div><dt>SERVICE</dt><dd>Custom vehicle decals</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/mustang-blue-conv-1200.jpg" srcset="../images/web/mustang-blue-conv-600.jpg 600w, ../images/web/mustang-blue-conv-1200.jpg 1200w, ../images/web/mustang-blue-conv-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="Blue Ford Mustang convertible with a side stripe" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:160ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/challenger-white-stripe-1200.jpg" srcset="../images/web/challenger-white-stripe-600.jpg 600w, ../images/web/challenger-white-stripe-1200.jpg 1200w, ../images/web/challenger-white-stripe-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="900" alt="White Dodge Challenger with a black side stripe" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 18 — Wrapping and livery design</span><span class="h3">Dodge Challenger</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Dodge Challenger</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/challenger-white-stripe-1200.jpg" srcset="../images/web/challenger-white-stripe-600.jpg 600w, ../images/web/challenger-white-stripe-1200.jpg 1200w, ../images/web/challenger-white-stripe-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="900" alt="White Dodge Challenger with a black side stripe" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/shelby-workshop-1200.jpg" srcset="../images/web/shelby-workshop-600.jpg 600w, ../images/web/shelby-workshop-1200.jpg 1200w, ../images/web/shelby-workshop-1920.jpg 1920w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="675" alt="White Shelby GT500 with stripes in the workshop" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 19 — Wrapping and livery design</span><span class="h3">Ford Mustang Shelby GT500</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Ford Mustang Shelby GT500</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/shelby-workshop-1200.jpg" srcset="../images/web/shelby-workshop-600.jpg 600w, ../images/web/shelby-workshop-1200.jpg 1200w, ../images/web/shelby-workshop-1920.jpg 1920w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="675" alt="White Shelby GT500 with stripes in the workshop" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="wrapping-livery-design" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/bmw-e36-livery-1050.jpg" srcset="../images/web/bmw-e36-livery-600.jpg 600w, ../images/web/bmw-e36-livery-1050.jpg 1050w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1050" height="600" alt="BMW E36 with a drift livery and number 31" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 20 — Wrapping and livery design</span><span class="h3">BMW E36</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>BMW E36</dd></div><div><dt>SERVICE</dt><dd>Wrapping and livery design</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/bmw-e36-livery-1050.jpg" srcset="../images/web/bmw-e36-livery-600.jpg 600w, ../images/web/bmw-e36-livery-1050.jpg 1050w" sizes="(min-width: 700px) 45vw, 100vw" width="1050" height="600" alt="BMW E36 with a drift livery and number 31" loading="lazy" decoding="async"></template>
       </li>
       <li class="job card" data-service="engraved-badges" data-reveal style="--d:160ms">
         <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
-          <span class="card-media"><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 06 — ENGRAVED BADGES — LEAD PHOTO — 4:3"><span>JOB 06 — ENGRAVED BADGES — LEAD PHOTO — 4:3</span></div></span>
-          <span class="job-meta"><span class="mono-index">JOB 06</span><span class="h3">Engraved badges</span></span>
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/badge-mustang-1200.jpg" srcset="../images/web/badge-mustang-600.jpg 600w, ../images/web/badge-mustang-1200.jpg 1200w, ../images/web/badge-mustang-1512.jpg 1512w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="1600" alt="Badge on a boot lid" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 21 — Engraved badges</span><span class="h3">Badge</span></span>
         </button>
-        <dl class="record"><div><dt>CAR</dt><dd>—</dd></div><div><dt>SERVICE</dt><dd>Engraved badges</dd></div><div><dt>MATERIALS</dt><dd>—</dd></div><div><dt>DURATION</dt><dd>—</dd></div></dl>
-        <template data-job-gallery><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 06 — DETAIL 1 — 4:3"><span>JOB 06 — DETAIL 1 — 4:3</span></div><div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: JOB 06 — DETAIL 2 — 4:3"><span>JOB 06 — DETAIL 2 — 4:3</span></div></template>
+        <dl class="record"><div><dt>CAR</dt><dd>Badge</dd></div><div><dt>SERVICE</dt><dd>Engraved badges</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/badge-mustang-1200.jpg" srcset="../images/web/badge-mustang-600.jpg 600w, ../images/web/badge-mustang-1200.jpg 1200w, ../images/web/badge-mustang-1512.jpg 1512w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="1600" alt="Badge on a boot lid" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="engraved-badges" data-reveal style="--d:0ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/badge-demon-480.jpg" srcset="../images/web/badge-demon-480.jpg 480w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="480" height="640" alt="Demon badge on a wing" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 22 — Engraved badges</span><span class="h3">Badge</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Badge</dd></div><div><dt>SERVICE</dt><dd>Engraved badges</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/badge-demon-480.jpg" srcset="../images/web/badge-demon-480.jpg 480w" sizes="(min-width: 700px) 45vw, 100vw" width="480" height="640" alt="Demon badge on a wing" loading="lazy" decoding="async"></template>
+      </li>
+      <li class="job card" data-service="oem-emission-labels" data-reveal style="--d:80ms">
+        <button type="button" class="job-open" data-job-open aria-haspopup="dialog">
+          <span class="card-media"><img class="pic" style="--ar:4/3" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, (min-width: 700px) 50vw, 100vw" width="1200" height="1200" alt="Sample emission control label" loading="lazy" decoding="async"></span>
+          <span class="job-meta"><span class="mono-index">JOB 23 — OEM emission control labels</span><span class="h3">Label</span></span>
+        </button>
+        <dl class="record"><div><dt>CAR</dt><dd>Label</dd></div><div><dt>SERVICE</dt><dd>OEM emission control labels</dd></div><div><dt>PHOTOS</dt><dd>1</dd></div><!-- add MATERIALS (film code) and DURATION rows when known --></dl>
+        <template data-job-gallery><img class="pic" style="--ar:4/3" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 700px) 45vw, 100vw" width="1200" height="1200" alt="Sample emission control label" loading="lazy" decoding="async"></template>
       </li>
     </ul>
   </div>
@@ -129,7 +266,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="wordmark">AUTAPLATE</p>
+      <p class="footer-logo"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE" loading="lazy" decoding="async"></p>
       <p class="small">Cast film only. Parts come off. Price fixed before work starts.</p>
     </div>
     <div>

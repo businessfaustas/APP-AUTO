@@ -17,6 +17,8 @@
   <meta property="og:image" content="https://autaplate.lt/images/og.jpg">
   <meta property="og:locale" content="lt_LT">
   <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
@@ -28,8 +30,7 @@
 <a class="skip" href="#main">Pereiti prie turinio</a>
 <header class="site-header" data-header>
   <div class="wrap header-inner">
-    <!-- Wordmark: replace the text with <img src="../images/logo.svg" alt="AUTAPLATE" width="…" height="…"> once logo.svg is supplied. -->
-    <a class="brand" href="index.html" aria-label="AUTAPLATE — pradžia"><span class="wordmark">AUTAPLATE</span></a>
+        <a class="brand" href="index.html"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE — pradžia"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Meniu</button>
     <nav class="site-nav" id="site-nav" aria-label="Pagrindinė navigacija">
       <ul class="nav-list"><li><a href="services.html">Paslaugos</a></li><li><a href="work.html">Darbai</a></li><li><a href="about.html" aria-current="page">Apie mus</a></li><li><a href="contact.html">Kontaktai</a></li></ul>
@@ -62,7 +63,7 @@
       <p data-reveal>Dirbtuvės yra Klaipėdoje. Jei norite pamatyti automobilį darbo metu, pirmiausia paskambinkite – pasakysime, kada atvykti.</p><!-- TODO: street address and parking -->
     </div>
     <div class="stack-24">
-      <div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: OWNER / TEAM — AT WORK, NOT POSED — 4:5"><span>OWNER / TEAM — AT WORK, NOT POSED — 4:5</span></div>
+      <img class="pic" style="--ar:4/5" src="../images/web/shelby-workshop-1200.jpg" srcset="../images/web/shelby-workshop-600.jpg 600w, ../images/web/shelby-workshop-1200.jpg 1200w, ../images/web/shelby-workshop-1920.jpg 1920w" sizes="(min-width: 900px) 40vw, 100vw" width="1200" height="675" alt="Baltas Shelby GT500 su juostomis dirbtuvėse" loading="lazy" decoding="async"><!-- swap for a photo of the people who run the workshop -->
     </div>
   </div>
 </section>
@@ -75,9 +76,9 @@
       <div></div>
     </div>
     <div class="gallery gallery-3">
-      <figure class="card"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: WORKSHOP — WIDE — LIGHTS ON — 4:5"><span>WORKSHOP — WIDE — LIGHTS ON — 4:5</span></div></figure>
-      <figure class="card"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: BENCH — PARTS REMOVED AND LABELLED — 4:5"><span>BENCH — PARTS REMOVED AND LABELLED — 4:5</span></div></figure>
-      <figure class="card"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: FILM STORAGE / PLOTTER — 4:5"><span>FILM STORAGE / PLOTTER — 4:5</span></div></figure>
+      <figure class="card"><img class="pic" style="--ar:4/5" src="../images/web/challenger-392-rear-1200.jpg" srcset="../images/web/challenger-392-rear-600.jpg 600w, ../images/web/challenger-392-rear-1200.jpg 1200w, ../images/web/challenger-392-rear-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, 100vw" width="1200" height="900" alt="Dodge Challenger galas su 392 SRT užrašu ir juostomis" loading="lazy" decoding="async"></figure>
+      <figure class="card"><img class="pic" style="--ar:4/5" src="../images/web/mustang-red-34-1200.jpg" srcset="../images/web/mustang-red-34-600.jpg 600w, ../images/web/mustang-red-34-1200.jpg 1200w, ../images/web/mustang-red-34-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, 100vw" width="1200" height="900" alt="Raudonas Ford Mustang su numeriu 1 dirbtuvėse" loading="lazy" decoding="async"></figure>
+      <figure class="card"><img class="pic" style="--ar:4/5" src="../images/web/challenger-white-stripe-1200.jpg" srcset="../images/web/challenger-white-stripe-600.jpg 600w, ../images/web/challenger-white-stripe-1200.jpg 1200w, ../images/web/challenger-white-stripe-2000.jpg 2000w" sizes="(min-width: 1000px) 33vw, 100vw" width="1200" height="900" alt="Baltas Dodge Challenger su juoda šonine juosta" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
@@ -116,7 +117,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="wordmark">AUTAPLATE</p>
+      <p class="footer-logo"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE" loading="lazy" decoding="async"></p>
       <p class="small">Tik lieta plėvelė. Detalės nuimamos. Kaina fiksuojama prieš darbą.</p>
     </div>
     <div>

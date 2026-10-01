@@ -3,8 +3,8 @@
 Static site. Plain HTML, CSS and JS: no framework, no build step, no npm.
 Google Fonts is the only external request on page load.
 
-**Status: copy pass done.** All body copy is written in Lithuanian and English, FAQ answers are in, and each service page has FAQPage JSON-LD.
-Photos are still labelled placeholders (`.ph`) until the images are supplied.
+**Status: copy and photo pass done.** All body copy is written in Lithuanian and English, FAQ answers are in, and each service page has FAQPage JSON-LD.
+Real photos are in place. The before/after slider is hidden until a genuine same-position pair exists.
 Facts not yet supplied (owner, address, email, hours, durations, prices) are left out of the visible page and marked with `<!-- TODO -->` comments.
 The home page case study shows the generic arrival-to-handover path until a real job is chosen.
 
@@ -65,21 +65,14 @@ While `reviews` is empty, the home page review section stays hidden.
 
 ## Images
 
-Put photos in `/images/`. Each placeholder box describes the shot that belongs in it
-(e.g. `DOOR JAMB — OPEN DOOR — MACRO — 4:5`). The ratio at the end is the crop the slot uses.
-Replace the `<div class="ph">…</div>` with:
+- `images/originals/` holds the photos as uploaded. They are never linked from the pages.
+- `images/web/` holds the web versions: each photo at up to three widths (600 / 1200 / 2000 px), rotated upright, with metadata removed.
+- `images/logo.png` is the wordmark with a transparent background. `favicon.png` and `apple-touch-icon.png` come from the AP monogram. `og.jpg` is the social share image.
+- Every image uses the same `.pic` style: same fit, same light `saturate(.95) contrast(1.05)` filter, with the ratio set per slot.
 
-```html
-<img src="../images/fvp-door-jamb-1200.jpg"
-     srcset="../images/fvp-door-jamb-600.jpg 600w, ../images/fvp-door-jamb-1200.jpg 1200w, ../images/fvp-door-jamb-2000.jpg 2000w"
-     sizes="(min-width: 1000px) 25vw, 100vw"
-     width="1200" height="1500" loading="lazy" decoding="async" alt="Describe the photo">
-```
+AI-generated or AI-rendered images (studio shots on white, the top view, "ChatGPT Image…", "Gemini…") are kept in `originals/` but deliberately not used. The site shows evidence of real work only.
 
-- The hero image gets no `loading="lazy"`. Every image below the fold gets it.
-- Export each photo at three widths: 600, 1200 and 2000.
-- Also needed: `images/logo.svg`, which replaces the text wordmark in the header (there is a comment marking the spot).
-- Also needed: `images/og.jpg` (1200×630), the social share image.
+To add photos, upload them to `images/originals/`. The web versions are made from those files: name the source file and the slot, and they get resized into `images/web/<name>-<width>.jpg`.
 
 ## Adding a seventh service page
 
@@ -101,11 +94,13 @@ Replace the `<div class="ph">…</div>` with:
 - [ ] Opening hours
 - [ ] Confirm the reply-time promise: "within one working day, Monday to Friday"
 - [ ] Real domain. Canonical and OG URLs currently assume `https://autaplate.lt`
-- [ ] Home case study: which car, the facts, and three photos from arrival to finish
-- [ ] Before/after pair shot from the same tripod position
+- [ ] Home case study: it uses the grey hex-graphic Mustang photos. Confirm the facts (film, parts removed, days) to replace the generic captions
+- [ ] A real before/after pair shot from the same position (the slider is hidden until then)
+- [ ] Materials and duration for the Work page records
+- [ ] A photo of the people who run the workshop (About page)
 - [ ] Real duration for each of the five process steps (slot marked in the process section)
 - [ ] Real job records for the Work page (car, materials, duration)
 - [ ] Honest "from" price for OEM labels and custom decals (the blocks are switched off until then)
 - [ ] Who runs the workshop (for the About page)
 - [ ] Optional: one messaging link (WhatsApp **or** Messenger), footer only
-- [ ] Photos, `logo.svg`, `reviews.json`
+- [ ] Google reviews for `data/reviews.json`

@@ -17,6 +17,8 @@
   <meta property="og:image" content="https://autaplate.lt/images/og.jpg">
   <meta property="og:locale" content="lt_LT">
   <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/png" href="../../images/favicon.png">
+  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
@@ -29,8 +31,7 @@
 <a class="skip" href="#main">Pereiti prie turinio</a>
 <header class="site-header" data-header>
   <div class="wrap header-inner">
-    <!-- Wordmark: replace the text with <img src="../../images/logo.svg" alt="AUTAPLATE" width="…" height="…"> once logo.svg is supplied. -->
-    <a class="brand" href="../index.html" aria-label="AUTAPLATE — pradžia"><span class="wordmark">AUTAPLATE</span></a>
+        <a class="brand" href="../index.html"><img src="../../images/logo.png" width="480" height="132" alt="AUTAPLATE — pradžia"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Meniu</button>
     <nav class="site-nav" id="site-nav" aria-label="Pagrindinė navigacija">
       <ul class="nav-list"><li><a href="../services.html" aria-current="page">Paslaugos</a></li><li><a href="../work.html">Darbai</a></li><li><a href="../about.html">Apie mus</a></li><li><a href="../contact.html">Kontaktai</a></li></ul>
@@ -52,7 +53,7 @@
       <p class="lede" data-reveal>Po variklio dangčiu esančios etiketės, atkurtos pagal originalų maketą.</p>
       <p data-reveal><a class="btn btn-accent" href="../contact.html?service=oem-emission-labels#quote">Gauti kainą</a></p>
     </div>
-    <div class="svc-hero-media"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: EMISSION LABEL FITTED — UNDER BONNET — CLOSE — 16:9"><span>EMISSION LABEL FITTED — UNDER BONNET — CLOSE — 16:9</span></div></div>
+    <div class="svc-hero-media"><img class="pic" style="--ar:4/5" src="../../images/web/oem-label-1200.jpg" srcset="../../images/web/oem-label-600.jpg 600w, ../../images/web/oem-label-1200.jpg 1200w, ../../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 900px) 40vw, 100vw" width="1200" height="1200" alt="Emisijos kontrolės etiketės pavyzdys" fetchpriority="high" decoding="async"></div>
   </div>
 </section>
 
@@ -81,12 +82,7 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="gal-h">
-  <div class="wrap">
-    <h2 class="h2" id="gal-h" data-reveal>Darbai</h2>
-    <div class="gallery gallery-4"><figure class="card" data-reveal style="--d:0ms"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: LABEL — FLAT — ON BENCH — TOP DOWN — 4:5"><span>LABEL — FLAT — ON BENCH — TOP DOWN — 4:5</span></div></figure><figure class="card" data-reveal style="--d:80ms"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: LABEL FITTED — UNDER BONNET — 4:5"><span>LABEL FITTED — UNDER BONNET — 4:5</span></div></figure><figure class="card" data-reveal style="--d:160ms"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: ORIGINAL VS REPRODUCTION — SIDE BY SIDE — 4:5"><span>ORIGINAL VS REPRODUCTION — SIDE BY SIDE — 4:5</span></div></figure><figure class="card" data-reveal style="--d:240ms"><div class="ph " style="--ar:4/5" role="img" aria-label="Photo placeholder: TYPE DETAIL — MACRO — 4:5"><span>TYPE DETAIL — MACRO — 4:5</span></div></figure></div>
-  </div>
-</section>
+<!-- gallery: add at least two real photos of this service -->
 
 <section class="section section-tight" aria-labelledby="faq-h">
   <div class="wrap split-1585">
@@ -116,7 +112,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="wordmark">AUTAPLATE</p>
+      <p class="footer-logo"><img src="../../images/logo.png" width="480" height="132" alt="AUTAPLATE" loading="lazy" decoding="async"></p>
       <p class="small">Tik lieta plėvelė. Detalės nuimamos. Kaina fiksuojama prieš darbą.</p>
     </div>
     <div>

@@ -520,3 +520,34 @@ a:hover > .link-arrow span, .link-arrow:hover span { transform: translateX(4px);
 .wont li { display: grid; grid-template-columns: 48px 1fr; gap: var(--s-2); padding-block: var(--s-3); font: 700 var(--fs-h3)/1.15 var(--f-display); letter-spacing: -.01em; }
 .wont li:last-child { border-bottom: 1px solid var(--line-paper); }
 .wont .mono-index { padding-top: 6px; }
+
+/* ------------------------------------------------------------------ image pass */
+/* One look across mixed sources: same fit, same filter, ratio set per slot */
+.pic {
+  display: block; width: 100%; height: auto; aspect-ratio: var(--ar, 4/3);
+  object-fit: cover; filter: saturate(.95) contrast(1.05);
+  background: color-mix(in srgb, var(--ink) 4%, var(--bg));
+}
+.card-media > .pic, .card > .pic { transition: transform 700ms var(--ease); }
+@media (hover: hover) { .card:hover .card-media > .pic, .card:hover > .pic { transform: scale(1.04); } }
+
+.hero-media .hero-pic { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-position: 50% 60%; }
+.hero-media::before { /* keeps the header legible over bright ceilings */
+  content: ""; position: absolute; inset: 0 0 auto; height: 200px; z-index: 1;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 80%, transparent), transparent); pointer-events: none;
+}
+.hero-media::after { inset: 25% 0 0; background: linear-gradient(to top, var(--bg) 8%, color-mix(in srgb, var(--bg) 55%, transparent) 55%, transparent); }
+
+.brand img { display: block; height: 26px; width: auto; }
+.site-header.is-condensed .brand img { height: 26px; } /* logo never shrinks with the header */
+.footer-logo img { display: block; height: 56px; width: auto; margin-bottom: var(--s-2); }
+
+.job-dialog-media .pic { aspect-ratio: 4/3; }
+.cs-frame .pic { max-height: 70svh; }
+@media (max-width: 899px) { .case-media .pic { aspect-ratio: 4/3; max-height: 40svh; } }
+.ph-map span { position: static; }
+@media (min-width: 900px) {
+  .hero-media::after { inset: 0; background:
+    linear-gradient(to right, color-mix(in srgb, var(--bg) 78%, transparent) 0%, color-mix(in srgb, var(--bg) 35%, transparent) 50%, transparent 75%),
+    linear-gradient(to top, var(--bg) 4%, transparent 45%); }
+}

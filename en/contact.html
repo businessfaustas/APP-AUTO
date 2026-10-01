@@ -17,6 +17,8 @@
   <meta property="og:image" content="https://autaplate.lt/images/og.jpg">
   <meta property="og:locale" content="en_GB">
   <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
@@ -28,8 +30,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header" data-header>
   <div class="wrap header-inner">
-    <!-- Wordmark: replace the text with <img src="../images/logo.svg" alt="AUTAPLATE" width="…" height="…"> once logo.svg is supplied. -->
-    <a class="brand" href="index.html" aria-label="AUTAPLATE — home"><span class="wordmark">AUTAPLATE</span></a>
+        <a class="brand" href="index.html"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE — home"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul class="nav-list"><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul>
@@ -100,7 +101,7 @@
       </dl>
       <div class="map" data-map data-map-src="https://www.google.com/maps?q=Klaip%C4%97da&amp;output=embed">
         <!-- Map loads only on click, so Google Fonts stays the only request on page load. Update the q= parameter to the street address. -->
-        <div class="ph " style="--ar:4/3" role="img" aria-label="Photo placeholder: MAP — WORKSHOP LOCATION — 4:3"><span>MAP — WORKSHOP LOCATION — 4:3</span></div>
+        <div class="ph ph-map" style="--ar:4/3" role="img" aria-label="Photo placeholder: KLAIPĖDA, LITHUANIA"><span>KLAIPĖDA, LITHUANIA</span></div>
         <button type="button" class="btn btn-line map-btn" data-map-load>Show map</button>
       </div>
     </aside>
@@ -110,7 +111,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="wordmark">AUTAPLATE</p>
+      <p class="footer-logo"><img src="../images/logo.png" width="480" height="132" alt="AUTAPLATE" loading="lazy" decoding="async"></p>
       <p class="small">Cast film only. Parts come off. Price fixed before work starts.</p>
     </div>
     <div>
