@@ -3,6 +3,9 @@
   // Static site served from Workers static assets. Name must match the Cloudflare project name.
   "name": "app-auto",
   "compatibility_date": "2026-09-30",
+  // Public URL: https://app-auto.business-faustas.workers.dev
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "."
   }
