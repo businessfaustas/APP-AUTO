@@ -416,4 +416,53 @@ const FORM_ENDPOINT = '';
       if (btn) btn.disabled = false;
     });
   });
+  /* ---------------------------------------------------------------- 360° turntable: scroll scrubs a frame sequence */
+  const spinEl = $('[data-spin]');
+  if (spinEl) {
+    const canvas = $('.spin-canvas', spinEl), ctx = canvas.getContext('2d');
+    const n = +spinEl.dataset.frames || 120;
+    const set = window.innerWidth < 800 ? 's' : 'l';
+    if (set === 's') { canvas.width = 720; canvas.height = 405; }
+    const src = (i) => `${spinEl.dataset.src}${set}/f${String(i + 1).padStart(3, '0')}.webp`;
+    const frames = new Array(n);
+    const notes = $$('[data-spin-note]', spinEl);
+    const degEl = $('[data-spin-deg]', spinEl);
+    let want = 0, drawn = -1, started = false;
+    const draw = (i) => {
+      // nearest frame that has finished loading
+      for (let d = 0; d < n; d++) {
+        for (const k of [i - d, i + d]) {
+          const img = frames[k];
+          if (img && img.complete && img.naturalWidth) { if (k !== drawn) { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.drawImage(img, 0, 0, canvas.width, canvas.height); drawn = k; } return; }
+        }
+      }
+    };
+    const load = () => {
+      if (started) return; started = true;
+      // coarse pass first (every 8th frame), then fill in, so scrubbing works early
+      const order = [];
+      for (let step of [8, 4, 2, 1]) for (let i = 0; i < n; i += step) if (!order.includes(i)) order.push(i);
+      order.forEach((i, k) => { const img = new Image(); img.decoding = 'async'; img.onload = () => { if (Math.abs(i - want) <= 8) draw(want); }; setTimeout(() => { img.src = src(i); }, k < 16 ? 0 : 20 * k / 4); frames[i] = img; });
+    };
+    if ('IntersectionObserver' in window) {
+      const io4 = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { load(); io4.disconnect(); } }, { rootMargin: '1200px 0px' });
+      io4.observe(spinEl);
+    } else load();
+    let tick = false;
+    const update = () => {
+      tick = false;
+      const r = spinEl.getBoundingClientRect();
+      const travel = r.height - window.innerHeight;
+      const p = reduced ? 0 : Math.min(1, Math.max(0, -r.top / Math.max(travel, 1)));
+      spinEl.style.setProperty('--p', p.toFixed(4));
+      want = Math.min(n - 1, Math.round(p * (n - 1)));
+      draw(want);
+      if (degEl) degEl.textContent = Math.round(p * 360);
+      const a = Math.min(notes.length - 1, Math.floor(p * notes.length));
+      notes.forEach((li, k) => li.classList.toggle('is-active', reduced || k === a));
+    };
+    window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 })();
