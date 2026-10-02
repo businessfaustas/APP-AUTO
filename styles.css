@@ -858,3 +858,50 @@ ul.filters li { flex: none; scroll-snap-align: start; }
   .job:not(:nth-child(5n+1)) .job-meta .mono-index { display: none; }
   .job:not(:nth-child(5n+1)) .job-meta { padding-top: var(--s-4); }
 }
+
+/* ================================================================== AUTAPLATE showcase (giant word + car) */
+.showcase {
+  position: relative; overflow: clip; isolation: isolate; padding-block: clamp(64px, 9vw, 128px) var(--s-6);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 58%, color-mix(in srgb, var(--accent) 46%, var(--bg)) 0%, color-mix(in srgb, var(--accent) 24%, var(--bg)) 45%, transparent 80%),
+    color-mix(in srgb, var(--accent) 10%, var(--bg));
+}
+.showcase::before, .showcase::after { content: ""; position: absolute; left: 0; right: 0; height: 120px; z-index: -1; pointer-events: none; }
+.showcase::before { top: 0; background: linear-gradient(var(--bg), transparent); }
+.showcase::after { bottom: 0; background: linear-gradient(transparent, var(--bg)); }
+.showcase-stage { position: relative; min-height: calc(var(--wh, 28vw) * 1.38); }
+.showcase-word {
+  display: flex; justify-content: center; margin: 0; max-width: none; white-space: nowrap; color: var(--ink);
+  font-family: var(--f-display); font-weight: 800; font-stretch: 62%; font-variation-settings: "wdth" 62;
+  font-size: 26vw; line-height: .78; letter-spacing: -.005em; text-transform: uppercase;
+  transform: translate3d(var(--wx, 0%), 0, 0); will-change: transform;
+}
+.showcase-word span { display: block; }
+.js .showcase-word span { opacity: 0; transform: translateY(45%); transition: transform 800ms var(--ease-out) calc(var(--k) * 45ms), opacity 500ms var(--ease) calc(var(--k) * 45ms); }
+.js .showcase.is-in .showcase-word span { opacity: 1; transform: none; }
+.showcase-car {
+  position: absolute; left: 50%; bottom: 0; z-index: 2; width: min(112vw, 1180px);
+  transform: translate3d(calc(-50% + var(--cx, 0%)), 0, 0); will-change: transform;
+}
+@media (min-width: 900px) { .showcase-car { width: min(78vw, 1180px); } }
+.showcase-car img { position: relative; z-index: 2; display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 30px color-mix(in srgb, var(--bg) 70%, transparent)); }
+.showcase-shadow { position: absolute; left: 6%; right: 4%; bottom: -3%; height: 16%; z-index: 1; background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 90%, transparent), transparent); }
+.showcase-glow { position: absolute; inset: 0 12% 18%; z-index: 0; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 55%, transparent), transparent); filter: blur(40px); opacity: .55; animation: show-glow 7s var(--ease) infinite alternate; }
+@keyframes show-glow { to { opacity: .85; transform: scale(1.1); } }
+.showcase-cap { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2); margin-top: var(--s-4); }
+.showcase-cap .eyebrow { margin: 0; color: var(--ink); }
+.showcase-cap .link-arrow { margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .showcase-word { transform: none; }
+  .showcase-car { transform: translateX(-50%); }
+  .showcase-glow { animation: none; }
+}
+.showcase-word { width: max-content; margin-inline: auto; justify-content: flex-start; }
+/* proportions: tall condensed word at the top, car overlaps its lower half */
+.showcase { --sy: 1.9; }
+@media (min-width: 900px) { .showcase { --sy: 1.55; } }
+.showcase-stage { min-height: var(--sh, 60vw); }
+.showcase-word { position: absolute; top: 0; left: 50%; margin: 0; transform-origin: 50% 0; transform: translate3d(calc(-50% + var(--wx, 0%)), 0, 0) scaleY(var(--sy)); }
+.showcase-car { width: 100vw; }
+@media (min-width: 900px) { .showcase-car { width: min(64vw, 1060px); } }
+@media (prefers-reduced-motion: reduce) { .showcase-word { transform: translateX(-50%) scaleY(var(--sy)); } }

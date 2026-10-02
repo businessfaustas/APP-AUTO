@@ -359,4 +359,40 @@ const FORM_ENDPOINT = '';
     const io2 = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { io2.unobserve(en.target); setTimeout(() => run(en.target), en.time < 2000 ? delay : 0); } }), { threshold: 0.4 });
     stats.forEach((el) => io2.observe(el));
   }
+  /* ---------------------------------------------------------------- AUTAPLATE showcase: fit word, letters rise, car glides in */
+  const show = $('[data-showcase]');
+  if (show) {
+    const word = $('.showcase-word', show), stage = $('.showcase-stage', show);
+    const fit = () => {
+      word.style.fontSize = '100px';
+      const w = word.scrollWidth || 1;
+      word.style.fontSize = `${(100 * stage.clientWidth * 0.96) / w}px`;
+      // stage = word (stretched by --sy) with the car's roof sitting halfway down it
+      const sy = parseFloat(getComputedStyle(show).getPropertyValue('--sy')) || 1;
+      const img = $('.showcase-car img', show);
+      const carH = img && img.offsetWidth ? img.offsetWidth * (551 / 1248) : 0;
+      stage.style.setProperty('--sh', `${Math.round(word.offsetHeight * sy * 0.5 + carH)}px`);
+    };
+    fit();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('resize', fit);
+    if (reduced || !('IntersectionObserver' in window)) show.classList.add('is-in');
+    else {
+      const io3 = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { show.classList.add('is-in'); io3.disconnect(); } }), { threshold: 0.2 });
+      io3.observe(show);
+      let tick = false;
+      const drive = () => {
+        tick = false;
+        const r = show.getBoundingClientRect(), vh = window.innerHeight;
+        if (r.bottom < 0 || r.top > vh) return;
+        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+        const k = Math.min(1, p * 1.8);
+        const ease = 1 - Math.pow(1 - k, 3);
+        show.style.setProperty('--cx', `${((1 - ease) * 42).toFixed(2)}%`);
+        word.style.setProperty('--wx', `${((0.5 - p) * 7).toFixed(2)}%`);
+      };
+      window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(drive); } }, { passive: true });
+      drive();
+    }
+  }
 })();
