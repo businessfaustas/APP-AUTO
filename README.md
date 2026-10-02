@@ -114,3 +114,7 @@ Every page has a `.loader` panel. A small script in `<head>` chooses the mode be
 - `none`: reduced-motion users, or JavaScript disabled. The loader never shows.
 
 Timings live in `styles.css` (`--out`) and in `main.js` (`introMs`). Keep the two in step.
+
+## Caching
+
+Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the file contents, so after any CSS or JS change the pages must be regenerated (or the `?v=` value bumped by hand). That forces browsers to fetch the new file; `_headers` lets them cache each version forever.
