@@ -395,4 +395,25 @@ const FORM_ENDPOINT = '';
       drive();
     }
   }
+  /* ---------------------------------------------------------------- quick enquiry forms (every page) */
+  $$('[data-quick]').forEach((qf) => {
+    const st = $('[data-quick-status]', qf);
+    const say = (k) => { if (st) st.textContent = qf.dataset[k]; };
+    qf.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const bad = $$('input[required]', qf).find((f) => !f.checkValidity());
+      $$('input[required]', qf).forEach((f) => f.setAttribute('aria-invalid', String(!f.checkValidity())));
+      if (bad) { bad.reportValidity(); bad.focus(); return; }
+      if (qf.website && qf.website.value) { say('ok'); qf.reset(); return; }
+      if (!FORM_ENDPOINT) { console.warn('AUTAPLATE: FORM_ENDPOINT is empty in main.js.'); say('err'); return; }
+      const btn = $('button[type="submit"]', qf); if (btn) btn.disabled = true;
+      say('sending');
+      try {
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(qf), headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(res.status);
+        say('ok'); qf.reset();
+      } catch (err) { say('err'); }
+      if (btn) btn.disabled = false;
+    });
+  });
 })();

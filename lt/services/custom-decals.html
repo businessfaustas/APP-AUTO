@@ -107,14 +107,31 @@
   </div>
 </section>
 
-<section class="section cta-band" aria-labelledby="cta-h">
-  <div class="wrap cta-grid">
-    <h2 class="h2 no-rule" id="cta-h" data-reveal>Atsiųskite nuotraukas — <br>kainą gausite raštu</h2>
-    <div data-reveal>
-      <p class="lede">Užpildykite trijų žingsnių užklausą. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
-      <p class="cta-actions"><a class="btn btn-accent" href="../contact.html?service=custom-decals#quote">Gauti kainą</a>
-      <span class="small muted">arba skambinkite <a href="tel:+37062405636">+370 62405636</a></span></p>
+<section class="section inquiry" aria-labelledby="cta-h">
+  <span class="slash slash-3" aria-hidden="true"></span>
+  <div class="wrap inquiry-grid">
+    <div>
+      <p class="eyebrow eyebrow-accent" data-reveal>UŽKLAUSA</p>
+      <h2 class="h2 no-rule" id="cta-h" data-reveal>Atsiųskite nuotraukas — <br>kainą gausite raštu</h2>
+      <p class="muted" data-reveal>Palikite kontaktus ir parašykite, ką norite padaryti. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
+      <p class="small muted" data-reveal>arba skambinkite <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
+    <form class="quick" data-quick novalidate data-reveal
+          data-ok="Gauta. Atsakysime per vieną darbo dieną, pirmadienį–penktadienį."
+          data-err="Nepavyko išsiųsti. Paskambinkite +370 62405636."
+          data-sending="Siunčiama…">
+      <input type="hidden" name="service" value="custom-decals">
+      <input type="hidden" name="source" value="quick-form">
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field"><label for="q-name-custom-decals">Vardas</label><input id="q-name-custom-decals" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="q-phone-custom-decals">Telefonas</label><input id="q-phone-custom-decals" name="phone" type="tel" required autocomplete="tel"></div>
+      <div class="field field-wide"><label for="q-car-custom-decals">Automobilis ir ką norite padaryti</label><input id="q-car-custom-decals" name="message" type="text" required></div>
+      <div class="quick-foot">
+        <button type="submit" class="btn btn-accent">Siųsti užklausą</button>
+        <a class="link-arrow" href="../contact.html?service=custom-decals#quote">Pilna užklausa su nuotraukomis <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="q-status small" role="status" data-quick-status></p>
+    </form>
   </div>
 </section>
 </main>

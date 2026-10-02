@@ -107,14 +107,31 @@
   </div>
 </section>
 
-<section class="section cta-band" aria-labelledby="cta-h">
-  <div class="wrap cta-grid">
-    <h2 class="h2 no-rule" id="cta-h" data-reveal>Send photos. <br>Get a price in writing.</h2>
-    <div data-reveal>
-      <p class="lede">Fill in the three-step request. We reply within one working day, Monday to Friday.</p>
-      <p class="cta-actions"><a class="btn btn-accent" href="../contact.html?service=full-vehicle-projects#quote">Get a quote</a>
-      <span class="small muted">or call <a href="tel:+37062405636">+370 62405636</a></span></p>
+<section class="section inquiry" aria-labelledby="cta-h">
+  <span class="slash slash-3" aria-hidden="true"></span>
+  <div class="wrap inquiry-grid">
+    <div>
+      <p class="eyebrow eyebrow-accent" data-reveal>ENQUIRY</p>
+      <h2 class="h2 no-rule" id="cta-h" data-reveal>Send photos. <br>Get a price in writing.</h2>
+      <p class="muted" data-reveal>Leave your details and tell us what you want done. We reply within one working day, Monday to Friday.</p>
+      <p class="small muted" data-reveal>or call <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
+    <form class="quick" data-quick novalidate data-reveal
+          data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
+          data-err="That didn&#x27;t send. Please call +370 62405636."
+          data-sending="Sending…">
+      <input type="hidden" name="service" value="full-vehicle-projects">
+      <input type="hidden" name="source" value="quick-form">
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field"><label for="q-name-full-vehicle-projects">Name</label><input id="q-name-full-vehicle-projects" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="q-phone-full-vehicle-projects">Phone</label><input id="q-phone-full-vehicle-projects" name="phone" type="tel" required autocomplete="tel"></div>
+      <div class="field field-wide"><label for="q-car-full-vehicle-projects">Car and what you want done</label><input id="q-car-full-vehicle-projects" name="message" type="text" required></div>
+      <div class="quick-foot">
+        <button type="submit" class="btn btn-accent">Send enquiry</button>
+        <a class="link-arrow" href="../contact.html?service=full-vehicle-projects#quote">Full request with photos <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="q-status small" role="status" data-quick-status></p>
+    </form>
   </div>
 </section>
 </main>
