@@ -1293,32 +1293,6 @@ ul.filters li { flex: none; scroll-snap-align: start; }
 .ocard .pcard-body { padding: var(--s-2); }
 .ocard .pcard-t { font-size: .85rem; }
 @media (min-width: 1000px) { .ocard-grid { grid-template-columns: repeat(5, 1fr); } }
-/* frames are now transparent cutouts: no blend, no soft mask, our own floor shadow */
-.spin-canvas { mix-blend-mode: normal; -webkit-mask-image: none; mask-image: none; }
-.spin-shadow { position: absolute; z-index: 0; left: 50%; bottom: 13%; width: min(58%, 760px); height: 9%; translate: -50% 0;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--bg) 32%, transparent), transparent); filter: blur(6px); transform: scaleX(calc(.85 + var(--p) * .15)); }
-@media (max-width: 899px) { .spin-shadow { width: 92%; bottom: 30%; } }
-/* 360°: the original studio video, shown as a clean framed screen (no cutouts, no blending) */
-.spin { background: radial-gradient(ellipse 60% 50% at 50% 55%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), var(--bg); color: var(--ink); }
-.spin .h2, .spin-deg { color: var(--ink); }
-.spin-word { -webkit-text-stroke-color: color-mix(in srgb, var(--ink) 10%, transparent); }
-.spin-canvas, .spin-canvas { mix-blend-mode: normal; -webkit-mask-image: none; mask-image: none; }
-.spin-canvas {
-  width: min(100%, calc((100svh - 330px) * 2)); max-width: 100%; aspect-ratio: 2 / 1; height: auto;
-  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
-  box-shadow: 0 40px 80px -30px color-mix(in srgb, var(--bg) 90%, transparent), 0 0 0 8px color-mix(in srgb, var(--ink) 4%, transparent);
-  background: var(--paper);
-}
-.spin-shadow { display: none; }
-.spin-ring { bottom: 2%; }
-.spin-notes li { border-top-color: var(--line); }
-.spin-notes li.is-active { border-top-color: var(--accent); }
-.spin-notes li > span:last-child { color: var(--muted); }
-.spin-bar { background: var(--line); }
-.spin-bar i { background: var(--ink); }
-@media (max-width: 899px) { .spin-canvas { width: 100%; } .spin-stage { margin-block: 0; } }
-@media (min-width: 900px) { .spin-canvas { width: min(100%, 1180px, calc((100svh - 430px) * 2)); } }
-
 /* ================================================================== drive-in section (BMW M reference) */
 .drive { position: relative; height: 260vh; --k: 0; --e: 0; }
 .drive-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; display: grid; grid-template-rows: auto 1fr auto; padding: calc(var(--header-h-condensed) + var(--s-4)) 0 var(--s-4);

@@ -422,7 +422,7 @@ const FORM_ENDPOINT = '';
     const canvas = $('.spin-canvas', spinEl), ctx = canvas.getContext('2d');
     const n = +spinEl.dataset.frames || 120;
     const set = window.innerWidth < 800 ? 's' : 'l';
-    if (set === 's') { canvas.width = 720; canvas.height = 360; }
+    if (set === 's') { canvas.width = 720; canvas.height = 405; }
     const src = (i) => `${spinEl.dataset.src}${set}/f${String(i + 1).padStart(3, '0')}.webp`;
     const frames = new Array(n);
     const notes = $$('[data-spin-note]', spinEl);
