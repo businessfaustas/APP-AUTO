@@ -465,4 +465,24 @@ const FORM_ENDPOINT = '';
     window.addEventListener('resize', update);
     update();
   }
+  /* ---------------------------------------------------------------- drive-in: car arrives as you scroll */
+  const drv = $('[data-drive]');
+  if (drv) {
+    if (reduced) drv.style.setProperty('--e', '1');
+    else {
+      let tick = false;
+      const run = () => {
+        tick = false;
+        const r = drv.getBoundingClientRect(), vh = window.innerHeight;
+        const travel = r.height - vh;
+        // start a little before the section pins, finish at 70% of the pinned travel
+        const p = Math.min(1, Math.max(0, (vh * 0.35 - r.top) / (travel * 0.7 + vh * 0.35)));
+        const e = 1 - Math.pow(1 - p, 3);
+        drv.style.setProperty('--e', e.toFixed(4));
+      };
+      window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
+      window.addEventListener('resize', run);
+      run();
+    }
+  }
 })();

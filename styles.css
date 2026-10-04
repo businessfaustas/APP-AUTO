@@ -1318,3 +1318,45 @@ ul.filters li { flex: none; scroll-snap-align: start; }
 .spin-bar i { background: var(--ink); }
 @media (max-width: 899px) { .spin-canvas { width: 100%; } .spin-stage { margin-block: 0; } }
 @media (min-width: 900px) { .spin-canvas { width: min(100%, 1180px, calc((100svh - 430px) * 2)); } }
+
+/* ================================================================== drive-in section (BMW M reference) */
+.drive { position: relative; height: 260vh; --k: 0; --e: 0; }
+.drive-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; display: grid; grid-template-rows: auto 1fr auto; padding: calc(var(--header-h-condensed) + var(--s-4)) 0 var(--s-4);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, var(--bg)) 0%, color-mix(in srgb, var(--accent) 38%, var(--bg)) 45%, var(--bg) 100%); }
+.drive-panel { position: absolute; z-index: -1; top: 0; bottom: 0; right: 0; width: 46%; background: linear-gradient(160deg, color-mix(in srgb, var(--bg) 70%, transparent), var(--bg)); clip-path: polygon(48% 0, 100% 0, 100% 100%, 0 100%); }
+.drive-floor { position: absolute; z-index: 0; left: -10%; right: 20%; bottom: 13%; height: 22%; border-radius: 50%;
+  background: radial-gradient(ellipse at 40% 50%, color-mix(in srgb, var(--ink) 92%, transparent) 0%, color-mix(in srgb, var(--ink) 40%, transparent) 45%, transparent 70%);
+  transform: scaleX(calc(.2 + var(--e) * .8)) rotate(-4deg); transform-origin: 30% 50%; opacity: calc(.2 + var(--e) * .65); filter: blur(2px); }
+.drive-top { position: relative; z-index: 1; display: grid; gap: var(--s-3); align-items: start; }
+.drive-title { display: grid; margin: 0; max-width: none; line-height: .82; font-family: var(--f-display); font-stretch: 62%; font-variation-settings: "wdth" 62; text-transform: uppercase; }
+.dt-solid, .dt-out { display: block; font-weight: 800; font-size: clamp(4rem, 2rem + 11vw, 12.5rem); letter-spacing: -.01em; }
+.dt-solid { color: var(--ink); transform: translateX(calc((1 - var(--e)) * -30%)); opacity: calc(.15 + var(--e) * .85); }
+.dt-out { color: transparent; -webkit-text-stroke: 2px var(--ink); transform: translateX(calc((1 - var(--e)) * 25%)); opacity: calc(.15 + var(--e) * .85); }
+.drive-info { max-width: 34ch; padding-left: var(--s-3); border-left: 2px solid var(--ink); opacity: calc((var(--e) - .55) * 2.2); transform: translateY(calc((1 - var(--e)) * 24px)); }
+.drive-h { font: 600 clamp(1.2rem, 1rem + 1vw, 1.6rem)/1.15 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; margin-bottom: var(--s-2); }
+.drive-info p { color: color-mix(in srgb, var(--ink) 82%, transparent); font-size: var(--fs-small); max-width: 40ch; }
+.drive-info .link-arrow { margin-top: var(--s-2); }
+.drive-car { position: relative; z-index: 2; align-self: end; width: min(78%, 1180px); margin: 0 auto -2%; transform: translate3d(calc((1 - var(--e)) * 115%), 0, 0); }
+.drive-car img { display: block; width: 100%; height: auto; filter: blur(calc((1 - var(--e)) * 6px)) drop-shadow(0 24px 22px color-mix(in srgb, var(--bg) 70%, transparent)); }
+.drive-bottom { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s-3); opacity: calc((var(--e) - .7) * 3.4); }
+.drive-specs { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); }
+.drive-specs li > span { display: block; font: 600 10px/1.4 var(--f-display); font-stretch: 125%; letter-spacing: .24em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.drive-specs b { font: 600 clamp(1.2rem, 1rem + 1vw, 1.7rem)/1.2 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; }
+.drive-actions { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.btn-white { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-white:hover { box-shadow: inset 24em 0 0 0 var(--accent); color: var(--ink); border-color: var(--accent); }
+@media (min-width: 900px) { .drive-top { grid-template-columns: 1fr auto; } }
+@media (max-width: 899px) {
+  .drive-car { width: 118%; margin-left: -9%; }
+  .drive-floor { left: -30%; right: -10%; bottom: 24%; }
+  .drive-info { display: none; }
+  .drive-specs { gap: var(--s-2) var(--s-3); }
+  .drive-actions .btn-line { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drive { height: auto; --e: 1; }
+  .drive-sticky { position: relative; height: auto; min-height: 100svh; }
+}
+.drive-floor { left: 8%; right: 2%; bottom: 15%; transform-origin: 70% 50%; }
+@media (min-width: 900px) { .drive-car { width: min(64%, 1060px); margin-bottom: var(--s-3); } }
+@media (max-width: 899px) { .drive-floor { left: -20%; right: -20%; bottom: 19%; } .drive-car { margin-bottom: var(--s-2); } }

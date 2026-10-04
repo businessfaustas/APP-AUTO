@@ -118,3 +118,9 @@ Timings live in `styles.css` (`--out`) and in `main.js` (`introMs`). Keep the tw
 ## Caching
 
 Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the file contents, so after any CSS or JS change the pages must be regenerated (or the `?v=` value bumped by hand). That forces browsers to fetch the new file; `_headers` lets them cache each version forever.
+
+## Drive-in section (home page)
+
+`<section class="drive" data-drive>` on the home page. As the visitor scrolls, `main.js` sets `--e` (0 → 1, eased) on the section. CSS uses it to drive the car in from the right, slide the FORD / MUSTANG title in, and fade in the info box and specs. Right now the car is a still cutout: `images/web/cut-mustang-blue-*.webp`.
+
+To swap in a car video, send the clip (side view, car driving into frame, plain or dark background). It gets converted to a frame sequence the same way as the 360° section (`images/spin3/`). The frames go into `images/drive/` at two sizes, and the section scrubs through them on a canvas with scroll instead of moving the cutout. Do not use a `<video>` tag for this: scroll-scrubbing a video is not smooth on phones.
