@@ -1,0 +1,75 @@
+{
+  "_note": "TEST CATALOGUE: names, prices and options are placeholders. Prices are in euro cents. The site pages and the checkout worker both read this file, so a price changed here changes everywhere.",
+  "currency": "eur",
+  "test": true,
+  "products": [
+    {
+      "id": "demon-170",
+      "image": "demon-170",
+      "lt": { "name": "Demon 170 emblema", "short": "Pilkas demonas su geltonomis akimis ir užrašu 170.", "desc": "Daugiasluoksnis lipdukas: matinis pilkas pagrindas, juodi kontūrai ir geltonos akys. Tinka sparnams, galiniam dangčiui ar salonui." },
+      "en": { "name": "Demon 170 emblem", "short": "Grey demon with yellow eyes and the 170 script.", "desc": "Multi-layer decal: matte grey base, black outlines and yellow eyes. Fits fenders, the boot lid or the interior." },
+      "options": [
+        { "key": "size", "lt": "Dydis", "en": "Size", "values": [
+          { "id": "8cm", "label": "8 cm", "price": 990 },
+          { "id": "12cm", "label": "12 cm", "price": 1290 },
+          { "id": "18cm", "label": "18 cm", "price": 1690 }
+        ] },
+        { "key": "finish", "lt": "Paviršius", "en": "Finish", "values": [
+          { "id": "matte", "lt": "Matinis", "en": "Matte", "price": 0 },
+          { "id": "gloss", "lt": "Blizgus", "en": "Gloss", "price": 0 }
+        ] }
+      ]
+    },
+    {
+      "id": "shelby-script",
+      "image": "shelby-script",
+      "lt": { "name": "SHELBY užrašas", "short": "Šlifuoto metalo efekto užrašas su juodu kontūru.", "desc": "Šlifuoto aliuminio efekto plėvelė su juodu kontūru. Klijuojamas ant durų, galinio dangčio ar priekinio buferio." },
+      "en": { "name": "SHELBY script", "short": "Brushed-metal look script with a black outline.", "desc": "Brushed-aluminium effect film with a black outline. For doors, the boot lid or the front bumper." },
+      "options": [
+        { "key": "size", "lt": "Ilgis", "en": "Length", "values": [
+          { "id": "15cm", "label": "15 cm", "price": 1490 },
+          { "id": "25cm", "label": "25 cm", "price": 1990 },
+          { "id": "40cm", "label": "40 cm", "price": 2690 }
+        ] }
+      ]
+    },
+    {
+      "id": "hellcat-head",
+      "image": "hellcat-head",
+      "lt": { "name": "Hellcat galva", "short": "Bordo spalvos katės galva su juodu kontūru.", "desc": "Bordo metalizuota plėvelė su juodu kontūru. Klasikinis ženklas sparnams arba galiniam stiklui." },
+      "en": { "name": "Hellcat head", "short": "Burgundy cat head with a black outline.", "desc": "Burgundy metallic film with a black outline. The classic mark for fenders or the rear window." },
+      "options": [
+        { "key": "size", "lt": "Dydis", "en": "Size", "values": [
+          { "id": "8cm", "label": "8 cm", "price": 1190 },
+          { "id": "12cm", "label": "12 cm", "price": 1590 }
+        ] },
+        { "key": "colour", "lt": "Spalva", "en": "Colour", "values": [
+          { "id": "burgundy", "lt": "Bordo", "en": "Burgundy", "price": 0 },
+          { "id": "red", "lt": "Raudona", "en": "Red", "price": 0 },
+          { "id": "satin-black", "lt": "Satininė juoda", "en": "Satin black", "price": 200 }
+        ] }
+      ]
+    },
+    {
+      "id": "hellcat-script",
+      "image": "hellcat-script",
+      "lt": { "name": "HELLCAT užrašas su galva", "short": "Grafito užrašas su raudona katės galva.", "desc": "Dviejų spalvų lipdukas: grafito pilkas užrašas ir raudona katės galva. Tinka sparnams ir galiniam dangčiui." },
+      "en": { "name": "HELLCAT script with head", "short": "Graphite script with a red cat head.", "desc": "Two-colour decal: graphite grey script and a red cat head. For fenders and the boot lid." },
+      "options": [
+        { "key": "size", "lt": "Ilgis", "en": "Length", "values": [
+          { "id": "20cm", "label": "20 cm", "price": 1790 },
+          { "id": "30cm", "label": "30 cm", "price": 2290 }
+        ] },
+        { "key": "qty-set", "lt": "Komplektas", "en": "Set", "values": [
+          { "id": "single", "lt": "1 vnt.", "en": "Single", "price": 0 },
+          { "id": "pair", "lt": "Pora (kairė + dešinė)", "en": "Pair (left + right)", "price": 1500 }
+        ] }
+      ]
+    }
+  ],
+  "shipping": [
+    { "id": "omniva", "lt": "Omniva paštomatas", "en": "Omniva parcel locker", "price": 299, "needs": "locker" },
+    { "id": "dpd", "lt": "DPD kurjeris", "en": "DPD courier", "price": 449, "needs": "address" },
+    { "id": "pickup", "lt": "Atsiėmimas Klaipėdoje", "en": "Pick up in Klaipėda", "price": 0, "needs": "none" }
+  ]
+}

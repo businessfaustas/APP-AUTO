@@ -485,4 +485,124 @@ const FORM_ENDPOINT = '';
       run();
     }
   }
+  /* ---------------------------------------------------------------- shop: cart in localStorage, checkout via /api/checkout */
+  const CART_KEY = 'ap-cart';
+  const readCart = () => { try { const c = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); return Array.isArray(c) ? c : []; } catch (e) { return []; } };
+  const saveCart = (c) => { try { localStorage.setItem(CART_KEY, JSON.stringify(c)); } catch (e) { /* private mode: cart lives for this page only */ } paintCount(c); };
+  const paintCount = (c = readCart()) => {
+    const n = c.reduce((s, l) => s + l.qty, 0);
+    $$('[data-cart-count]').forEach((el) => { el.textContent = n; el.hidden = !n; });
+  };
+  paintCount();
+  const catEl = $('#catalog');
+  const CAT = catEl ? JSON.parse(catEl.textContent) : null;
+  const lang = root.lang === 'en' ? 'en' : 'lt';
+  const money = (c) => { const v = (c / 100).toFixed(2); return lang === 'lt' ? `${v.replace('.', ',')} €` : `€${v}`; };
+  const prod = (id) => CAT && CAT.products.find((p) => p.id === id);
+  const lineInfo = (l) => {
+    const p = prod(l.id); if (!p) return null;
+    let unit = 0; const picked = [];
+    for (const o of p.options) {
+      const v = o.values.find((x) => x.id === (l.opts || {})[o.key]); if (!v) return null;
+      unit += v.price; picked.push(v.label || v[lang]);
+    }
+    return { p, unit, picked };
+  };
+
+  // product page
+  const addForm = $('[data-add]');
+  if (addForm && CAT) {
+    const p = prod($('[data-product]').dataset.product);
+    const priceEl = $('[data-pd-price]'), qtyIn = addForm.qty, st = $('[data-add-status]', addForm);
+    const opts = () => Object.fromEntries(p.options.map((o) => [o.key, (addForm.querySelector(`input[name="${o.key}"]:checked`) || {}).value]));
+    const clampQty = () => { qtyIn.value = Math.min(50, Math.max(1, Math.floor(+qtyIn.value) || 1)); };
+    const paint = () => { const i = lineInfo({ id: p.id, opts: opts() }); if (i && priceEl) priceEl.textContent = money(i.unit * (+qtyIn.value || 1)); };
+    addForm.addEventListener('change', () => { clampQty(); paint(); });
+    $$('[data-qty]', addForm).forEach((b) => b.addEventListener('click', () => { qtyIn.value = (+qtyIn.value || 1) + +b.dataset.qty; clampQty(); paint(); }));
+    addForm.addEventListener('submit', (e) => {
+      e.preventDefault(); clampQty();
+      const o = opts(), cart = readCart(), key = JSON.stringify(o);
+      const hit = cart.find((l) => l.id === p.id && JSON.stringify(l.opts) === key);
+      if (hit) hit.qty = Math.min(50, hit.qty + +qtyIn.value); else cart.push({ id: p.id, opts: o, qty: +qtyIn.value });
+      saveCart(cart);
+      st.innerHTML = `${addForm.dataset.ok} <a href="${addForm.dataset.cartUrl}">${addForm.dataset.view} →</a>`;
+      $$('[data-cart-link]').forEach((a) => { a.classList.remove('bump'); void a.offsetWidth; a.classList.add('bump'); });
+    });
+    paint();
+  }
+
+  // cart + checkout page
+  const cartEl = $('[data-cart]');
+  if (cartEl && CAT) {
+    const T = (k) => cartEl.dataset[k];
+    const form = $('[data-checkout]', cartEl), list = $('[data-cart-list]', cartEl), st = $('[data-co-status]', cartEl);
+    const params = new URLSearchParams(location.search);
+    const done = (kind) => {
+      saveCart([]); form.hidden = true; $('[data-cart-empty]', cartEl).hidden = true;
+      $('[data-cart-done]', cartEl).hidden = false; $(`[data-done-${kind}]`, cartEl).hidden = false;
+    };
+    const shipSel = () => CAT.shipping.find((s) => s.id === (form.querySelector('input[name="shipping"]:checked') || {}).value) || CAT.shipping[0];
+    const render = () => {
+      // drop lines whose product or option no longer exists in the catalogue
+      const cart = readCart().filter((l) => lineInfo(l));
+      const empty = !cart.length;
+      form.hidden = empty; $('[data-cart-empty]', cartEl).hidden = !empty;
+      if (empty) return;
+      list.innerHTML = cart.map((l, i) => {
+        const { p, unit, picked } = lineInfo(l);
+        return `<li class="cart-line">
+          <img src="../images/shop/${p.image}-600.webp" width="96" height="96" alt="">
+          <div class="cart-line-info"><a href="shop/${p.id}.html">${p[lang].name}</a><span class="small muted">${picked.join(' · ')} · ${money(unit)} ${T('tEach')}</span></div>
+          <div class="qty qty-sm" role="group"><button type="button" data-line="${i}" data-d="-1" aria-label="−">−</button><output>${l.qty}</output><button type="button" data-line="${i}" data-d="1" aria-label="+">+</button></div>
+          <span class="cart-line-total">${money(unit * l.qty)}</span>
+          <button type="button" class="cart-x" data-rm="${i}" aria-label="${T('tRemove')}">×</button>
+        </li>`;
+      }).join('');
+      const sub = cart.reduce((s, l) => s + lineInfo(l).unit * l.qty, 0), sh = shipSel();
+      $('[data-sum-sub]', cartEl).textContent = money(sub);
+      $('[data-sum-ship]', cartEl).textContent = sh.price ? money(sh.price) : T('tFree');
+      $('[data-sum-total]', cartEl).textContent = money(sub + sh.price);
+      $('[data-pay-total]', cartEl).textContent = `· ${money(sub + sh.price)}`;
+      $$('[data-need]', form).forEach((el) => { el.hidden = el.dataset.need !== sh.needs; });
+    };
+    list.addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return;
+      const cart = readCart().filter((l) => lineInfo(l));
+      if (b.dataset.rm) cart.splice(+b.dataset.rm, 1);
+      else if (b.dataset.line) { const l = cart[+b.dataset.line]; l.qty = Math.min(50, l.qty + +b.dataset.d); if (l.qty < 1) cart.splice(+b.dataset.line, 1); }
+      saveCart(cart); render();
+    });
+    form.addEventListener('change', (e) => { if (e.target.name === 'shipping') render(); });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const sh = shipSel();
+      const req = { name: 1, email: 1, phone: 1, consent: 1 };
+      if (sh.needs === 'locker') req.locker = 1;
+      if (sh.needs === 'address') Object.assign(req, { address: 1, city: 1, zip: 1 });
+      let bad = null;
+      $$('input', form).forEach((f) => {
+        if (!f.name || !(f.name in req)) { f.removeAttribute('aria-invalid'); return; }
+        const ok = f.type === 'checkbox' ? f.checked : f.value.trim() !== '' && f.checkValidity();
+        f.setAttribute('aria-invalid', String(!ok)); if (!ok && !bad) bad = f;
+      });
+      if (bad) { bad.focus(); if (bad.type !== 'checkbox') bad.reportValidity(); return; }
+      const fd = new FormData(form), customer = {};
+      ['name', 'email', 'phone', 'locker', 'address', 'city', 'zip', 'note'].forEach((k) => { customer[k] = (fd.get(k) || '').toString().trim(); });
+      const payBtn = $('.cart-pay', form); payBtn.disabled = true; st.textContent = T('tSending');
+      try {
+        const res = await fetch('/api/checkout', {
+          method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ lang, items: readCart(), shipping: sh.id, customer, website: fd.get('website') || '' }),
+        });
+        // a plain static server (local preview) has no /api: treat it like test mode
+        if (res.status === 404 || res.status === 405 || res.status === 501) { done('test'); return; }
+        const data = await res.json();
+        if (data.url) { location.href = data.url; return; }
+        if (data.test) { done('test'); return; }
+        throw new Error(data.error || res.status);
+      } catch (err) { st.textContent = T('tErr'); payBtn.disabled = false; }
+    });
+    if (params.get('paid')) done('paid');
+    else { render(); if (params.get('cancelled')) st.textContent = T('tCancelled'); }
+  }
 })();

@@ -3,10 +3,15 @@
   // Static site served from Workers static assets. Name must match the Cloudflare project name.
   "name": "app-auto",
   "compatibility_date": "2026-09-30",
+  // Files are served first; requests that match no file (only /api/*) run worker.js.
+  "main": "worker.js",
   // Public URL: https://app-auto.business-faustas.workers.dev
   "workers_dev": true,
   "preview_urls": true,
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS"
   }
+  // Secret for live payments (never put it in this file):
+  //   Cloudflare dashboard → Workers → app-auto → Settings → Variables and secrets → STRIPE_SECRET_KEY
 }

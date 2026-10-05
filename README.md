@@ -124,3 +124,19 @@ Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the
 `<section class="drive" data-drive>` on the home page. As the visitor scrolls, `main.js` sets `--e` (0 → 1, eased) on the section. CSS uses it to drive the car in from the right, slide the FORD / MUSTANG title in, and fade in the info box and specs. Right now the car is a still cutout: `images/web/cut-mustang-blue-*.webp`.
 
 To swap in a car video, send the clip (side view, car driving into frame, plain or dark background). It gets converted to a frame sequence the same way as the 360° section (`images/spin/`). The frames go into `images/drive/` at two sizes, and the section scrubs through them on a canvas with scroll instead of moving the cutout. Do not use a `<video>` tag for this: scroll-scrubbing a video is not smooth on phones.
+
+## Shop (test mode)
+
+Pages: `lt/shop.html`, `lt/shop/<product>.html` and `lt/cart.html`, plus the same in `en/`. The cart is kept in the visitor's browser (localStorage).
+
+- **Products and prices** all come from `data/products.json`, in euro cents. The current entries are test placeholders, and `"test": true` shows the "TEST SHOP" notice. Product photos are in `images/shop/<image>-600.webp` and `-1000.webp`.
+- **Checkout**: `worker.js` handles `POST /api/checkout`. It recalculates every price from `data/products.json`, so a visitor can't change a price in their browser.
+  - With no Stripe key set, it answers "test mode": the customer sees "Test order received" and no payment is taken.
+  - With the key set, it sends the customer to Stripe's payment page (card, Apple Pay, Google Pay). After paying, Stripe returns them to `cart.html?paid=1`.
+- **Going live**:
+  1. Create a Stripe account.
+  2. In Stripe → Developers → API keys, copy the **secret key**.
+  3. In Cloudflare → Workers & Pages → app-auto → Settings → Variables and secrets, add a **Secret** named `STRIPE_SECRET_KEY`.
+  4. Replace the test products in `data/products.json`, set `"test": false`, then regenerate the pages and push.
+  5. Paid orders, including the customer's phone and parcel locker or address, appear in the Stripe dashboard → Payments.
+- **Trademarks**: Demon, SHELBY and HELLCAT are trademarks of their owners. Check you have the right to sell those designs before going live.
