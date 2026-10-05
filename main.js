@@ -465,20 +465,45 @@ const FORM_ENDPOINT = '';
     window.addEventListener('resize', update);
     update();
   }
-  /* ---------------------------------------------------------------- drive-in: car arrives as you scroll */
-  const drv = $('[data-drive]');
-  if (drv) {
-    if (reduced) drv.style.setProperty('--e', '1');
+  /* ---------------------------------------------------------------- drive-in: scroll scrubs the studio clip frame by frame */
+  const dv = $('[data-dv]');
+  if (dv) {
+    const canvas = $('.dv-canvas', dv), ctx = canvas.getContext('2d');
+    const n = +dv.dataset.frames || 102;
+    const set = window.innerWidth < 800 ? 's' : 'l';
+    if (set === 's') { canvas.width = 768; canvas.height = 432; }
+    const src = (i) => `${dv.dataset.src}${set}/f${String(i + 1).padStart(3, '0')}.webp`;
+    const frames = new Array(n);
+    let want = reduced ? n - 1 : 0, shown = -1;
+    const draw = () => {
+      // nearest frame that has loaded, so fast scrolling never shows a blank canvas
+      let i = want;
+      for (let d = 0; d < n; d++) {
+        if (frames[want - d] && frames[want - d].complete && frames[want - d].naturalWidth) { i = want - d; break; }
+        if (frames[want + d] && frames[want + d].complete && frames[want + d].naturalWidth) { i = want + d; break; }
+      }
+      if (i === shown || !frames[i] || !frames[i].naturalWidth) return;
+      ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height); shown = i;
+    };
+    const load = (i) => { if (frames[i]) return; const im = new Image(); im.decoding = 'async'; im.onload = () => { if (Math.abs(i - want) < Math.abs(shown - want) || shown < 0) draw(); }; im.src = src(i); frames[i] = im; };
+    // first + last, then every 6th, then the rest: the scrub works early and sharpens as frames arrive
+    const order = [0, n - 1];
+    for (let step of [6, 2, 1]) for (let i = 0; i < n; i += step) order.push(i);
+    let started = false;
+    const start = () => { if (started) return; started = true; order.forEach(load); };
+    new IntersectionObserver((es) => { if (es.some((x) => x.isIntersecting)) start(); }, { rootMargin: '150% 0px' }).observe(dv);
+    if (reduced) { start(); load(n - 1); }
     else {
       let tick = false;
       const run = () => {
         tick = false;
-        const r = drv.getBoundingClientRect(), vh = window.innerHeight;
+        const r = dv.getBoundingClientRect(), vh = window.innerHeight;
         const travel = r.height - vh;
-        // start a little before the section pins, finish at 70% of the pinned travel
-        const p = Math.min(1, Math.max(0, (vh * 0.35 - r.top) / (travel * 0.7 + vh * 0.35)));
-        const e = 1 - Math.pow(1 - p, 3);
-        drv.style.setProperty('--e', e.toFixed(4));
+        // begin as the section rises into view; the car has stopped by 85% of the pinned scroll
+        const p = Math.min(1, Math.max(0, (vh * 0.5 - r.top) / (travel + vh * 0.5)));
+        dv.style.setProperty('--p', p.toFixed(4));
+        want = Math.min(n - 1, Math.round(Math.min(1, p / 0.85) * (n - 1)));
+        draw();
       };
       window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
       window.addEventListener('resize', run);

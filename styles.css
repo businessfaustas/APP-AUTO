@@ -1293,48 +1293,6 @@ ul.filters li { flex: none; scroll-snap-align: start; }
 .ocard .pcard-body { padding: var(--s-2); }
 .ocard .pcard-t { font-size: .85rem; }
 @media (min-width: 1000px) { .ocard-grid { grid-template-columns: repeat(5, 1fr); } }
-/* ================================================================== drive-in section (BMW M reference) */
-.drive { position: relative; height: 260vh; --k: 0; --e: 0; }
-.drive-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; display: grid; grid-template-rows: auto 1fr auto; padding: calc(var(--header-h-condensed) + var(--s-4)) 0 var(--s-4);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, var(--bg)) 0%, color-mix(in srgb, var(--accent) 38%, var(--bg)) 45%, var(--bg) 100%); }
-.drive-panel { position: absolute; z-index: -1; top: 0; bottom: 0; right: 0; width: 46%; background: linear-gradient(160deg, color-mix(in srgb, var(--bg) 70%, transparent), var(--bg)); clip-path: polygon(48% 0, 100% 0, 100% 100%, 0 100%); }
-.drive-floor { position: absolute; z-index: 0; left: -10%; right: 20%; bottom: 13%; height: 22%; border-radius: 50%;
-  background: radial-gradient(ellipse at 40% 50%, color-mix(in srgb, var(--ink) 92%, transparent) 0%, color-mix(in srgb, var(--ink) 40%, transparent) 45%, transparent 70%);
-  transform: scaleX(calc(.2 + var(--e) * .8)) rotate(-4deg); transform-origin: 30% 50%; opacity: calc(.2 + var(--e) * .65); filter: blur(2px); }
-.drive-top { position: relative; z-index: 1; display: grid; gap: var(--s-3); align-items: start; }
-.drive-title { display: grid; margin: 0; max-width: none; line-height: .82; font-family: var(--f-display); font-stretch: 62%; font-variation-settings: "wdth" 62; text-transform: uppercase; }
-.dt-solid, .dt-out { display: block; font-weight: 800; font-size: clamp(4rem, 2rem + 11vw, 12.5rem); letter-spacing: -.01em; }
-.dt-solid { color: var(--ink); transform: translateX(calc((1 - var(--e)) * -30%)); opacity: calc(.15 + var(--e) * .85); }
-.dt-out { color: transparent; -webkit-text-stroke: 2px var(--ink); transform: translateX(calc((1 - var(--e)) * 25%)); opacity: calc(.15 + var(--e) * .85); }
-.drive-info { max-width: 34ch; padding-left: var(--s-3); border-left: 2px solid var(--ink); opacity: calc((var(--e) - .55) * 2.2); transform: translateY(calc((1 - var(--e)) * 24px)); }
-.drive-h { font: 600 clamp(1.2rem, 1rem + 1vw, 1.6rem)/1.15 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; margin-bottom: var(--s-2); }
-.drive-info p { color: color-mix(in srgb, var(--ink) 82%, transparent); font-size: var(--fs-small); max-width: 40ch; }
-.drive-info .link-arrow { margin-top: var(--s-2); }
-.drive-car { position: relative; z-index: 2; align-self: end; width: min(78%, 1180px); margin: 0 auto -2%; transform: translate3d(calc((1 - var(--e)) * 115%), 0, 0); }
-.drive-car img { display: block; width: 100%; height: auto; filter: blur(calc((1 - var(--e)) * 6px)) drop-shadow(0 24px 22px color-mix(in srgb, var(--bg) 70%, transparent)); }
-.drive-bottom { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s-3); opacity: calc((var(--e) - .7) * 3.4); }
-.drive-specs { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); }
-.drive-specs li > span { display: block; font: 600 10px/1.4 var(--f-display); font-stretch: 125%; letter-spacing: .24em; text-transform: uppercase; color: color-mix(in srgb, var(--ink) 75%, transparent); }
-.drive-specs b { font: 600 clamp(1.2rem, 1rem + 1vw, 1.7rem)/1.2 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; }
-.drive-actions { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-.btn-white { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.btn-white:hover { box-shadow: inset 24em 0 0 0 var(--accent); color: var(--ink); border-color: var(--accent); }
-@media (min-width: 900px) { .drive-top { grid-template-columns: 1fr auto; } }
-@media (max-width: 899px) {
-  .drive-car { width: 118%; margin-left: -9%; }
-  .drive-floor { left: -30%; right: -10%; bottom: 24%; }
-  .drive-info { display: none; }
-  .drive-specs { gap: var(--s-2) var(--s-3); }
-  .drive-actions .btn-line { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .drive { height: auto; --e: 1; }
-  .drive-sticky { position: relative; height: auto; min-height: 100svh; }
-}
-.drive-floor { left: 8%; right: 2%; bottom: 15%; transform-origin: 70% 50%; }
-@media (min-width: 900px) { .drive-car { width: min(64%, 1060px); margin-bottom: var(--s-3); } }
-@media (max-width: 899px) { .drive-floor { left: -20%; right: -20%; bottom: 19%; } .drive-car { margin-bottom: var(--s-2); } }
-
 /* ================================================================== shop */
 /* header cart button */
 .site-nav { margin-left: auto; }
@@ -1474,3 +1432,48 @@ ul.cart-list { padding: 0; margin: 0 0 var(--s-6); list-style: none; border-top:
 }
 .brand, .cart-link, .cart-link svg { flex-shrink: 0; }
 @media (min-width: 1081px) and (max-width: 1240px) { .cart-word { display: none; } .nav-list a, .lang { letter-spacing: .14em; } }
+
+/* ================================================================== drive-in: scroll scrubs the studio clip (Demon 170) */
+/* --p: 0→1 through the pinned scroll (set by main.js). The page colour matches the clip's studio grey, so the video has no visible edge. */
+.dv { --p: 0; --bgv: #dedede; position: relative; height: 330vh; background: var(--bgv); color: var(--bg); }
+.dv-sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; isolation: isolate; }
+.dv-canvas { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+.dv-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s-4); padding-top: calc(var(--header-h-condensed) + var(--s-4)); }
+.dv-eyebrow { margin: 0 0 var(--s-1); font: 600 11px/1.2 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; letter-spacing: .32em; text-transform: uppercase; color: var(--accent);
+  opacity: calc(var(--p) * 8); }
+.dv-big { display: flex; flex-wrap: wrap; gap: 0 .14em; margin: 0; line-height: .84; font-family: var(--f-display); font-weight: 800; font-stretch: 62%; font-variation-settings: "wdth" 62;
+  font-size: clamp(4rem, 1.5rem + 8.5vw, 10.5rem); letter-spacing: -.01em; text-transform: uppercase; }
+.dv-solid { color: var(--bg); transform: translateX(calc((1 - min(1, var(--p) * 4)) * -18%)); opacity: calc(.12 + var(--p) * 4); }
+.dv-out { color: transparent; -webkit-text-stroke: 2px var(--accent); transform: translateX(calc((1 - min(1, var(--p) * 4)) * 40%)); opacity: calc(.12 + var(--p) * 4); }
+.dv-info { max-width: 330px; padding-left: var(--s-3); border-left: 2px solid var(--accent);
+  opacity: calc((var(--p) - .5) * 4); transform: translateY(calc((1 - min(1, max(0, (var(--p) - .5) * 4))) * 24px)); }
+.dv-h { margin: 0 0 var(--s-2); font: 600 clamp(1.1rem, .9rem + .7vw, 1.5rem)/1.15 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; color: var(--bg); }
+.dv-info p { margin: 0 0 var(--s-2); font-size: 14px; line-height: 1.6; color: #3b3b3b; }
+.dv-info .link-arrow { color: var(--bg); }
+.dv-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--s-3); padding-bottom: var(--s-6);
+  grid-row: 3; opacity: calc((var(--p) - .62) * 4); }
+ul.dv-specs { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin: 0; padding: 0; list-style: none; }
+.dv-specs li > span { display: block; font: 600 10px/1.4 var(--f-display); font-stretch: 125%; letter-spacing: .24em; text-transform: uppercase; color: #555; }
+.dv-specs b { font: 600 clamp(1.2rem, 1rem + 1vw, 1.7rem)/1.2 var(--f-display); font-stretch: 125%; font-variation-settings: "wdth" 125; text-transform: uppercase; color: var(--bg); }
+.dv-actions { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; }
+.dv .btn-line { color: var(--bg); border-color: color-mix(in srgb, var(--bg) 45%, transparent); }
+.dv .btn-line:hover { box-shadow: inset 24em 0 0 0 var(--bg); color: var(--ink); border-color: var(--bg); }
+.dv-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: color-mix(in srgb, var(--bg) 10%, transparent); }
+.dv-bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p)); }
+/* below the pinned area the next (dark) section starts: soften the join */
+.dv::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--line); }
+
+/* phones and portrait screens: the clip sits full-width in the middle band, faded top and bottom into the page grey */
+@media (max-width: 799px), (max-aspect-ratio: 6/5) {
+  .dv { height: 300vh; }
+  .dv-canvas { position: relative; inset: auto; grid-row: 2; align-self: center; width: 116%; height: auto; margin-left: -8%; aspect-ratio: 16 / 9;
+    -webkit-mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent); mask-image: linear-gradient(transparent, #000 16%, #000 84%, transparent); }
+  .dv-top { flex-direction: column; gap: var(--s-3); padding-top: calc(var(--header-h-condensed) + var(--s-3)); }
+  .dv-info { max-width: 46ch; }
+  .dv-info p { display: none; }
+  .dv-big { font-size: clamp(3.6rem, 1rem + 15vw, 7rem); }
+  .dv-bottom { padding-bottom: var(--s-4); }
+  ul.dv-specs { gap: var(--s-2) var(--s-4); }
+}
+@media (max-width: 799px) and (max-height: 700px) { .dv-specs { display: none; } }
+@media (prefers-reduced-motion: reduce) { .dv { --p: 1; height: auto; } .dv-sticky { position: relative; } }

@@ -121,9 +121,11 @@ Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the
 
 ## Drive-in section (home page)
 
-`<section class="drive" data-drive>` on the home page. As the visitor scrolls, `main.js` sets `--e` (0 → 1, eased) on the section. CSS uses it to drive the car in from the right, slide the FORD / MUSTANG title in, and fade in the info box and specs. Right now the car is a still cutout: `images/web/cut-mustang-blue-*.webp`.
+`<section class="dv" data-dv>` on the home page. Scrolling scrubs through a frame sequence cut from the studio clip: the red Demon 170 drives in from the right and stops. `main.js` sets `--p` (0 → 1) on the section; it picks the frame and fades in the title, info box, specs and buttons.
 
-To swap in a car video, send the clip (side view, car driving into frame, plain or dark background). It gets converted to a frame sequence the same way as the 360° section (`images/spin/`). The frames go into `images/drive/` at two sizes, and the section scrubs through them on a canvas with scroll instead of moving the cutout. Do not use a `<video>` tag for this: scroll-scrubbing a video is not smooth on phones.
+- **Frames**: `images/drive1/l/` (1280×720, desktop) and `images/drive1/s/` (768×432, phones), 102 WebP files each. They cover the drive (clip frames 18–106) plus the start of the camera push-in.
+- **Page colour**: the section background (`--bgv: #dedede`) matches the clip's studio grey. On desktop the clip fills the whole screen. On phones and portrait screens it sits full-width in the middle, faded top and bottom.
+- **Replacing the clip**: extract new frames into a new folder, e.g. `images/drive2/`. Images are cached as immutable, so never overwrite a folder. Then update `data-src` and `data-frames` in the generator.
 
 ## Shop (test mode)
 
