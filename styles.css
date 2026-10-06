@@ -1477,3 +1477,49 @@ ul.dv-specs { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin
 }
 @media (max-width: 799px) and (max-height: 700px) { .dv-specs { display: none; } }
 @media (prefers-reduced-motion: reduce) { .dv { --p: 1; height: auto; } .dv-sticky { position: relative; } }
+
+/* ================================================================== TYPE: Montserrat (BMW M reference)
+   One geometric sans for everything: heavy caps for display, regular for body. Montserrat has no
+   width axis, so the font-stretch / "wdth" settings above are simply ignored; the giant outline
+   words that relied on condensed Archivo are resized below. */
+:root {
+  --f-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --fs-h1: clamp(1.9rem, .7rem + 5.4vw, 5.4rem);
+  --fs-h2: clamp(1.6rem, .7rem + 3.4vw, 3.4rem);
+}
+body { font-size: 15px; line-height: 1.7; }
+.h1, .h2 { font-weight: 800; letter-spacing: -.015em; line-height: 1.02; }
+.h1 em, .h2 em { font-weight: 800; }
+.h3 { font-weight: 700; letter-spacing: -.005em; }
+.eyebrow, .mono-index, .chip, .nav-list a, .tel, .lang, .link-arrow, .field label, .record dt, .passport-fields dt, .to-top, .rail-idx, .job-tag { font-weight: 600; }
+.btn { font-weight: 700; letter-spacing: .16em; }
+.btn::after { font-family: var(--f-display); }
+.lede { line-height: 1.65; }
+/* numbers and figures: bold like the reference spec row (510 hp / 300 km/h) */
+.spec-n, .stat-n, .spin-deg, .vs-mid { font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.fx-n { font-weight: 800; }
+.fx-t, .xcard-t, .pcard-t, .tcard-t, .pstep-t, .spin-notes b, .shop-card-name, .cart-line-info a, .dv-h, .dv-specs b { font-weight: 700; letter-spacing: 0; }
+.pd-price, .shop-card-price, .cart-line-total, .cart-sum dd, .ship-price { font-variant-numeric: tabular-nums; font-weight: 600; }
+/* giant outline / background words: normal-width caps need less size than condensed ones did */
+.hx-word { font-size: 12vw; font-weight: 900; }
+.spin-word { font-size: 14vw; font-weight: 900; }
+.showcase-word { font-size: 16vw; font-weight: 900; }
+.dv-big { font-weight: 900; font-size: clamp(3rem, .8rem + 6.4vw, 7.6rem); line-height: .9; letter-spacing: -.02em; }
+.dv-out { -webkit-text-stroke-width: 2px; }
+@media (max-width: 799px), (max-aspect-ratio: 6/5) { .dv-big { font-size: clamp(2.6rem, .6rem + 11vw, 5rem); } }
+.nav-list a { letter-spacing: .14em; }
+@media (max-width: 1080px) { .nav-list a { letter-spacing: -.01em; font-weight: 800; } }
+/* Montserrat has no arrow glyph: draw "→" from a system font so it sits on the text line at full size */
+.btn::after, .link-arrow > span[aria-hidden], .shop-card-cta, .pd-status a, .to-top { font-family: "Helvetica Neue", Arial, "Segoe UI Symbol", sans-serif; }
+.btn::after { font-size: 15px; line-height: 1; }
+:root { --fs-h1: clamp(2.05rem, .75rem + 5.6vw, 5.4rem); }
+/* arrows as a vector shape in the text colour: same size and position on every device, whatever fonts it has */
+:root { --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Cpath d='M0 5h14M10 1l4 4-4 4' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E"); }
+.btn::after, .link-arrow > span[aria-hidden], .shop-card-cta::before {
+  content: ""; display: inline-block; width: 15px; height: 10px; flex: none; font-size: 0; vertical-align: middle;
+  background: currentColor; -webkit-mask: var(--arrow) center / contain no-repeat; mask: var(--arrow) center / contain no-repeat;
+}
+.shop-card-cta { font-size: 0; }
+.menu-toggle::after, .job-close::after, .map-btn::after, .rail-btn::after { content: none; display: none; }
