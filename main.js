@@ -465,50 +465,57 @@ const FORM_ENDPOINT = '';
     window.addEventListener('resize', update);
     update();
   }
-  /* ---------------------------------------------------------------- drive-in: scroll scrubs the studio clip frame by frame */
-  const dv = $('[data-dv]');
-  if (dv) {
-    const canvas = $('.dv-canvas', dv), ctx = canvas.getContext('2d');
-    const n = +dv.dataset.frames || 102;
+  /* ---------------------------------------------------------------- scroll-scrubbed clips (drive-in, stripes)
+     The section is tall and its inner box is sticky; scrolling through it sets --p (0→1) and picks
+     the frame. Frames are WebP stills cut from the clip: <src>l/ for desktop, <src>s/ for phones. */
+  const scrub = (sec, { canvasSel, endAt = 0.85, startAt = 0.5, onP }) => {
+    const canvas = $(canvasSel, sec), ctx = canvas.getContext('2d');
+    const n = +sec.dataset.frames;
     const set = window.innerWidth < 800 ? 's' : 'l';
     if (set === 's') { canvas.width = 768; canvas.height = 432; }
-    const src = (i) => `${dv.dataset.src}${set}/f${String(i + 1).padStart(3, '0')}.webp`;
+    const src = (i) => `${sec.dataset.src}${set}/f${String(i + 1).padStart(3, '0')}.webp`;
     const frames = new Array(n);
     let want = reduced ? n - 1 : 0, shown = -1;
+    const ok = (im) => im && im.complete && im.naturalWidth;
     const draw = () => {
       // nearest frame that has loaded, so fast scrolling never shows a blank canvas
-      let i = want;
-      for (let d = 0; d < n; d++) {
-        if (frames[want - d] && frames[want - d].complete && frames[want - d].naturalWidth) { i = want - d; break; }
-        if (frames[want + d] && frames[want + d].complete && frames[want + d].naturalWidth) { i = want + d; break; }
-      }
-      if (i === shown || !frames[i] || !frames[i].naturalWidth) return;
+      let i = -1;
+      for (let d = 0; d < n && i < 0; d++) { if (ok(frames[want - d])) i = want - d; else if (ok(frames[want + d])) i = want + d; }
+      if (i < 0 || i === shown) return;
       ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height); shown = i;
     };
-    const load = (i) => { if (frames[i]) return; const im = new Image(); im.decoding = 'async'; im.onload = () => { if (Math.abs(i - want) < Math.abs(shown - want) || shown < 0) draw(); }; im.src = src(i); frames[i] = im; };
-    // first + last, then every 6th, then the rest: the scrub works early and sharpens as frames arrive
+    const load = (i) => { if (frames[i]) return; const im = new Image(); im.decoding = 'async'; im.onload = draw; im.src = src(i); frames[i] = im; };
+    // first + last, then every 6th, then every 2nd, then the rest: the scrub works early and sharpens as frames arrive
     const order = [0, n - 1];
-    for (let step of [6, 2, 1]) for (let i = 0; i < n; i += step) order.push(i);
+    for (const step of [6, 2, 1]) for (let i = 0; i < n; i += step) order.push(i);
     let started = false;
-    const start = () => { if (started) return; started = true; order.forEach(load); };
-    new IntersectionObserver((es) => { if (es.some((x) => x.isIntersecting)) start(); }, { rootMargin: '150% 0px' }).observe(dv);
-    if (reduced) { start(); load(n - 1); }
-    else {
-      let tick = false;
-      const run = () => {
-        tick = false;
-        const r = dv.getBoundingClientRect(), vh = window.innerHeight;
-        const travel = r.height - vh;
-        // begin as the section rises into view; the car has stopped by 85% of the pinned scroll
-        const p = Math.min(1, Math.max(0, (vh * 0.5 - r.top) / (travel + vh * 0.5)));
-        dv.style.setProperty('--p', p.toFixed(4));
-        want = Math.min(n - 1, Math.round(Math.min(1, p / 0.85) * (n - 1)));
-        draw();
-      };
-      window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
-      window.addEventListener('resize', run);
-      run();
-    }
+    const start = () => { if (!started) { started = true; order.forEach(load); } };
+    new IntersectionObserver((es) => { if (es.some((x) => x.isIntersecting)) start(); }, { rootMargin: '150% 0px' }).observe(sec);
+    if (reduced) { start(); if (onP) onP(1); return; }
+    let tick = false;
+    const run = () => {
+      tick = false;
+      const r = sec.getBoundingClientRect(), vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh * startAt - r.top) / (r.height - vh + vh * startAt)));
+      sec.style.setProperty('--p', p.toFixed(4));
+      want = Math.min(n - 1, Math.round(Math.min(1, p / endAt) * (n - 1)));
+      draw(); if (onP) onP(p);
+    };
+    window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true });
+    window.addEventListener('resize', run);
+    run();
+  };
+  const dv = $('[data-dv]');
+  if (dv) scrub(dv, { canvasSel: '.dv-canvas' });
+  const st = $('[data-st]');
+  if (st) {
+    const steps = $$('[data-st-step]', st);
+    // steps follow the clip: stripes come down, are laid over the car, then settle
+    const at = [0, 0.36, 0.7];
+    scrub(st, { canvasSel: '.st-canvas', endAt: 0.9, startAt: 0.35, onP: (p) => {
+      let k = 0; at.forEach((v, i) => { if (p >= v) k = i; });
+      steps.forEach((li, i) => { li.classList.toggle('is-on', i === k); li.classList.toggle('is-done', i < k); });
+    } });
   }
   /* ---------------------------------------------------------------- shop: cart in localStorage, checkout via /api/checkout */
   const CART_KEY = 'ap-cart';

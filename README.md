@@ -127,6 +127,14 @@ Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the
 - **Page colour**: the section background (`--bgv: #dedede`) matches the clip's studio grey. On desktop the clip fills the whole screen. On phones and portrait screens it sits full-width in the middle, faded top and bottom.
 - **Replacing the clip**: extract new frames into a new folder, e.g. `images/drive2/`. Images are cached as immutable, so never overwrite a folder. Then update `data-src` and `data-frames` in the generator.
 
+## Stripes section (home page)
+
+`<section class="st" data-st>` comes after the Materials section. Scrolling scrubs the clip of blue racing stripes being laid onto a white Challenger. It uses the same scroll-scrub code as the drive-in section (`scrub()` in `main.js`).
+
+- **Frames**: `images/stripes1/l/` (1280×720) and `images/stripes1/s/` (768×432), 90 WebP files each: 80 cover the application and 10 the camera drift at the end.
+- **Steps**: the three steps on the left (`data-st-step`) light up at 0%, 36% and 70% of the scroll (the `at` array in `main.js`). On phones only the current step shows, under the clip.
+- **Page colour** (`--bgs: #f0f2f3`) and the soft glow behind the car match the clip's studio white. The clip's edges are faded into the page.
+
 ## Shop (test mode)
 
 Pages: `lt/shop.html`, `lt/shop/<product>.html` and `lt/cart.html`, plus the same in `en/`. The cart is kept in the visitor's browser (localStorage).
