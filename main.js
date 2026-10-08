@@ -517,6 +517,51 @@ const FORM_ENDPOINT = '';
       steps.forEach((li, i) => { li.classList.toggle('is-on', i === k); li.classList.toggle('is-done', i < k); });
     } });
   }
+  /* ---------------------------------------------------------------- hero: car and stripes follow the pointer (mouse only) */
+  const hx = $('[data-hx]');
+  if (hx && !reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let raf = 0, mx = 0, my = 0;
+    hx.addEventListener('pointermove', (ev) => {
+      const r = hx.getBoundingClientRect();
+      mx = ((ev.clientX - r.left) / r.width) * 2 - 1; my = ((ev.clientY - r.top) / r.height) * 2 - 1;
+      if (!raf) raf = requestAnimationFrame(() => { raf = 0; hx.style.setProperty('--mx', mx.toFixed(3)); hx.style.setProperty('--my', my.toFixed(3)); });
+    });
+    hx.addEventListener('pointerleave', () => { hx.style.setProperty('--mx', 0); hx.style.setProperty('--my', 0); });
+  }
+  /* ---------------------------------------------------------------- photos that zoom out as they scroll through the screen */
+  const zooms = $$('[data-zoom]');
+  /* ---------------------------------------------------------------- process: steps light up, counter and car follow */
+  const pt = $('[data-pt]');
+  const ptSteps = pt ? $$('[data-pt-step]', pt) : [];
+  const ptCur = pt ? $('[data-pt-cur]', pt) : null;
+  let ptIdx = -1;
+  const scrollFx = () => {
+    const vh = window.innerHeight;
+    zooms.forEach((z) => {
+      const r = z.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      z.style.setProperty('--z', Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))).toFixed(3));
+    });
+    if (pt && ptSteps.length) {
+      const list = $('.pt-steps', pt).getBoundingClientRect(), line = vh * 0.55;
+      const pp = Math.min(1, Math.max(0, (line - list.top) / list.height));
+      pt.style.setProperty('--pp', pp.toFixed(4));
+      let k = 0;
+      ptSteps.forEach((li, i) => { if (li.getBoundingClientRect().top < line) k = i; });
+      if (k !== ptIdx) {
+        ptIdx = k;
+        ptSteps.forEach((li, i) => { li.classList.toggle('is-on', i === k); li.classList.toggle('is-done', i < k); });
+        if (ptCur) { ptCur.textContent = String(k + 1).padStart(2, '0'); ptCur.classList.remove('flip'); void ptCur.offsetWidth; ptCur.classList.add('flip'); }
+      }
+    }
+  };
+  if (reduced) { ptSteps.forEach((li) => li.classList.add('is-on')); }
+  else if (zooms.length || pt) {
+    let tk = false;
+    window.addEventListener('scroll', () => { if (!tk) { tk = true; requestAnimationFrame(() => { tk = false; scrollFx(); }); } }, { passive: true });
+    window.addEventListener('resize', scrollFx);
+    scrollFx();
+  }
   /* ---------------------------------------------------------------- shop: cart in localStorage, checkout via /api/checkout */
   const CART_KEY = 'ap-cart';
   const readCart = () => { try { const c = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); return Array.isArray(c) ? c : []; } catch (e) { return []; } };

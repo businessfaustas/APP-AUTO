@@ -1578,3 +1578,108 @@ ol.st-steps { margin: 0 0 var(--s-4); padding: 0; list-style: none; border-top: 
   .st { background: radial-gradient(ellipse 80% 30% at 50% 50%, #f6f7f8, var(--bgs) 80%), var(--bgs); }
   .st-canvas { -webkit-mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent); mask-image: linear-gradient(transparent, #000 14%, #000 88%, transparent); }
 }
+
+/* ================================================================== CLEANUP PASS: less text, more motion */
+/* ---- hero: one-line intro, outline word kept low and out of the headline, car follows the pointer */
+.hx-lede { max-width: 34ch; }
+.hx-word { top: auto; bottom: 2%; translate: calc(var(--mx, 0) * 18px) 0; -webkit-text-stroke-color: color-mix(in srgb, var(--ink) 9%, transparent); transition: translate 900ms var(--ease-out); }
+.hx-car { transform: translate3d(calc(var(--mx, 0) * -18px), calc(var(--my, 0) * -10px), 0) rotate(calc(var(--mx, 0) * -.6deg)); transition: transform 700ms var(--ease-out); }
+.hx-stripe { transform: translateX(calc(var(--mx, 0) * 10px)); transition: transform 900ms var(--ease-out); }
+@media (max-width: 899px) { .hx-word { bottom: 30%; } }
+
+/* ---- 360°: one short caption that changes with the angle, no paragraphs */
+.spin-notes { display: grid; grid-template-columns: minmax(0, 1fr) !important; justify-items: center; gap: 0; }
+.spin-notes li { grid-area: 1 / 1; display: flex !important; align-items: center; gap: 14px; padding: 12px 22px; border: 1px solid transparent; border-radius: 999px;
+  opacity: 0; transform: translateY(10px); transition: opacity 450ms var(--ease), transform 600ms var(--ease-out), border-color 450ms var(--ease); }
+.spin-notes li.is-active { opacity: 1; transform: none; border-color: color-mix(in srgb, var(--bg) 14%, transparent); }
+.spin-notes li > span:last-child { display: none; }
+.spin-notes .spin-n { grid-row: auto; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--ink); font-size: 10px; letter-spacing: 0; }
+.spin-notes b { font-size: clamp(.95rem, .85rem + .4vw, 1.15rem); letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) {
+  .spin-notes { gap: var(--s-1); }
+  .spin-notes li { grid-area: auto; opacity: 1; transform: none; }
+}
+
+/* ---- materials: three tabs, one open at a time; the photo zooms out as it scrolls through */
+.mat-list { margin-top: var(--s-6); border-top: 1px solid var(--line); }
+.mat { border-bottom: 1px solid var(--line); }
+.mat summary { list-style: none; display: grid; grid-template-columns: clamp(118px, 13vw, 200px) minmax(0, 1fr) 44px; align-items: center; gap: var(--s-2); padding: var(--s-3) 0; cursor: pointer; }
+.mat summary::-webkit-details-marker { display: none; }
+.mat-k { font: 900 clamp(1.7rem, 1rem + 2.2vw, 2.8rem)/1 var(--f-display); letter-spacing: -.02em; text-transform: uppercase; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--ink) 45%, transparent); transition: color 400ms var(--ease), -webkit-text-stroke-color 400ms var(--ease); }
+.mat-t { font: 700 .9rem/1.3 var(--f-display); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); transition: color 400ms var(--ease); }
+.mat-ico { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); color: var(--ink); transition: background-color 400ms var(--ease), border-color 400ms var(--ease); }
+.mat-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; stroke-linecap: round; }
+.mat summary:hover .mat-k { -webkit-text-stroke-color: var(--ink); }
+.mat[open] .mat-k { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+.mat[open] .mat-t { color: var(--ink); }
+.mat[open] .mat-ico { background: var(--accent); border-color: var(--accent); }
+.mat summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.mat-a { margin: 0 0 var(--s-3); padding-left: calc(clamp(118px, 13vw, 200px) + var(--s-2)); padding-right: 56px; color: var(--muted); font-size: 15px; line-height: 1.65; }
+.mat[open] .mat-a { animation: mat-in 550ms var(--ease-out) both; }
+@keyframes mat-in { from { opacity: 0; transform: translateY(-8px); } }
+@media (max-width: 599px) { .mat summary { grid-template-columns: auto minmax(0, 1fr) 40px; } .mat-a { padding: 0; } }
+[data-zoom] .pic img { transform: scale(calc(1.16 - var(--z, 0) * .16)); transform-origin: 50% 60%; will-change: transform; }
+
+/* ---- process: counter + car stay put on the left, steps light up on the right */
+.pt { position: relative; overflow: clip; background: radial-gradient(ellipse 50% 40% at 22% 55%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), var(--bg); }
+.pt-grid { display: grid; gap: var(--s-6); }
+.pt-count { display: flex; align-items: baseline; gap: 10px; margin: var(--s-4) 0 var(--s-2); }
+.pt-cur { display: inline-block; font: 900 clamp(4.4rem, 2rem + 7vw, 8.6rem)/.85 var(--f-display); letter-spacing: -.03em; font-variant-numeric: tabular-nums;
+  color: transparent; -webkit-text-stroke: 2px var(--accent); }
+.pt-cur.flip { animation: pt-flip 520ms var(--ease-out); }
+@keyframes pt-flip { from { opacity: 0; transform: translateY(30%); } }
+.pt-of { font: 700 1rem/1 var(--f-display); letter-spacing: .12em; color: var(--muted); }
+.pt-car { position: relative; width: min(100%, 540px); }
+.pt-car img { display: block; width: 100%; height: auto; transform: translateX(calc((1 - var(--pp, 0)) * 16%)); filter: drop-shadow(0 22px 24px color-mix(in srgb, #000 70%, transparent)); }
+.pt-road { position: relative; display: block; height: 2px; margin-top: 4px; background: var(--line); }
+.pt-road i { position: absolute; inset: 0; background: var(--accent); transform-origin: 100% 50%; transform: scaleX(var(--pp, 0)); box-shadow: 0 0 14px var(--accent); }
+.pt-cta { margin-top: var(--s-4); }
+ol.pt-steps { position: relative; margin: 0; padding: 0; list-style: none; }
+.pt-steps::before, .pt-steps::after { content: ""; position: absolute; left: 17px; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.pt-steps::after { background: var(--accent); transform-origin: 50% 0; transform: scaleY(var(--pp, 0)); box-shadow: 0 0 12px var(--accent); }
+.pt-step { position: relative; z-index: 1; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: var(--s-3); padding-block: var(--s-4); opacity: .3; transition: opacity 500ms var(--ease); }
+.pt-step.is-done { opacity: .6; }
+.pt-step.is-on { opacity: 1; }
+.pt-n { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); font: 700 11px/1 var(--f-display); letter-spacing: .06em; color: var(--muted);
+  transition: background-color 400ms var(--ease), color 400ms var(--ease), border-color 400ms var(--ease), box-shadow 400ms var(--ease); }
+.pt-step.is-done .pt-n { border-color: var(--accent); color: var(--ink); }
+.pt-step.is-on .pt-n { background: var(--accent); border-color: var(--accent); color: var(--ink); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 22%, transparent); }
+.pt-t { margin: 4px 0 8px; font: 800 clamp(1.25rem, 1rem + 1.3vw, 2rem)/1.1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; }
+.pt-p { margin: 0; color: var(--muted); font-size: 15px; }
+.pt-step.is-on .pt-t { transform: none; }
+@media (min-width: 900px) {
+  .pt-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-12); align-items: start; }
+  .pt-stage { position: sticky; top: calc(var(--header-h-condensed) + 6vh); }
+  .pt-step { padding-block: 11vh; }
+  .pt-step:first-child { padding-top: 6vh; }
+  .pt-step:last-child { padding-bottom: 22vh; }
+}
+@media (max-width: 899px) { .pt-car { width: min(100%, 420px); } .pt-count { margin-top: var(--s-3); } }
+@media (prefers-reduced-motion: reduce) { .pt { --pp: 1; } .pt-step { opacity: 1; } .pt-car img { transform: none; } }
+
+/* Montserrat (variable) builds letters from overlapping shapes, so outlined text shows stray inner lines.
+   Every outline becomes a solid fill instead. */
+.step-num, .rule-num { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--muted) 45%, transparent); }
+.paper .step-num { color: color-mix(in srgb, var(--bg) 25%, transparent); }
+.proof-num { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--ink) 9%, transparent); }
+.hx-word { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--ink) 4%, transparent); }
+.spin-word { -webkit-text-stroke: 0; color: color-mix(in srgb, var(--bg) 5%, transparent); }
+.fx-n { -webkit-text-stroke: 0; font-weight: 900; color: color-mix(in srgb, var(--ink) 14%, transparent); }
+.dv-out { -webkit-text-stroke: 0; color: var(--accent); }
+.pt-cur { -webkit-text-stroke: 0; color: var(--accent); }
+
+/* materials tabs: big keyword on top, small title under it, icon on the right */
+.mat summary { grid-template-columns: minmax(0, 1fr) 44px; grid-template-rows: auto auto; row-gap: 6px; }
+.mat-k { grid-column: 1; text-transform: none; -webkit-text-stroke: 0; color: color-mix(in srgb, var(--ink) 22%, transparent); font-size: clamp(1.8rem, 1.1rem + 2vw, 2.8rem); transition: color 400ms var(--ease); }
+.mat-t { grid-column: 1; grid-row: 2; }
+.mat-ico { grid-column: 2; grid-row: 1 / span 2; }
+.mat summary:hover .mat-k { color: color-mix(in srgb, var(--ink) 55%, transparent); }
+.mat[open] .mat-k { color: var(--accent); }
+.mat-a { padding: 0 56px 0 0; margin-top: -6px; }
+@media (max-width: 599px) { .mat summary { grid-template-columns: minmax(0, 1fr) 40px; } .mat-a { padding-right: 0; } }
+
+/* hero: the headline never runs under the car */
+.hx-h1 { font-size: clamp(2.05rem, .6rem + 4.4vw, 5rem); }
+.hx-copy { position: relative; z-index: 2; }
+@media (min-width: 900px) { .hx-car { margin-left: 2%; } }
