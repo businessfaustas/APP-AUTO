@@ -123,17 +123,17 @@ Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the
 
 `<section class="dv" data-dv>` on the home page. Scrolling scrubs through a frame sequence cut from the studio clip: the red Demon 170 drives in from the right and stops. `main.js` sets `--p` (0 → 1) on the section; it picks the frame and fades in the title, info box, specs and buttons.
 
-- **Frames**: `images/drive1/l/` (1280×720, desktop) and `images/drive1/s/` (768×432, phones), 102 WebP files each. They cover the drive (clip frames 18–106) plus the start of the camera push-in.
-- **Page colour**: the section background (`--bgv: #dedede`) matches the clip's studio grey. On desktop the clip fills the whole screen. On phones and portrait screens it sits full-width in the middle, faded top and bottom.
+- **Frames**: `images/drive-dark/l/` (1280×720, desktop) and `images/drive-dark/s/` (768×432, phones), 102 transparent WebP files each. They cover the drive (clip frames 18–106) plus the start of the camera push-in. Each frame is the car cut out of the studio clip, with a faint mirrored reflection under the tyres.
+- **Page colour**: black (`#050505`) with a soft red glow. The frames are transparent, so the car sits directly on the page.
 - **Replacing the clip**: extract new frames into a new folder, e.g. `images/drive2/`. Images are cached as immutable, so never overwrite a folder. Then update `data-src` and `data-frames` in the generator.
 
 ## Stripes section (home page)
 
 `<section class="st" data-st>` comes after the Materials section. Scrolling scrubs the clip of blue racing stripes being laid onto a white Challenger. It uses the same scroll-scrub code as the drive-in section (`scrub()` in `main.js`).
 
-- **Frames**: `images/stripes1/l/` (1280×720) and `images/stripes1/s/` (768×432), 90 WebP files each: 80 cover the application and 10 the camera drift at the end.
+- **Frames**: `images/stripes-dark/l/` (1280×720) and `images/stripes-dark/s/` (768×432), 90 transparent WebP files each: 80 cover the application and 10 the camera drift at the end.
 - **Steps**: the three steps on the left (`data-st-step`) light up at 0%, 36% and 70% of the scroll (the `at` array in `main.js`). On phones only the current step shows, under the clip.
-- **Page colour** (`--bgs: #f0f2f3`) and the soft glow behind the car match the clip's studio white. The clip's edges are faded into the page.
+- **Page colour**: black with a soft red glow, like the other two scroll sections. The top edge of the clip fades out so the stripes come in from the dark.
 
 ## Shop (test mode)
 
@@ -150,3 +150,13 @@ Pages: `lt/shop.html`, `lt/shop/<product>.html` and `lt/cart.html`, plus the sam
   4. Replace the test products in `data/products.json`, set `"test": false`, then regenerate the pages and push.
   5. Paid orders, including the customer's phone and parcel locker or address, appear in the Stripe dashboard → Payments.
 - **Trademarks**: Demon, SHELBY and HELLCAT are trademarks of their owners. Check you have the right to sell those designs before going live.
+
+## Scroll-video sections on black
+
+The 360° Mustang, the Demon drive-in and the stripes section all sit on black. Their source clips were shot in a white studio, so every frame is cut out (rembg, `isnet-general-use`). The cut-outs then go through three steps:
+
+1. **Edge clean-up**: the soft edge is hardened, shrunk by 1–2 px and feathered.
+2. **Colour clean-up**: white studio light is removed from the edge pixels.
+3. **Reflection**: a faint mirrored reflection is added under the tyres.
+
+Frames are saved as transparent WebP in `images/spin-dark/`, `images/drive-dark/` and `images/stripes-dark/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.

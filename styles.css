@@ -1683,3 +1683,32 @@ ol.pt-steps { position: relative; margin: 0; padding: 0; list-style: none; }
 .hx-h1 { font-size: clamp(2.05rem, .6rem + 4.4vw, 5rem); }
 .hx-copy { position: relative; z-index: 2; }
 @media (min-width: 900px) { .hx-car { margin-left: 2%; } }
+
+/* ================================================================== the three scroll-video sections on black
+   Frames are transparent cut-outs (car + a faint floor reflection), so the page colour shows through. */
+.spin, .dv, .st { --bgv: #050505; --bgs: #050505; background: radial-gradient(ellipse 60% 45% at 50% 62%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 70%), #050505; color: var(--ink); }
+/* 360° */
+.spin .h2, .spin-deg { color: var(--ink); }
+.spin-canvas { mix-blend-mode: normal; -webkit-mask-image: none; mask-image: none; }
+.spin-word { color: color-mix(in srgb, var(--ink) 4%, transparent); }
+.spin-notes li.is-active { border-color: color-mix(in srgb, var(--ink) 18%, transparent); }
+.spin-bar { background: var(--line); }
+.spin-bar i { background: var(--accent); }
+/* drive-in */
+.dv-solid, .dv-h, .dv-specs b, .dv-info .link-arrow { color: var(--ink); }
+.dv-info p { color: var(--muted); }
+.dv-specs li > span { color: var(--muted); }
+.dv .btn-line { color: var(--ink); border-color: color-mix(in srgb, var(--ink) 40%, transparent); }
+.dv .btn-line:hover { box-shadow: inset 24em 0 0 0 var(--ink); color: var(--bg); border-color: var(--ink); }
+.dv-bar { background: var(--line); }
+@media (max-width: 799px), (max-aspect-ratio: 6/5) { .dv { background: radial-gradient(ellipse 90% 30% at 50% 52%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 75%), #050505; } }
+/* stripes */
+.st-h, .st-steps b, .st-actions .link-arrow { color: var(--ink); }
+.st-steps p { color: var(--muted); }
+ol.st-steps, .st-steps li { border-color: var(--line); }
+.st-bar { background: var(--line); }
+.st-canvas { -webkit-mask-image: none; mask-image: none; }
+@media (max-width: 799px), (max-aspect-ratio: 6/5) { .st { background: radial-gradient(ellipse 90% 30% at 50% 50%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 75%), #050505; } }
+@media (max-width: 899px) { .spin-canvas { width: 122%; } .spin-stage { margin-block: 0; } }
+/* stripes come in from above the frame: fade the clip's top edge so they appear out of the dark */
+.st-canvas { -webkit-mask-image: linear-gradient(transparent, #000 16%); mask-image: linear-gradient(transparent, #000 16%); }

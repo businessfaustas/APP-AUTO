@@ -482,7 +482,7 @@ const FORM_ENDPOINT = '';
       let i = -1;
       for (let d = 0; d < n && i < 0; d++) { if (ok(frames[want - d])) i = want - d; else if (ok(frames[want + d])) i = want + d; }
       if (i < 0 || i === shown) return;
-      ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height); shown = i;
+      ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height); shown = i;
     };
     const load = (i) => { if (frames[i]) return; const im = new Image(); im.decoding = 'async'; im.onload = draw; im.src = src(i); frames[i] = im; };
     // first + last, then every 6th, then every 2nd, then the rest: the scrub works early and sharpens as frames arrive
