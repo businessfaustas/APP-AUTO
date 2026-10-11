@@ -1,1 +1,18 @@
-/  /lt/  302
+# Root → Lithuanian (unchanged)
+/                                                          /lt/                      302
+
+# --- Legacy Shopify URLs: exact matches, must stay above the wildcards ---
+/products/dodge-demon-170-custom-engraved-logo-emblem      /lt/shop/demon-170.html   301
+/en/products/dodge-demon-170-custom-engraved-logo-emblem   /en/shop/demon-170.html   301
+/cart                                                      /lt/cart.html             301
+/account                                                   /lt/                      301
+/search                                                    /lt/shop.html             301
+
+# --- Legacy Shopify URLs: catch-alls ---
+/products/*                                                /lt/shop.html             301
+/en/products/*                                             /en/shop.html             301
+/collections/*                                             /lt/shop.html             301
+/en/collections/*                                          /en/shop.html             301
+/pages/*                                                   /lt/                      301
+/en/pages/*                                                /en/                      301
+/blogs/*                                                   /lt/                      301
