@@ -1712,3 +1712,4 @@ ol.st-steps, .st-steps li { border-color: var(--line); }
 @media (max-width: 899px) { .spin-canvas { width: 122%; } .spin-stage { margin-block: 0; } }
 /* stripes come in from above the frame: fade the clip's top edge so they appear out of the dark */
 .st-canvas { -webkit-mask-image: linear-gradient(transparent, #000 16%); mask-image: linear-gradient(transparent, #000 16%); }
+@media (max-width: 899px) { .spin-canvas { width: 110%; } }

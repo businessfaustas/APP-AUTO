@@ -153,10 +153,12 @@ Pages: `lt/shop.html`, `lt/shop/<product>.html` and `lt/cart.html`, plus the sam
 
 ## Scroll-video sections on black
 
+**360° Mustang**: `images/spin-orbit/l/` and `s/` hold 120 frames, every second frame of the dark-studio orbit clip. That clip orbits about 315°, from the front-left corner round to the left side, so the section has `data-span="315"` and the degree counter stops at 315 rather than claiming a full 360.
+
 The 360° Mustang, the Demon drive-in and the stripes section all sit on black. Their source clips were shot in a white studio, so every frame is cut out (rembg, `isnet-general-use`). The cut-outs then go through three steps:
 
 1. **Edge clean-up**: the soft edge is hardened, shrunk by 1–2 px and feathered.
 2. **Colour clean-up**: white studio light is removed from the edge pixels.
 3. **Reflection**: a faint mirrored reflection is added under the tyres.
 
-Frames are saved as transparent WebP in `images/spin-dark/`, `images/drive-dark/` and `images/stripes-dark/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.
+Frames are saved as transparent WebP in `images/spin-orbit/`, `images/drive-dark/` and `images/stripes-dark/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.

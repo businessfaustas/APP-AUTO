@@ -457,7 +457,7 @@ const FORM_ENDPOINT = '';
       spinEl.style.setProperty('--p', p.toFixed(4));
       want = Math.min(n - 1, Math.round(p * (n - 1)));
       draw(want);
-      if (degEl) degEl.textContent = Math.round(p * 360);
+      if (degEl) degEl.textContent = Math.round(p * (+spinEl.dataset.span || 360));  // span = how far the clip actually orbits
       const a = Math.min(notes.length - 1, Math.floor(p * notes.length));
       notes.forEach((li, k) => li.classList.toggle('is-active', reduced || k === a));
     };
