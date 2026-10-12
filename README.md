@@ -93,7 +93,7 @@ To add photos, upload them to `images/originals/`. The web versions are made fro
 - [ ] Street address (also used for the map `q=` parameter and LocalBusiness JSON-LD)
 - [ ] Opening hours
 - [ ] Confirm the reply-time promise: "within one working day, Monday to Friday"
-- [x] Real domain: `https://autaplate.com`. Canonical, hreflang, OG and JSON-LD URLs use it; `sitemap.xml` and `robots.txt` point at it.
+- [x] Real domain: `https://autaplate.com`. Canonical, hreflang, OG and JSON-LD URLs use it; `sitemap.xml` and `robots.txt` point at it. These URLs drop `.html` (`/lt/shop`, not `/lt/shop.html`) because Cloudflare serves pages that way and redirects the `.html` address.
 - [ ] Home case study: it uses the grey hex-graphic Mustang photos. Confirm the facts (film, parts removed, days) to replace the generic captions
 - [ ] A real before/after pair shot from the same position (the slider is hidden until then)
 - [ ] Materials and duration for the Work page records
