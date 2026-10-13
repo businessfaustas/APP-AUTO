@@ -131,7 +131,7 @@ Pages link `styles.css?v=<hash>` and `main.js?v=<hash>`. The hash comes from the
 
 `<section class="st" data-st>` comes after the Materials section. Scrolling scrubs the clip of blue racing stripes being laid onto a white Challenger. It uses the same scroll-scrub code as the drive-in section (`scrub()` in `main.js`).
 
-- **Frames**: `images/stripes-dark/l/` (1280×720) and `images/stripes-dark/s/` (768×432), 90 transparent WebP files each: 80 cover the application and 10 the camera drift at the end.
+- **Frames**: `images/stripes-studio/l/` (1280×720) and `images/stripes-studio/s/` (768×432), 90 transparent WebP files each, cut from the dark-studio clip: 80 cover the application (clip frames 10–100) and 10 the camera drift at the end.
 - **Steps**: the three steps on the left (`data-st-step`) light up at 0%, 36% and 70% of the scroll (the `at` array in `main.js`). On phones only the current step shows, under the clip.
 - **Page colour**: black with a soft red glow, like the other two scroll sections. The top edge of the clip fades out so the stripes come in from the dark.
 
@@ -161,4 +161,4 @@ The 360° Mustang, the Demon drive-in and the stripes section all sit on black. 
 2. **Colour clean-up**: white studio light is removed from the edge pixels.
 3. **Reflection**: a faint mirrored reflection is added under the tyres.
 
-Frames are saved as transparent WebP in `images/spin-orbit/`, `images/drive-dark/` and `images/stripes-dark/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.
+Frames are saved as transparent WebP in `images/spin-orbit/`, `images/drive-dark/` and `images/stripes-studio/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.
