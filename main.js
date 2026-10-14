@@ -181,7 +181,9 @@ const FORM_ENDPOINT = '';
     chips.forEach((chip) => chip.addEventListener('click', () => {
       const f = chip.dataset.filter;
       chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
-      chip.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduced ? 'auto' : 'smooth' });
+      // keep the chip in view sideways only: scrollIntoView would also scroll the page to the folded panel's top
+      const row = chip.closest('ul'), li = chip.parentElement;
+      if (row && row.scrollWidth > row.clientWidth) row.scrollTo({ left: li.offsetLeft - (row.clientWidth - li.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' });
       const jobs = $$('.job', grid);
       let n = 0;
       const show = [], hide = [];
@@ -189,13 +191,52 @@ const FORM_ENDPOINT = '';
       const swap = () => {
         hide.forEach((j) => { j.hidden = true; j.classList.remove('is-out'); });
         show.forEach((j) => { const was = j.hidden; j.hidden = false; j.classList.add('is-in'); if (was && !reduced) { j.classList.add('is-pre'); } });
+        // reading inside the list: bring the first result up under the sticky panel
+        const gTop = grid.getBoundingClientRect().top, fb = fl ? fl.getBoundingClientRect().bottom : 0;
+        if (fl && gTop < fb) window.scrollTo({ top: window.scrollY + gTop - fb - 80, behavior: reduced ? 'auto' : 'smooth' });
         requestAnimationFrame(() => requestAnimationFrame(() => show.forEach((j, i) => { j.style.transitionDelay = `${Math.min(i, 8) * 40}ms`; j.classList.remove('is-pre'); })));
         setTimeout(() => show.forEach((j) => { j.style.transitionDelay = ''; }), 800);
       };
       if (reduced) swap();
       else { hide.forEach((j) => { if (!j.hidden) j.classList.add('is-out'); }); setTimeout(swap, 240); }
       if (status) status.textContent = `${n}`;
+      ind(); countTo(n);
     }));
+
+    // filter panel: a marker slides under the active chip and the count follows
+    const flList = $('[data-fl-list]'), flCount = $('[data-fl-count]'), fl = $('[data-fl]');
+    function ind() {
+      const on = chips.find((c) => c.getAttribute('aria-pressed') === 'true');
+      if (!on || !flList) return;
+      const li = on.parentElement;
+      flList.style.setProperty('--ix', `${li.offsetLeft}px`);
+      flList.style.setProperty('--iw', `${li.offsetWidth}px`);
+    }
+    let shownN = flCount ? +flCount.textContent : 0;
+    function countTo(n) {
+      if (!flCount) return;
+      const from = shownN, t0 = performance.now();
+      shownN = n;
+      if (reduced) { flCount.textContent = n; return; }
+      const tickN = (t) => { const k = Math.min(1, (t - t0) / 420); flCount.textContent = Math.round(from + (n - from) * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tickN); };
+      requestAnimationFrame(tickN);
+    }
+    if (flList) {
+      ind();
+      if ('ResizeObserver' in window) new ResizeObserver(ind).observe(flList);
+      window.addEventListener('resize', ind);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(ind);
+    }
+    if (fl) {
+      // how much of the panel slides up under the header once it sticks: everything above the service names
+      const fold = () => {
+        const t = Math.max(...$$('.chip-n', fl).map((x) => x.getBoundingClientRect().bottom));
+        fl.style.setProperty('--fold', `${Math.max(0, Math.round(t - fl.getBoundingClientRect().top + 6))}px`);
+      };
+      fold();
+      window.addEventListener('resize', fold);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fold);
+    }
 
     const dialog = $('[data-job-dialog]');
     if (dialog && typeof dialog.showModal === 'function') {
@@ -223,10 +264,14 @@ const FORM_ENDPOINT = '';
     const statusEl = $('[data-quote-status]', form);
     let at = 0;
     const pad = (n) => String(n).padStart(2, '0');
+    const dots = $$('[data-q-dot]', form);
     const go = (i, focus = true) => {
+      form.dataset.dir = i < at ? 'b' : 'f';
       at = i;
       steps.forEach((s, n) => s.classList.toggle('is-active', n === i));
       if (progress) progress.textContent = `${pad(i + 1)} / ${pad(steps.length)}`;
+      form.style.setProperty('--qp', ((i + 1) / steps.length).toFixed(3));
+      dots.forEach((d, n) => { d.classList.toggle('is-on', n === i); d.classList.toggle('is-done', n < i); });
       if (focus) { const first = $('input, select, textarea', steps[i]); if (first) first.focus(); }
     };
     const valid = (step) => {
@@ -561,6 +606,126 @@ const FORM_ENDPOINT = '';
     window.addEventListener('scroll', () => { if (!tk) { tk = true; requestAnimationFrame(() => { tk = false; scrollFx(); }); } }, { passive: true });
     window.addEventListener('resize', scrollFx);
     scrollFx();
+  }
+  /* ---------------------------------------------------------------- recent work (home): vertical scroll slides the cards sideways
+     Desktop: the section is pinned and as tall as the track's overflow, so 1px of scroll moves the
+     track 1px; the track follows with a little inertia and leans into the movement. Phones: a swipe row. */
+  const wk = $('[data-wk]');
+  if (wk) {
+    const view = $('[data-wk-view]', wk), track = $('[data-wk-track]', wk), word = $('.wk-word', wk), cur = $('[data-wk-cur]', wk);
+    const cards = $$('.wk-card', track);
+    const jobs = cards.filter((c) => !c.classList.contains('wk-all')).length;
+    const wide = window.matchMedia('(min-width: 900px)');
+    let pin = false, max = 0, target = 0, x = 0, raf = 0, idx = 0, padL = 0, tick = false;
+    const setIdx = (k) => {
+      if (k === idx || !cur) return;
+      idx = k; cur.textContent = String(k + 1).padStart(2, '0');
+      cur.classList.remove('flip'); void cur.offsetWidth; cur.classList.add('flip');
+    };
+    // --d: how far a card's centre is from the focus point, in screen widths (drives the photo parallax and fade)
+    const paint = () => {
+      const vw = window.innerWidth;
+      const focus = pin ? vw / 2 : view.getBoundingClientRect().left + padL + cards[0].offsetWidth / 2;
+      cards.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const d = Math.max(-1.2, Math.min(1.2, (r.left + r.width / 2 - focus) / vw));
+        c.style.setProperty('--d', d.toFixed(3));
+        c.style.setProperty('--ad', Math.abs(d).toFixed(3));
+      });
+    };
+    const progress = (p) => { wk.style.setProperty('--wp', (0.08 + 0.92 * p).toFixed(3)); setIdx(Math.round(p * (jobs - 1))); };
+    const loop = () => {
+      raf = 0;
+      x += (target - x) * 0.12;
+      if (Math.abs(target - x) < 0.4) x = target;
+      track.style.setProperty('--tx', x.toFixed(1));
+      track.style.setProperty('--sk', Math.max(-5, Math.min(5, (x - target) * 0.012)).toFixed(2));
+      if (word) word.style.setProperty('--wx', (-x * 0.3).toFixed(1));
+      paint();
+      if (x !== target) raf = requestAnimationFrame(loop);
+    };
+    const update = () => {
+      tick = false;
+      if (pin) {
+        const r = wk.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - window.innerHeight)));
+        target = p * max; progress(p);
+        if (!raf) raf = requestAnimationFrame(loop);
+      } else {
+        const m = view.scrollWidth - view.clientWidth;
+        progress(m > 0 ? view.scrollLeft / m : 0);
+        if (!reduced) paint();
+        if (word && !reduced) word.style.setProperty('--wx', (wk.getBoundingClientRect().top * 0.25).toFixed(1));
+      }
+    };
+    const measure = () => {
+      pin = wide.matches && !reduced;
+      wk.classList.toggle('is-pin', pin);
+      padL = parseFloat(getComputedStyle(view).paddingLeft) || 0;
+      if (pin) {
+        max = Math.max(0, track.scrollWidth - (view.clientWidth - 2 * padL));
+        wk.style.setProperty('--wk-h', `${Math.round(max + window.innerHeight)}px`);
+      } else {
+        wk.style.removeProperty('--wk-h'); x = target = 0;
+        track.style.removeProperty('--tx'); track.style.removeProperty('--sk');
+      }
+      update();
+    };
+    const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    view.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
+    // keyboard: tabbing to a card that sits off to the side scrolls the page until it is in view
+    track.addEventListener('focusin', (ev) => {
+      const card = pin && ev.target.closest('.wk-card');
+      if (!card) return;
+      const p = Math.min(1, Math.max(0, (card.offsetLeft - padL) / Math.max(1, max)));
+      window.scrollTo({ top: wk.getBoundingClientRect().top + window.scrollY + p * (wk.offsetHeight - window.innerHeight), behavior: 'auto' });
+    });
+    measure();
+  }
+  /* ---------------------------------------------------------------- page heroes: --py = px scrolled past the hero top (parallax) */
+  const pars = reduced ? [] : $$('[data-par]');
+  if (pars.length) {
+    let tkP = false;
+    const par = () => {
+      tkP = false;
+      pars.forEach((el) => { const r = el.getBoundingClientRect(); if (r.bottom > 0 && r.top < window.innerHeight) el.style.setProperty('--py', Math.max(0, -r.top).toFixed(1)); });
+    };
+    window.addEventListener('scroll', () => { if (!tkP) { tkP = true; requestAnimationFrame(par); } }, { passive: true });
+    par();
+  }
+  /* ---------------------------------------------------------------- about: the statement lights up word by word as it scrolls through */
+  const say = $('[data-say]');
+  if (say) {
+    const words = $$('.w', say);
+    if (reduced) words.forEach((w) => w.classList.add('is-lit'));
+    else {
+      let tkS = false, lit = -1;
+      const light = () => {
+        tkS = false;
+        const r = say.getBoundingClientRect(), vh = window.innerHeight;
+        const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height * 0.9 + vh * 0.35)));
+        const k = Math.round(p * words.length);
+        if (k === lit) return;
+        lit = k;
+        words.forEach((w, i) => w.classList.toggle('is-lit', i < k));
+      };
+      window.addEventListener('scroll', () => { if (!tkS) { tkS = true; requestAnimationFrame(light); } }, { passive: true });
+      light();
+    }
+  }
+  /* ---------------------------------------------------------------- cards that tilt toward the pointer (mouse only) */
+  if (!reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    $$('[data-tilt]').forEach((el) => {
+      let rafT = 0, tx = 0, ty = 0;
+      el.addEventListener('pointermove', (ev) => {
+        const r = el.getBoundingClientRect();
+        tx = ((ev.clientX - r.left) / r.width) * 2 - 1; ty = ((ev.clientY - r.top) / r.height) * 2 - 1;
+        if (!rafT) rafT = requestAnimationFrame(() => { rafT = 0; el.style.setProperty('--tx', tx.toFixed(3)); el.style.setProperty('--ty', ty.toFixed(3)); });
+      });
+      el.addEventListener('pointerleave', () => { el.style.setProperty('--tx', 0); el.style.setProperty('--ty', 0); });
+    });
   }
   /* ---------------------------------------------------------------- shop: cart in localStorage, checkout via /api/checkout */
   const CART_KEY = 'ap-cart';

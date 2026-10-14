@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=9507a07d6b">
+  <link rel="stylesheet" href="../styles.css?v=84a07e7aae">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
-  <script src="../main.js?v=b07b6641e9" defer></script>
+  <script src="../main.js?v=5fc02e643b" defer></script>
 </head>
 <body>
 <div class="loader" aria-hidden="true">
@@ -49,18 +49,33 @@
 </header>
 <main id="main" tabindex="-1">
 
-<section class="page-hero" aria-labelledby="h1">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal>KONTAKTAI</p>
-    <h1 class="h1" id="h1" data-reveal>Užklausa kainai</h1>
-    <p class="lede" data-reveal>Trys trumpi žingsniai. Atsiuntę automobilio nuotraukas, iš karto gausite konkretesnį atsakymą.</p>
+<section class="ct-hero" data-par aria-labelledby="h1">
+  <span class="ct-word" aria-hidden="true">KONTAKTAI</span>
+  <div class="wrap ct-grid">
+    <div class="ct-copy">
+      <p class="eyebrow eyebrow-accent" data-reveal>KONTAKTAI</p>
+      <h1 class="h1" id="h1" data-reveal>Gaukite kainą <br><em>raštu</em></h1>
+      <p class="lede" data-reveal style="--d:120ms">Trys trumpi žingsniai. Atsiuntę automobilio nuotraukas, iš karto gausite konkretesnį atsakymą.</p>
+      <p class="hero-actions" data-reveal style="--d:200ms"><a class="btn btn-accent" href="#quote">Pildyti užklausą</a></p>
+    </div>
+    <ul class="ct-cards" aria-label="Kontaktinė informacija">
+      <li class="ct-card ct-phone" data-reveal style="--d:240ms"><a href="tel:+37062405636"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg><i class="ct-pulse" aria-hidden="true"></i></span><span class="ct-k">TELEFONAS</span><span class="ct-v">+370 62405636</span><span class="ct-go" aria-hidden="true"></span></a></li>
+      <!-- TODO: email card — same markup as the phone card with a mailto: link -->
+      <li class="ct-card" data-reveal style="--d:330ms"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.2"/></svg></span><span class="ct-k">ATSAKYMAS</span><span class="ct-v">Per vieną darbo dieną</span><small>pirmadienį–penktadienį</small></li>
+      <li class="ct-card" data-reveal style="--d:420ms"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.4 7-11.6a7 7 0 0 0-14 0c0 5.2 7 11.6 7 11.6Z"/><circle cx="12" cy="9.8" r="2.5"/></svg></span><span class="ct-k">VIETA</span><span class="ct-v"><!-- TODO: street address -->Klaipėda, Lietuva</span></li>
+      <!-- TODO: opening hours card -->
+    </ul>
   </div>
 </section>
 
-<section class="section section-tight" id="quote" aria-label="Užklausos forma">
-  <div class="wrap contact-grid">
-    <form class="quote" data-quote novalidate enctype="multipart/form-data">
-      <p class="quote-progress eyebrow" aria-live="polite" data-quote-progress>01 / 03</p>
+<section class="section ct-main" id="quote" aria-label="Užklausos forma">
+  <div class="wrap ct-main-grid">
+    <form class="quote ct-form" data-quote novalidate enctype="multipart/form-data" data-reveal>
+      <div class="q-top">
+        <p class="quote-progress" aria-live="polite" data-quote-progress>01 / 03</p>
+        <ol class="q-dots" aria-hidden="true"><li data-q-dot class="is-on"><span>01</span>Automobilis</li><li data-q-dot><span>02</span>Nuotraukos</li><li data-q-dot><span>03</span>Kontaktai</li></ol>
+        <span class="q-bar" aria-hidden="true"><i></i></span>
+      </div>
       <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
       <fieldset class="q-step" data-step="1">
@@ -96,15 +111,12 @@
          data-sending="Siunčiama…"></p>
     </form>
 
-    <aside class="contact-aside" aria-label="Kontaktinė informacija">
-      <dl class="record">
-        <div><dt>TELEFONAS</dt><dd><a href="tel:+37062405636">+370 62405636</a></dd></div>
-        <!-- TODO: email row — <div><dt>EMAIL</dt><dd><a href="mailto:…">…</a></dd></div> -->
-        <div><dt>ADRESAS</dt><dd><!-- TODO: street address -->Klaipėda, Lietuva</dd></div>
-        <!-- TODO: opening hours row -->
-        <div><dt>ATSAKYMAS</dt><dd>Per vieną darbo dieną, pirmadienį–penktadienį.</dd></div>
-      </dl>
-      <div class="map" data-map data-map-src="https://www.google.com/maps?q=Klaip%C4%97da&amp;output=embed">
+    <aside class="ct-aside" aria-label="Kas vyksta toliau">
+      <div class="ct-next">
+        <p class="eyebrow eyebrow-accent">KAS TOLIAU</p>
+        <ol class="ct-steps"><li data-reveal style="--d:0ms"><span class="ct-sn">01</span><span><b>Peržiūrime užklausą</b><small>Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</small></span></li><li data-reveal style="--d:100ms"><span class="ct-sn">02</span><span><b>Kaina raštu</b><small>Tikslią kainą žinote dar prieš pradedant darbą.</small></span></li><li data-reveal style="--d:200ms"><span class="ct-sn">03</span><span><b>Suderiname laiką</b><small>Pasakome, kada atvežti automobilį.</small></span></li></ol>
+      </div>
+      <div class="map ct-map" data-map data-map-src="https://www.google.com/maps?q=Klaip%C4%97da&amp;output=embed">
         <!-- Map loads only on click, so Google Fonts stays the only request on page load. Update the q= parameter to the street address. -->
         <div class="ph ph-map" style="--ar:4/3" role="img" aria-label="Photo placeholder: KLAIPĖDA, LIETUVA"><span>KLAIPĖDA, LIETUVA</span></div>
         <button type="button" class="btn btn-line map-btn" data-map-load>Rodyti žemėlapį</button>

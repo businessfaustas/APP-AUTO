@@ -162,3 +162,12 @@ The 360° Mustang, the Demon drive-in and the stripes section all sit on black. 
 3. **Reflection**: a faint mirrored reflection is added under the tyres.
 
 Frames are saved as transparent WebP in `images/spin-orbit/`, `images/drive-dark/` and `images/stripes-studio/`. A new clip needs the same treatment. Always use a new folder name, because images are cached as immutable.
+
+## Motion on the content pages
+
+- **Recent work (home)**: on screens 900 px and wider the section pins, and scrolling down slides the cards sideways (`data-wk` in `main.js`). The section's height is set to the track's overflow, so one pixel of scroll moves the cards one pixel. On phones it is a swipeable row. It shows the first eight jobs from the gallery, then an "All work" card.
+- **Work page**: the stat tiles count up. The filter panel is sticky. Once it sticks, its top part (heading, index numbers and counts) slides up under the header and only the row of service names stays in view. A red marker slides under the active filter, and "Showing N of 23" follows the filter.
+- **About page**: the statement lights up word by word as it scrolls through, the photo strip loops sideways and pauses on hover, and the three principle cards tilt toward the mouse pointer.
+- **Contact page**: the three form steps have numbered dots and a progress bar, and each step slides in from the side it comes from.
+
+With "reduce motion" switched on in the operating system, nothing pins or loops, and all text shows at once.
