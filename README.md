@@ -180,3 +180,14 @@ With "reduce motion" switched on in the operating system, nothing pins or loops,
 
 - Instagram and Facebook links are in the footer of every page and on the contact page. They are also in the business data on the home page (`sameAs`), so Google can connect the profiles to the site. The URLs are `INSTAGRAM` and `FACEBOOK` in the generator.
 - The cart pages carry `noindex` and are left out of `sitemap.xml`, so they don't show up in Google results.
+
+## Contact page, logo and map
+
+- **Hero watermark**: the faint AUTAPLATE logo behind the home hero is `images/web/hx-logo-1600.webp` (and `-800`), cut from `images/originals/autaplate-logo.png` without its drop shadow.
+- **Numbers band (home)**: two crossing tape bands that run sideways. Hovering pauses them. With "reduce motion" switched on, they stand still.
+- **Contact page**:
+  - The phone number is drawn as a Lithuanian number plate.
+  - The quote form's service choice is a set of picture tiles (`service`, sent as the service name).
+  - Step 2 has optional interest chips, sent as `pasirinkta`, e.g. "Juostos, Lipdukai".
+  - After sending, the form shows a "Gauta!" confirmation.
+- **Map**: the contact page embeds a live Google map of Klaipėda (lazy-loaded, darkened with a CSS filter). Once there is a street address, put it in the `q=` parameter of the map and of the "Atidaryti Google Maps" link.

@@ -21,6 +21,8 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
     const fd = new FormData(f);
     const sel = $('select[name="service"]', f);              // the email gets the service name, not its URL slug
     if (sel && sel.selectedIndex > 0) fd.set('service', sel.options[sel.selectedIndex].text);
+    const radio = $('input[name="service"]:checked', f);    // contact page: service picture tiles
+    if (radio && radio.dataset.label) fd.set('service', radio.dataset.label);
     fd.set('puslapis', location.href.split('#')[0]);        // which page the enquiry came from
     const files = [...fd.entries()].filter(([, v]) => v instanceof File);
     const hasFiles = files.some(([, v]) => v.size);
@@ -308,6 +310,20 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
     const pre = new URLSearchParams(location.search).get('service');
     const select = $('select[name="service"]', form);
     if (pre && select && [...select.options].some((o) => o.value === pre)) select.value = pre;
+    const preRadio = pre && $$('input[name="service"]', form).find((r) => r.value === pre);
+    if (preRadio) preRadio.checked = true;
+    // a service tile clears its error mark as soon as one is picked
+    $$('input[name="service"]', form).forEach((r) => r.addEventListener('change', () => $$('input[name="service"]', form).forEach((x) => x.removeAttribute('aria-invalid'))));
+
+    // interest chips: toggle, and keep the list in a hidden field that goes out with the form
+    const chipsOut = $('[data-chips-out]', form);
+    const chipList = $$('[data-chip]', form);
+    const syncChips = () => { if (chipsOut) chipsOut.value = chipList.filter((b) => b.getAttribute('aria-pressed') === 'true').map((b) => b.textContent).join(', '); };
+    chipList.forEach((b) => b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); syncChips(); }));
+
+    // after sending, the steps give way to a confirmation; "send another" brings them back
+    const again = $('[data-q-again]', form);
+    if (again) again.addEventListener('click', () => { form.classList.remove('is-sent'); go(0); });
 
     const files = $('[data-files]', form);
     const filesList = $('[data-files-list]', form);
@@ -322,7 +338,10 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
       say('sending');
       try {
         await sendForm(form);
-        say('ok'); form.reset(); if (filesList) filesList.textContent = ''; go(0, false);
+        say('ok'); form.reset(); if (filesList) filesList.textContent = '';
+        chipList.forEach((b) => b.setAttribute('aria-pressed', 'false')); syncChips();
+        go(0, false); form.classList.add('is-sent');
+        const done = $('.q-done', form); if (done) { done.removeAttribute('aria-hidden'); form.scrollIntoView({ block: 'start', behavior: reduced ? 'auto' : 'smooth' }); }
       } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); statusEl.textContent += ` (${err.message})`; }
       if (btn) btn.disabled = false;
     });

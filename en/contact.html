@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=ecb04571f8">
+  <link rel="stylesheet" href="../styles.css?v=c4b5b7090e">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
-  <script src="../main.js?v=faf6cfa02e" defer></script>
+  <script src="../main.js?v=372c4eec7a" defer></script>
 </head>
 <body>
 <div class="loader" aria-hidden="true">
@@ -58,14 +58,32 @@
       <p class="lede" data-reveal style="--d:120ms">Three short steps: the car, what you want done, and your details. We reply in writing.</p>
       <p class="hero-actions" data-reveal style="--d:200ms"><a class="btn btn-accent" href="#quote">Fill in the request</a></p>
     </div>
-    <ul class="ct-cards" aria-label="Contact details">
-      <li class="ct-card ct-phone" data-reveal style="--d:240ms"><a href="tel:+37062405636"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg><i class="ct-pulse" aria-hidden="true"></i></span><span class="ct-k">PHONE</span><span class="ct-v">+370 62405636</span><span class="ct-go" aria-hidden="true"></span></a></li>
-      <!-- TODO: email card — same markup as the phone card with a mailto: link -->
-      <li class="ct-card" data-reveal style="--d:330ms"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.2"/></svg></span><span class="ct-k">REPLY</span><span class="ct-v">Within one working day</span><small>Monday to Friday</small></li>
-      <li class="ct-card" data-reveal style="--d:420ms"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s7-6.4 7-11.6a7 7 0 0 0-14 0c0 5.2 7 11.6 7 11.6Z"/><circle cx="12" cy="9.8" r="2.5"/></svg></span><span class="ct-k">LOCATION</span><span class="ct-v"><!-- TODO: street address -->Klaipėda, Lithuania</span></li>
-      <li class="ct-card" data-reveal style="--d:510ms"><span class="ct-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="ct-k">FOLLOW US</span><ul class="social ct-soc" aria-label="Social media"><li><a href="https://www.instagram.com/autaplate/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a></li><li><a href="https://www.facebook.com/profile.php?id=61583636107747" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-7.4h2.6l.4-3.1h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.3a21 21 0 0 0-2.4-.1c-2.4 0-4 1.4-4 4.1v2.2H7.8v3.1h2.6V21Z"/></svg><span>Facebook</span></a></li></ul></li>
-      <!-- TODO: opening hours card -->
-    </ul>
+    <div class="ct-side">
+      <p class="plate-cap" data-reveal style="--d:200ms">CALL US</p>
+      <a class="plate" href="tel:+37062405636" data-reveal style="--d:260ms" aria-label="Call +370 62405636">
+        <span class="plate-eu" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="19.20" cy="12.00" r="1.05"/><circle cx="18.24" cy="15.60" r="1.05"/><circle cx="15.60" cy="18.24" r="1.05"/><circle cx="12.00" cy="19.20" r="1.05"/><circle cx="8.40" cy="18.24" r="1.05"/><circle cx="5.76" cy="15.60" r="1.05"/><circle cx="4.80" cy="12.00" r="1.05"/><circle cx="5.76" cy="8.40" r="1.05"/><circle cx="8.40" cy="5.76" r="1.05"/><circle cx="12.00" cy="4.80" r="1.05"/><circle cx="15.60" cy="5.76" r="1.05"/><circle cx="18.24" cy="8.40" r="1.05"/></svg><b>LT</b></span>
+        <span class="plate-num">+370 624 05636</span>
+        <span class="plate-go" aria-hidden="true"></span>
+      </a>
+      <!-- TODO: email — add a second plate-style link, or a tile below, with a mailto: link -->
+      <ul class="ct-tiles" aria-label="Contact details">
+        <li class="ct-tile" data-reveal style="--d:340ms">
+          <span class="ct-tile-k">REPLY</span>
+          <svg class="ct-clock" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><g class="ct-ticks"><line x1="24" y1="5" x2="24" y2="10" transform="rotate(0 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(30 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(60 24 24)"/><line x1="24" y1="5" x2="24" y2="10" transform="rotate(90 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(120 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(150 24 24)"/><line x1="24" y1="5" x2="24" y2="10" transform="rotate(180 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(210 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(240 24 24)"/><line x1="24" y1="5" x2="24" y2="10" transform="rotate(270 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(300 24 24)"/><line x1="24" y1="5" x2="24" y2="8" transform="rotate(330 24 24)"/></g><line class="ct-h" x1="24" y1="24" x2="24" y2="14"/><line class="ct-m" x1="24" y1="24" x2="24" y2="9"/><circle cx="24" cy="24" r="2"/></svg>
+          <b>Within 1 working day</b><small>Monday to Friday</small>
+        </li>
+        <li class="ct-tile" data-reveal style="--d:420ms">
+          <span class="ct-tile-k">LOCATION</span>
+          <span class="ct-geo" aria-hidden="true"><i></i><span>55.71°N <br>21.13°E</span></span>
+          <b><!-- TODO: street address -->Klaipėda</b><small>Lithuania</small>
+        </li>
+        <li class="ct-tile" data-reveal style="--d:500ms">
+          <span class="ct-tile-k">FOLLOW US</span>
+          <span class="ct-soc2"><a href="https://www.instagram.com/autaplate/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.facebook.com/profile.php?id=61583636107747" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-7.4h2.6l.4-3.1h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.3a21 21 0 0 0-2.4-.1c-2.4 0-4 1.4-4 4.1v2.2H7.8v3.1h2.6V21Z"/></svg></a></span>
+          <b>@autaplate</b><small>Instagram · Facebook</small>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -74,36 +92,73 @@
     <form class="quote ct-form" data-quote novalidate data-reveal action="https://api.web3forms.com/submit" method="POST">
       <div class="q-top">
         <p class="quote-progress" aria-live="polite" data-quote-progress>01 / 03</p>
-        <ol class="q-dots" aria-hidden="true"><li data-q-dot class="is-on"><span>01</span>Car</li><li data-q-dot><span>02</span>Request</li><li data-q-dot><span>03</span>Details</li></ol>
-        <span class="q-bar" aria-hidden="true"><i></i></span>
+        <ol class="q-dots" aria-hidden="true"><li data-q-dot class="is-on"><span>01</span><em>Car</em></li><li data-q-dot><span>02</span><em>Request</em></li><li data-q-dot><span>03</span><em>Details</em></li></ol>
       </div>
       <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Užklausa kainai — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="EN"><div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
 
       <fieldset class="q-step" data-step="1">
-        <legend class="h3">Car and service</legend>
-        <div class="field"><label for="f-vehicle">Car — make, model, year</label>
-          <input id="f-vehicle" name="vehicle" type="text" required autocomplete="off"></div>
-        <div class="field"><label for="f-service">Service</label>
-          <select id="f-service" name="service" required><option value="">Choose one</option><option value="custom-orders">Custom orders</option><option value="full-vehicle-projects">Full vehicle projects</option><option value="oem-emission-labels">OEM emission control labels</option><option value="wrapping-livery-design">Wrapping and livery design</option><option value="custom-decals">Custom vehicle decals</option><option value="engraved-badges">Engraved badges</option><option value="not-sure">Not sure yet</option></select></div>
+        <legend class="q-legend"><span aria-hidden="true">01</span>Car and service</legend>
+        <div class="q-fl"><input id="f-vehicle" name="vehicle" type="text" placeholder=" " required autocomplete="off"><label for="f-vehicle">Car — make, model, year</label><i aria-hidden="true"></i></div>
+        <p class="q-sub" id="svc-l">Which service do you need?</p>
+        <div class="q-svcs" role="radiogroup" aria-labelledby="svc-l"><label class="q-svc">
+            <input type="radio" name="service" value="custom-orders" data-label="Custom orders" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/boat-fishon-1200.jpg" srcset="../images/web/boat-fishon-600.jpg 600w, ../images/web/boat-fishon-1200.jpg 1200w, ../images/web/boat-fishon-2000.jpg 2000w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="900" alt="Boat with fishon.lt lettering" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">Custom orders</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc">
+            <input type="radio" name="service" value="full-vehicle-projects" data-label="Full vehicle projects" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/mustang-green-1200.jpg" srcset="../images/web/mustang-green-600.jpg 600w, ../images/web/mustang-green-1200.jpg 1200w, ../images/web/mustang-green-2000.jpg 2000w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="900" alt="Green Ford Mustang with black details" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">Full vehicle projects</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc">
+            <input type="radio" name="service" value="oem-emission-labels" data-label="OEM emission control labels" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="1200" alt="Sample emission control label" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">OEM emission control labels</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc">
+            <input type="radio" name="service" value="wrapping-livery-design" data-label="Wrapping and livery design" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/giulia-side-1200.jpg" srcset="../images/web/giulia-side-600.jpg 600w, ../images/web/giulia-side-1200.jpg 1200w, ../images/web/giulia-side-2000.jpg 2000w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="900" alt="Grey Alfa Romeo Giulia with a yellow livery" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">Wrapping and livery design</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc">
+            <input type="radio" name="service" value="custom-decals" data-label="Custom vehicle decals" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/challenger-392-rear-1200.jpg" srcset="../images/web/challenger-392-rear-600.jpg 600w, ../images/web/challenger-392-rear-1200.jpg 1200w, ../images/web/challenger-392-rear-2000.jpg 2000w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="900" alt="Rear of a Dodge Challenger with 392 SRT lettering and stripes" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">Custom vehicle decals</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc">
+            <input type="radio" name="service" value="engraved-badges" data-label="Engraved badges" required>
+            <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/badge-mustang-1200.jpg" srcset="../images/web/badge-mustang-600.jpg 600w, ../images/web/badge-mustang-1200.jpg 1200w, ../images/web/badge-mustang-1512.jpg 1512w" sizes="(min-width: 1000px) 15vw, 45vw" width="1200" height="1600" alt="Badge on a boot lid" loading="lazy" decoding="async"></span>
+            <span class="q-svc-name">Engraved badges</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label><label class="q-svc q-svc-none">
+            <input type="radio" name="service" value="not-sure" data-label="Not sure yet" required>
+            <span class="q-svc-media"><span class="q-svc-q" aria-hidden="true">?</span></span>
+            <span class="q-svc-name">Not sure yet</span><span class="q-svc-tick" aria-hidden="true"></span>
+          </label></div>
         <div class="q-nav"><button type="button" class="btn btn-accent" data-next>Next</button></div>
       </fieldset>
 
       <fieldset class="q-step" data-step="2">
-        <legend class="h3">Your request</legend>
+        <legend class="q-legend"><span aria-hidden="true">02</span>Your request</legend>
+        <p class="q-sub">Tick what fits (optional)</p>
+        <div class="q-chips"><button type="button" class="q-chip" aria-pressed="false" data-chip>Full wrap</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Partial wrap</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Colour change</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Stripes</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Decals</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Chrome delete</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Graphic design</button></div>
+        <input type="hidden" name="pasirinkta" value="" data-chips-out>
         
-        <div class="field"><label for="f-message">What do you want done?</label>
-          <textarea id="f-message" name="message" rows="6"></textarea></div>
+        <div class="q-fl q-fl-area"><textarea id="f-message" name="message" rows="5" placeholder=" "></textarea><label for="f-message">What do you want done? Colour, placement, timing…</label><i aria-hidden="true"></i></div>
         <p class="q-note">You can send photos by replying to our email. They make the price more exact.</p>
         <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="button" class="btn btn-accent" data-next>Next</button></div>
       </fieldset>
 
       <fieldset class="q-step" data-step="3">
-        <legend class="h3">Your details</legend>
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-accent">Send request</button></div>
+        <legend class="q-legend"><span aria-hidden="true">03</span>Your details</legend>
+        <div class="q-grid2">
+          <div class="q-fl"><input id="f-name" name="name" type="text" placeholder=" " required autocomplete="name"><label for="f-name">Name</label><i aria-hidden="true"></i></div>
+          <div class="q-fl"><input id="f-phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="f-phone">Phone (optional)</label><i aria-hidden="true"></i></div>
+        </div>
+        <div class="q-fl"><input id="f-email" name="email" type="email" placeholder=" " required autocomplete="email"><label for="f-email">Email — we reply here</label><i aria-hidden="true"></i></div>
+        <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-accent q-send">Send request</button></div>
       </fieldset>
+
+      <div class="q-done" aria-hidden="true">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29"/><path d="m19 33 9 9 18-19"/></svg>
+        <p class="q-done-h">Received!</p>
+        <p>We&#x27;ll reply within one working day, Monday to Friday. You can send photos by replying to our email.</p>
+        <button type="button" class="btn btn-line" data-q-again>Send another request</button>
+      </div>
 
       <p class="q-status" role="status" data-quote-status
          data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
@@ -116,12 +171,20 @@
         <p class="eyebrow eyebrow-accent">WHAT HAPPENS NEXT</p>
         <ol class="ct-steps"><li data-reveal style="--d:0ms"><span class="ct-sn">01</span><span><b>We look at your request</b><small>We reply within one working day, Monday to Friday.</small></span></li><li data-reveal style="--d:100ms"><span class="ct-sn">02</span><span><b>A written price</b><small>You know the exact price before work starts.</small></span></li><li data-reveal style="--d:200ms"><span class="ct-sn">03</span><span><b>We agree a date</b><small>We tell you when to bring the car in.</small></span></li></ol>
       </div>
-      <div class="map ct-map" data-map data-map-src="https://www.google.com/maps?q=Klaip%C4%97da&amp;output=embed">
-        <!-- Map loads only on click, so Google Fonts stays the only request on page load. Update the q= parameter to the street address. -->
-        <div class="ph ph-map" style="--ar:4/3" role="img" aria-label="Photo placeholder: KLAIPĖDA, LITHUANIA"><span>KLAIPĖDA, LITHUANIA</span></div>
-        <button type="button" class="btn btn-line map-btn" data-map-load>Show map</button>
-      </div>
     </aside>
+  </div>
+</section>
+
+<section class="ct-mapsec" aria-labelledby="map-h">
+  <!-- Live Google map of Klaipėda. Once there is a street address, put it in the q= parameter of both links. -->
+  <iframe class="ct-mapframe" src="https://www.google.com/maps?q=Klaip%C4%97da%2C%20Lithuania&amp;z=12&amp;output=embed" title="Klaipėda on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  <div class="wrap ct-mapwrap">
+    <div class="ct-mapcard" data-reveal>
+      <p class="eyebrow eyebrow-accent">WHERE TO FIND US</p>
+      <h2 class="h2 no-rule" id="map-h">Klaipėda</h2>
+      <p>The workshop is in Klaipėda, Lithuania. If you want to see a car mid-job, call first and we&#x27;ll tell you when to come.</p>
+      <p class="ct-mapact"><a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Klaip%C4%97da%2C%20Lithuania" target="_blank" rel="noopener">Open in Google Maps</a><a class="btn btn-line" href="tel:+37062405636">+370 62405636</a></p>
+    </div>
   </div>
 </section>
 </main>
