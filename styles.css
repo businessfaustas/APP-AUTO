@@ -2047,3 +2047,9 @@ ul.ab-mq-track { display: flex; align-items: flex-start; gap: var(--s-2); width:
 .q-nav .btn[data-back]::after { scale: -1 1; }
 /* quote form: where photos go while uploads are off (Web3Forms free plan) */
 .q-note { margin: 0 0 var(--s-3); padding: var(--s-2) var(--s-3); border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--ink) 4%, transparent); font-size: var(--fs-small); line-height: 1.6; color: color-mix(in srgb, var(--ink) 82%, transparent); }
+/* Instagram / Facebook (footer on every page, contact card) */
+ul.social { display: flex; flex-wrap: wrap; gap: var(--s-1); margin: var(--s-2) 0; }
+.social a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 14px 8px 10px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 600 11px/1 var(--f-display); letter-spacing: .14em; text-transform: uppercase; transition: background-color 300ms var(--ease), border-color 300ms var(--ease); }
+.social svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.social a:hover, .social a:focus-visible { background: var(--accent); border-color: var(--accent); }
+ul.ct-soc { margin: 6px 0 0; }

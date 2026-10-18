@@ -46,7 +46,9 @@ Both forms send to [Web3Forms](https://web3forms.com): the 3-step quote form on 
 - **Quote form fields**: `vehicle`, `service` (sent as the service name), `message`, `name`, `email` and `phone`. Replying to the email goes to the customer's address.
 - **Quick form fields**: `name`, `phone`, `message` and, on a service page, `service`.
 - **Added to every enquiry**: `kalba` (LT or EN, so you know which language to reply in) and `puslapis` (the page it was sent from).
-- **Spam**: `botcheck` is the Web3Forms honeypot, and `website` is checked in the browser before anything is sent.
+- **Spam**: `botcheck` is the Web3Forms honeypot (a hidden checkbox, which browser autofill never ticks).
+- **When a send fails**, the message on the page shows the reason in brackets, e.g. `(Invalid access key)`.
+- **Not arriving in Gmail?** Look in Promotions, Updates and Spam. Mark one as "Not spam" and add a filter ("Never send to Spam") for mail from Web3Forms.
 - **Photos**: file attachments need the Web3Forms Pro plan, so the photo field is off. The form tells customers to send photos by replying to your email. After upgrading to Pro, set `PHOTO_UPLOAD = True` in the generator and regenerate: the upload field comes back, and files are sent as attachments.
 - **Without JavaScript** the forms still post straight to Web3Forms.
 
@@ -173,3 +175,8 @@ Frames are saved as transparent WebP in `images/spin-orbit/`, `images/drive-dark
 - **Contact page**: the three form steps have numbered dots and a progress bar, and each step slides in from the side it comes from.
 
 With "reduce motion" switched on in the operating system, nothing pins or loops, and all text shows at once.
+
+## Social profiles and search
+
+- Instagram and Facebook links are in the footer of every page and on the contact page. They are also in the business data on the home page (`sameAs`), so Google can connect the profiles to the site. The URLs are `INSTAGRAM` and `FACEBOOK` in the generator.
+- The cart pages carry `noindex` and are left out of `sitemap.xml`, so they don't show up in Google results.

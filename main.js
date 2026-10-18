@@ -19,7 +19,6 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
      docs do; with files (Pro plan only) it posts the form as multipart. */
   const sendForm = async (f) => {
     const fd = new FormData(f);
-    fd.delete('website');                                   // our own honeypot, already checked
     const sel = $('select[name="service"]', f);              // the email gets the service name, not its URL slug
     if (sel && sel.selectedIndex > 0) fd.set('service', sel.options[sel.selectedIndex].text);
     fd.set('puslapis', location.href.split('#')[0]);        // which page the enquiry came from
@@ -318,14 +317,13 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
       e.preventDefault();
       if (!valid(steps[at])) return;
       const say = (key) => { statusEl.textContent = statusEl.dataset[key]; };
-      if (form.website && form.website.value) { say('ok'); form.reset(); return; } // honeypot
       if (!FORM_ENDPOINT) { console.warn('AUTAPLATE: FORM_ENDPOINT is empty in main.js — the form has nowhere to send.'); say('err'); return; }
       const btn = $('button[type="submit"]', form); if (btn) btn.disabled = true;
       say('sending');
       try {
         await sendForm(form);
         say('ok'); form.reset(); if (filesList) filesList.textContent = ''; go(0, false);
-      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); }
+      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); statusEl.textContent += ` (${err.message})`; }
       if (btn) btn.disabled = false;
     });
   }
@@ -468,14 +466,13 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
       const bad = $$('input[required]', qf).find((f) => !f.checkValidity());
       $$('input[required]', qf).forEach((f) => f.setAttribute('aria-invalid', String(!f.checkValidity())));
       if (bad) { bad.reportValidity(); bad.focus(); return; }
-      if (qf.website && qf.website.value) { say('ok'); qf.reset(); return; }
       if (!FORM_ENDPOINT) { console.warn('AUTAPLATE: FORM_ENDPOINT is empty in main.js.'); say('err'); return; }
       const btn = $('button[type="submit"]', qf); if (btn) btn.disabled = true;
       say('sending');
       try {
         await sendForm(qf);
         say('ok'); qf.reset();
-      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); }
+      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); if (st) st.textContent += ` (${err.message})`; }
       if (btn) btn.disabled = false;
     });
   });
