@@ -2045,3 +2045,5 @@ ul.ab-mq-track { display: flex; align-items: flex-start; gap: var(--s-2); width:
 @media (max-width: 699px) { .q-dots li:not(.is-on) { gap: 0; font-size: 0; letter-spacing: 0; } }
 /* the arrow is drawn from one right-pointing mask: flip it for Back */
 .q-nav .btn[data-back]::after { scale: -1 1; }
+/* quote form: where photos go while uploads are off (Web3Forms free plan) */
+.q-note { margin: 0 0 var(--s-3); padding: var(--s-2) var(--s-3); border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--ink) 4%, transparent); font-size: var(--fs-small); line-height: 1.6; color: color-mix(in srgb, var(--ink) 82%, transparent); }

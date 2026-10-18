@@ -38,15 +38,17 @@ python3 -m http.server 8000   # then open http://localhost:8000/
 
 ## Form endpoint
 
-Open `main.js`. At the top, paste your form backend URL into the quotes:
+Both forms send to [Web3Forms](https://web3forms.com): the 3-step quote form on the contact page, and the quick enquiry form at the bottom of every page. Each enquiry arrives as an email to the inbox the access key was created for.
 
-```js
-const FORM_ENDPOINT = '';
-```
-
-The backend must accept a multipart POST with file uploads (Formspree, Basin, Getform and similar all do).
-The fields are `vehicle`, `service`, `photos` (multiple), `message`, `name`, `email` and `phone`.
-`website` is a honeypot for spam bots.
+- **The access key** is written into a hidden field in each form by the page generator (`W3F_KEY`). Web3Forms keys are public by design: a key can only send mail to its own inbox, so it is safe in the page source. To change the key, change it there and regenerate the pages.
+- **The endpoint** is `FORM_ENDPOINT` at the top of `main.js`.
+- **Email subjects**: "Užklausa kainai — autaplate.com" (quote form) and "Greita užklausa — autaplate.com" (quick form). The sender name is "AUTAPLATE svetainė".
+- **Quote form fields**: `vehicle`, `service` (sent as the service name), `message`, `name`, `email` and `phone`. Replying to the email goes to the customer's address.
+- **Quick form fields**: `name`, `phone`, `message` and, on a service page, `service`.
+- **Added to every enquiry**: `kalba` (LT or EN, so you know which language to reply in) and `puslapis` (the page it was sent from).
+- **Spam**: `botcheck` is the Web3Forms honeypot, and `website` is checked in the browser before anything is sent.
+- **Photos**: file attachments need the Web3Forms Pro plan, so the photo field is off. The form tells customers to send photos by replying to your email. After upgrading to Pro, set `PHOTO_UPLOAD = True` in the generator and regenerate: the upload field comes back, and files are sent as attachments.
+- **Without JavaScript** the forms still post straight to Web3Forms.
 
 ## Reviews
 

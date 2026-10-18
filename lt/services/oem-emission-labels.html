@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../../styles.css?v=84a07e7aae">
+  <link rel="stylesheet" href="../../styles.css?v=0d22946597">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
-  <script src="../../main.js?v=5fc02e643b" defer></script>
+  <script src="../../main.js?v=6f28bed857" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "lt", "mainEntity": [{"@type": "Question", "name": "Kokių markių ir modelių etiketes galite atkurti?", "acceptedAnswer": {"@type": "Answer", "text": "Atsiųskite savo etiketės arba to paties modelio ir metų originalios etiketės nuotrauką. Jei galime ją perskaityti, galime ir perbraižyti."}}, {"@type": "Question", "name": "Ko jums iš manęs reikės?", "acceptedAnswer": {"@type": "Answer", "text": "Aiškių originalios etiketės nuotraukų, darytų tiesiai ir geroje šviesoje, bei markės, modelio ir metų. Jei etiketės nebeturite, tiks tokios pat etiketės nuotrauka iš kito automobilio."}}, {"@type": "Question", "name": "Ar etiketė atitiks originalą?", "acceptedAnswer": {"@type": "Answer", "text": "Tam ši paslauga ir skirta. Prieš spausdindami parodome maketą šalia originalo."}}]}</script>
 </head>
 <body>
@@ -134,19 +134,18 @@
       <p class="muted" data-reveal>Palikite kontaktus ir parašykite, ką norite padaryti. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
       <p class="small muted" data-reveal>arba skambinkite <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
-    <form class="quick" data-quick novalidate data-reveal
+    <form class="quick" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Gauta. Atsakysime per vieną darbo dieną, pirmadienį–penktadienį."
           data-err="Nepavyko išsiųsti. Paskambinkite +370 62405636."
           data-sending="Siunčiama…">
-      <input type="hidden" name="service" value="oem-emission-labels">
-      <input type="hidden" name="source" value="quick-form">
-      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Greita užklausa — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="LT"><div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
+      <input type="hidden" name="service" value="OEM emisijos etiketės">
       <div class="field"><label for="q-name-oem-emission-labels">Vardas</label><input id="q-name-oem-emission-labels" name="name" type="text" required autocomplete="name"></div>
       <div class="field"><label for="q-phone-oem-emission-labels">Telefonas</label><input id="q-phone-oem-emission-labels" name="phone" type="tel" required autocomplete="tel"></div>
       <div class="field field-wide"><label for="q-car-oem-emission-labels">Automobilis ir ką norite padaryti</label><input id="q-car-oem-emission-labels" name="message" type="text" required></div>
       <div class="quick-foot">
         <button type="submit" class="btn btn-accent">Siųsti užklausą</button>
-        <a class="link-arrow" href="../contact.html?service=oem-emission-labels#quote">Pilna užklausa su nuotraukomis <span aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="../contact.html?service=oem-emission-labels#quote">Pilna užklausa <span aria-hidden="true">→</span></a>
       </div>
       <p class="q-status small" role="status" data-quick-status></p>
     </form>

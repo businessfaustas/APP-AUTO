@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=84a07e7aae">
+  <link rel="stylesheet" href="../styles.css?v=0d22946597">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
-  <script src="../main.js?v=5fc02e643b" defer></script>
+  <script src="../main.js?v=6f28bed857" defer></script>
 </head>
 <body>
 <div class="loader" aria-hidden="true">
@@ -55,7 +55,7 @@
     <div class="ct-copy">
       <p class="eyebrow eyebrow-accent" data-reveal>KONTAKTAI</p>
       <h1 class="h1" id="h1" data-reveal>Gaukite kainą <br><em>raštu</em></h1>
-      <p class="lede" data-reveal style="--d:120ms">Trys trumpi žingsniai. Atsiuntę automobilio nuotraukas, iš karto gausite konkretesnį atsakymą.</p>
+      <p class="lede" data-reveal style="--d:120ms">Trys trumpi žingsniai: automobilis, ką norite padaryti, ir jūsų kontaktai. Atsakome raštu.</p>
       <p class="hero-actions" data-reveal style="--d:200ms"><a class="btn btn-accent" href="#quote">Pildyti užklausą</a></p>
     </div>
     <ul class="ct-cards" aria-label="Kontaktinė informacija">
@@ -70,13 +70,13 @@
 
 <section class="section ct-main" id="quote" aria-label="Užklausos forma">
   <div class="wrap ct-main-grid">
-    <form class="quote ct-form" data-quote novalidate enctype="multipart/form-data" data-reveal>
+    <form class="quote ct-form" data-quote novalidate data-reveal action="https://api.web3forms.com/submit" method="POST">
       <div class="q-top">
         <p class="quote-progress" aria-live="polite" data-quote-progress>01 / 03</p>
-        <ol class="q-dots" aria-hidden="true"><li data-q-dot class="is-on"><span>01</span>Automobilis</li><li data-q-dot><span>02</span>Nuotraukos</li><li data-q-dot><span>03</span>Kontaktai</li></ol>
+        <ol class="q-dots" aria-hidden="true"><li data-q-dot class="is-on"><span>01</span>Automobilis</li><li data-q-dot><span>02</span>Aprašymas</li><li data-q-dot><span>03</span>Kontaktai</li></ol>
         <span class="q-bar" aria-hidden="true"><i></i></span>
       </div>
-      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Užklausa kainai — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="LT"><div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
 
       <fieldset class="q-step" data-step="1">
         <legend class="h3">Automobilis ir paslauga</legend>
@@ -88,12 +88,11 @@
       </fieldset>
 
       <fieldset class="q-step" data-step="2">
-        <legend class="h3">Nuotraukos ir aprašymas</legend>
-        <div class="field"><label for="f-files">Automobilio nuotraukos (nebūtina)</label>
-          <input id="f-files" name="photos" type="file" accept="image/*" multiple data-files>
-          <p class="small muted" data-files-list></p></div>
+        <legend class="h3">Aprašymas</legend>
+        
         <div class="field"><label for="f-message">Ką norite padaryti?</label>
           <textarea id="f-message" name="message" rows="6"></textarea></div>
+        <p class="q-note">Nuotraukas galėsite atsiųsti atsakę į mūsų laišką – su jomis kaina bus tikslesnė.</p>
         <div class="q-nav"><button type="button" class="btn btn-line" data-back>Atgal</button><button type="button" class="btn btn-accent" data-next>Toliau</button></div>
       </fieldset>
 

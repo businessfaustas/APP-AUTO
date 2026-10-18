@@ -1,19 +1,37 @@
 /* AUTAPLATE — shared script. Vanilla, no dependencies. */
 
 /* ------------------------------------------------------------------
-   FORM_ENDPOINT — paste your form backend URL between the quotes.
-   Any service that accepts a multipart POST works (Formspree, Basin,
-   Getform, or your own endpoint). It must accept file uploads for the
-   photo field. While this is empty the form will not send and shows
-   the "please call" message instead.
+   FORM_ENDPOINT — where the quote form and the quick enquiry forms send.
+   Web3Forms (https://web3forms.com): the access key is a hidden field in
+   each form, written by the page generator. While this is empty the forms
+   do not send and show the "please call" message instead.
    ------------------------------------------------------------------ */
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 
 (() => {
   const root = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+  /* ---------------------------------------------------------------- send a form to FORM_ENDPOINT (Web3Forms)
+     Resolves on success, throws on any failure. Without files it posts JSON, as the Web3Forms
+     docs do; with files (Pro plan only) it posts the form as multipart. */
+  const sendForm = async (f) => {
+    const fd = new FormData(f);
+    fd.delete('website');                                   // our own honeypot, already checked
+    const sel = $('select[name="service"]', f);              // the email gets the service name, not its URL slug
+    if (sel && sel.selectedIndex > 0) fd.set('service', sel.options[sel.selectedIndex].text);
+    fd.set('puslapis', location.href.split('#')[0]);        // which page the enquiry came from
+    const files = [...fd.entries()].filter(([, v]) => v instanceof File);
+    const hasFiles = files.some(([, v]) => v.size);
+    if (!hasFiles) files.forEach(([k]) => fd.delete(k));
+    const res = await fetch(FORM_ENDPOINT, hasFiles
+      ? { method: 'POST', body: fd, headers: { Accept: 'application/json' } }
+      : { method: 'POST', body: JSON.stringify(Object.fromEntries(fd)), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.success === false) throw new Error(data.message || `HTTP ${res.status}`);
+  };
 
   /* ---------------------------------------------------------------- headline line split + image wipes
      Runs before the reveal observer so both are picked up by it. */
@@ -302,12 +320,13 @@ const FORM_ENDPOINT = '';
       const say = (key) => { statusEl.textContent = statusEl.dataset[key]; };
       if (form.website && form.website.value) { say('ok'); form.reset(); return; } // honeypot
       if (!FORM_ENDPOINT) { console.warn('AUTAPLATE: FORM_ENDPOINT is empty in main.js — the form has nowhere to send.'); say('err'); return; }
+      const btn = $('button[type="submit"]', form); if (btn) btn.disabled = true;
       say('sending');
       try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(res.status);
+        await sendForm(form);
         say('ok'); form.reset(); if (filesList) filesList.textContent = ''; go(0, false);
-      } catch (err) { say('err'); }
+      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); }
+      if (btn) btn.disabled = false;
     });
   }
 
@@ -454,10 +473,9 @@ const FORM_ENDPOINT = '';
       const btn = $('button[type="submit"]', qf); if (btn) btn.disabled = true;
       say('sending');
       try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(qf), headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(res.status);
+        await sendForm(qf);
         say('ok'); qf.reset();
-      } catch (err) { say('err'); }
+      } catch (err) { console.warn('AUTAPLATE: form not sent —', err.message); say('err'); }
       if (btn) btn.disabled = false;
     });
   });

@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../../styles.css?v=84a07e7aae">
+  <link rel="stylesheet" href="../../styles.css?v=0d22946597">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
-  <script src="../../main.js?v=5fc02e643b" defer></script>
+  <script src="../../main.js?v=6f28bed857" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What materials can you engrave?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on where the badge will live. Tell us the location and the look you want, and we'll recommend a material along with the price."}}, {"@type": "Question", "name": "Can you copy an original badge?", "acceptedAnswer": {"@type": "Answer", "text": "Usually, yes. Send clear photos from the front and at an angle, with measurements. If you have the original, even damaged, that's better."}}, {"@type": "Question", "name": "How is the badge fixed to the car?", "acceptedAnswer": {"@type": "Answer", "text": "The fixing is chosen for the spot: adhesive for flat panels, pins or brackets where the original used them."}}]}</script>
 </head>
 <body>
@@ -134,19 +134,18 @@
       <p class="muted" data-reveal>Leave your details and tell us what you want done. We reply within one working day, Monday to Friday.</p>
       <p class="small muted" data-reveal>or call <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
-    <form class="quick" data-quick novalidate data-reveal
+    <form class="quick" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
           data-err="That didn&#x27;t send. Please call +370 62405636."
           data-sending="Sending…">
-      <input type="hidden" name="service" value="engraved-badges">
-      <input type="hidden" name="source" value="quick-form">
-      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Greita užklausa — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="EN"><div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
+      <input type="hidden" name="service" value="Engraved badges">
       <div class="field"><label for="q-name-engraved-badges">Name</label><input id="q-name-engraved-badges" name="name" type="text" required autocomplete="name"></div>
       <div class="field"><label for="q-phone-engraved-badges">Phone</label><input id="q-phone-engraved-badges" name="phone" type="tel" required autocomplete="tel"></div>
       <div class="field field-wide"><label for="q-car-engraved-badges">Car and what you want done</label><input id="q-car-engraved-badges" name="message" type="text" required></div>
       <div class="quick-foot">
         <button type="submit" class="btn btn-accent">Send enquiry</button>
-        <a class="link-arrow" href="../contact.html?service=engraved-badges#quote">Full request with photos <span aria-hidden="true">→</span></a>
+        <a class="link-arrow" href="../contact.html?service=engraved-badges#quote">Full request form <span aria-hidden="true">→</span></a>
       </div>
       <p class="q-status small" role="status" data-quick-status></p>
     </form>
