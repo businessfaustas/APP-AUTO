@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=65d2db824e">
+  <link rel="stylesheet" href="../styles.css?v=8fd3220e4a">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
 </head>
@@ -35,10 +35,9 @@
 <header class="site-header" data-header>
   <div class="wrap header-inner">
         <a class="brand" href="index.html" aria-label="AUTAPLATE — home"><svg class="mark brand-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></a>
-    <a class="cart-link" href="cart.html" data-cart-link aria-label="Cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.3 11.2a1 1 0 0 0 1 .8h9.4a1 1 0 0 0 1-.8L20.5 8H6.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9.5" cy="19.5" r="1.3" fill="currentColor"/><circle cx="17" cy="19.5" r="1.3" fill="currentColor"/></svg><span class="cart-word">Cart</span><span class="cart-count" data-cart-count hidden>0</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <ul class="nav-list"><li><a href="services.html" aria-current="page">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <ul class="nav-list"><li><a href="services.html" aria-current="page">Services</a></li><li><a href="shop.html">Emblems</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
       <div class="nav-tools">
         <p class="lang" aria-label="Language"><a href="../lt/services.html" hreflang="lt" lang="lt">LT</a><span aria-hidden="true">/</span><a href="../en/services.html" hreflang="en" lang="en" aria-current="true">EN</a></p>
         <a class="tel" href="tel:+37062405636">+370 62405636</a>
@@ -70,6 +69,7 @@
         <h2 class="sv-h" data-reveal>Custom orders</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">One-off work that doesn&#x27;t fit a catalogue.</p>
         <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>From a sketch or photo</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Material for the job</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Test piece first</b></li></ul>
+        
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Owners</li><li>Restorers</li><li>Clubs and fleets</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=custom-orders#quote">Get a quote</a><a class="btn btn-line" href="services/custom-orders.html">Details</a></p>
       </div>
@@ -85,6 +85,7 @@
         <h2 class="sv-h" data-reveal>Full vehicle projects</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">Colour change, chrome delete, badges and trim as one job.</p>
         <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>Full colour change</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Chrome delete</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Door jambs on request</b></li></ul>
+        
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Enthusiasts</li><li>Collectors</li><li>Company fleets</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=full-vehicle-projects#quote">Get a quote</a><a class="btn btn-line" href="services/full-vehicle-projects.html">Details</a></p>
       </div>
@@ -93,13 +94,14 @@
       <a class="sv-media" href="services/oem-emission-labels.html" tabindex="-1" aria-hidden="true" data-reveal>
         <img class="pic" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 900px) 46vw, 100vw" width="1200" height="1200" alt="Sample emission control label" loading="lazy" decoding="async">
         <span class="sv-num">03</span>
-        <span class="sv-tag"><span class="sv-tag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6Z"/><path d="M15 2v5h5M9 13h8M9 17h6"/></svg></span>Under the bonnet</span>
+        <span class="sv-tag"><span class="sv-tag-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6Z"/><path d="M15 2v5h5M9 13h8M9 17h6"/></svg></span>Restoration only</span>
       </a>
       <div class="sv-body">
         <p class="sv-idx" data-reveal>03 / 06</p>
         <h2 class="sv-h" data-reveal>OEM emission control labels</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">Under-bonnet labels reproduced to original artwork.</p>
-        <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>Made from the VIN</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Matches the factory label</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Original size</b></li></ul>
+        <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>Restored from the VIN</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Matches the factory label</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Original size</b></li></ul>
+        <aside class="legal-note legal-sm" aria-label="Legal note"><span class="legal-ico" aria-hidden="true">§</span><div><p class="legal-h">Restoration only — no replicas</p><p>We restore labels only from your own car’s original data (VIN). We don’t make copies for other vehicles, and we never change or falsify any numbers, VIN or technical data. By ordering, you confirm the label is for that same vehicle.</p></div></aside>
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Restorers</li><li>Collectors</li><li>Car owners</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=oem-emission-labels#quote">Get a quote</a><a class="btn btn-line" href="services/oem-emission-labels.html">Details</a></p>
       </div>
@@ -115,6 +117,7 @@
         <h2 class="sv-h" data-reveal>Wrapping and livery design</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">Full and partial wraps, livery drawn on the actual panel geometry.</p>
         <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>Full or partial</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Proof before printing</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Post-heated edges</b></li></ul>
+        
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Enthusiasts</li><li>Racers</li><li>Business vehicles</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=wrapping-livery-design#quote">Get a quote</a><a class="btn btn-line" href="services/wrapping-livery-design.html">Details</a></p>
       </div>
@@ -130,6 +133,7 @@
         <h2 class="sv-h" data-reveal>Custom vehicle decals</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">Plotter-cut graphics, numbers, sponsor sets, lettering.</p>
         <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>Plotter-cut</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Race numbers</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Sponsor sets</b></li></ul>
+        
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Rally crews</li><li>Clubs</li><li>Businesses</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=custom-decals#quote">Get a quote</a><a class="btn btn-line" href="services/custom-decals.html">Details</a></p>
       </div>
@@ -145,6 +149,7 @@
         <h2 class="sv-h" data-reveal>Engraved badges</h2>
         <p class="sv-lede" data-reveal style="--d:80ms">Custom badges, plaques and emblems.</p>
         <ul class="sv-keys"><li data-reveal style="--d:120ms"><span class="sv-k-n">01</span><b>To your drawing</b></li><li data-reveal style="--d:210ms"><span class="sv-k-n">02</span><b>Copy of an original</b></li><li data-reveal style="--d:300ms"><span class="sv-k-n">03</span><b>Fixing to suit the spot</b></li></ul>
+        
         <div class="sv-who" data-reveal style="--d:300ms"><span class="sv-who-k">Suits</span><ul><li>Collectors</li><li>Car clubs</li><li>Restorers</li></ul></div>
         <p class="sv-act" data-reveal style="--d:360ms"><a class="btn btn-accent" href="contact.html?service=engraved-badges#quote">Get a quote</a><a class="btn btn-line" href="services/engraved-badges.html">Details</a></p>
       </div>
@@ -200,7 +205,7 @@
     </div>
     <div>
       <p class="eyebrow">Pages</p>
-      <ul class="footer-list"><li><a href="services.html">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <ul class="footer-list"><li><a href="services.html">Services</a></li><li><a href="shop.html">Emblems</a></li><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
     </div>
     <div>
       <p class="eyebrow">Contact</p>

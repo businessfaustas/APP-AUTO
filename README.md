@@ -191,3 +191,10 @@ With "reduce motion" switched on in the operating system, nothing pins or loops,
   - Step 2 has optional interest chips, sent as `pasirinkta`, e.g. "Juostos, Lipdukai".
   - After sending, the form shows a "Gauta!" confirmation.
 - **Map**: the contact page embeds a live Google map of Klaipėda (lazy-loaded, darkened with a CSS filter). Once there is a street address, put it in the `q=` parameter of the map and of the "Atidaryti Google Maps" link.
+
+## Emblems showcase (replaces the shop)
+
+- `shop.html` and `shop/*.html` are now a showcase: no prices, cart or checkout. Each product page has an order form (Web3Forms, subject "Emblemos užsakymas — …"). The email carries the product, the chosen size and finish, the quantity and the customer's contact details. Below the form are Facebook, Instagram and phone links. The menu label is "Emblemos".
+- The cart pages are gone. The `/api/checkout` code in `worker.js` and `data/products.json` are still there, so the shop could be switched back on later.
+- OEM emission labels carry a "restoration only" note on the services page and on the service page itself: labels are restored only from the customer's own car data (VIN), with no copies for other vehicles and no changed or falsified numbers.
+- Maps: the "Open in Google Maps" buttons (About and Contact) open the workshop link `MAPS_LINK`. The embedded maps show Klaipėda (`MAP_EMBED`) until there is a street address.
