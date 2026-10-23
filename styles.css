@@ -2251,3 +2251,49 @@ ul.ct-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); g
 .ct-mapcard p:not(.eyebrow):not(.ct-mapact) { color: color-mix(in srgb, var(--ink) 80%, transparent); }
 .ct-mapact { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-3); }
 @media (max-width: 699px) { .ct-mapsec { display: block; min-height: 0; } .ct-mapframe { position: relative; height: 340px; } .ct-mapwrap { padding-block: 0 var(--s-6); margin-top: -60px; } }
+
+/* ================================================================== SERVICES page: one scannable card per service */
+ul.svj { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: var(--s-6) 0 0; }
+@media (min-width: 900px) { ul.svj { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.svj a { position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; gap: 10px 12px; height: 100%; min-height: 96px; padding: 14px; border: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 3%, var(--bg)); color: var(--ink); text-decoration: none; transition: border-color 300ms var(--ease), background-color 300ms var(--ease), transform 300ms var(--ease-out); }
+.svj-n { font: 800 11px/1 var(--f-display); letter-spacing: .2em; color: var(--accent); }
+.svj-ico { justify-self: end; color: var(--muted); transition: color 300ms var(--ease); }
+.svj-ico svg, .sv-tag-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.svj-t { grid-column: 1 / -1; align-self: end; font: 700 13px/1.25 var(--f-display); }
+.svj a::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 400ms var(--ease-out); }
+.svj a:hover { border-color: color-mix(in srgb, var(--ink) 30%, transparent); transform: translateY(-3px); }
+.svj a:hover::after { transform: scaleX(1); }
+.svj a:hover .svj-ico { color: var(--accent); }
+
+.sv-list { display: grid; gap: clamp(56px, 8vw, 120px); }
+.sv { position: relative; display: grid; gap: var(--s-4); align-items: center; scroll-margin-top: calc(var(--header-h-condensed) + 24px); }
+@media (min-width: 900px) {
+  .sv { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(40px, 5vw, 80px); }
+  .sv-flip .sv-media { order: 2; }
+}
+.sv::before { content: ""; position: absolute; inset: 10% -4% 10% 30%; z-index: -1; background: radial-gradient(ellipse at 30% 50%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 65%); pointer-events: none; }
+.sv-flip::before { inset: 10% 30% 10% -4%; background: radial-gradient(ellipse at 70% 50%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 65%); }
+.sv-media { position: relative; display: block; overflow: hidden; aspect-ratio: 4/3; background: #111; }
+.sv-media .pic { width: 100%; height: 100%; aspect-ratio: auto; transition: scale 900ms var(--ease-out); }
+.sv-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(0 0 0 / .75), transparent 45%), linear-gradient(135deg, rgb(0 0 0 / .45), transparent 40%); pointer-events: none; }
+.sv:hover .sv-media .pic { scale: 1.05; }
+.sv-num { position: absolute; z-index: 1; top: 10px; left: 16px; font: 900 clamp(4rem, 3rem + 4vw, 7.5rem)/1 var(--f-display); letter-spacing: -.06em; color: var(--ink); text-shadow: 0 6px 30px rgb(0 0 0 / .5); }
+.sv-tag { position: absolute; z-index: 1; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px 10px 10px; background: var(--accent); color: var(--ink); font: 800 11px/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; }
+.sv-tag-ico { display: grid; place-items: center; width: 28px; height: 28px; background: rgb(0 0 0 / .22); }
+.sv-tag-ico svg { width: 16px; height: 16px; }
+.sv-idx { margin: 0 0 6px; font: 700 11px/1 var(--f-display); letter-spacing: .3em; color: var(--muted); }
+.sv-h { margin: 0; font: 800 clamp(1.9rem, 1.3rem + 2.4vw, 3.2rem)/1.02 var(--f-display); letter-spacing: -.025em; text-transform: uppercase; }
+.sv-lede { margin: var(--s-3) 0 var(--s-4); padding: 14px 18px; border-left: 3px solid var(--accent); background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 85%); font: 600 clamp(1.02rem, .95rem + .35vw, 1.2rem)/1.5 var(--f-display); color: var(--ink); max-width: none; }
+ul.sv-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 var(--s-3); }
+.sv-keys li { position: relative; display: flex; flex-direction: column; gap: 10px; min-height: 104px; padding: 14px; border: 1px solid var(--line); background: color-mix(in srgb, var(--ink) 4%, var(--bg)); overflow: hidden; transition: border-color 300ms var(--ease); }
+.sv-keys li::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 800ms var(--ease-out) calc(var(--d, 0ms) + 200ms); }
+.sv-keys li.is-in::before, html:not(.js) .sv-keys li::before { transform: scaleX(1); }
+.sv-keys li:hover { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.sv-k-n { font: 800 11px/1 var(--f-display); letter-spacing: .2em; color: var(--accent); }
+.sv-keys b { margin-top: auto; font: 800 14px/1.25 var(--f-display); }
+.sv-who { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: var(--s-4); }
+.sv-who-k { font: 700 10px/1 var(--f-display); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.sv-who ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.sv-who li { padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; font: 600 12px/1 var(--f-display); color: color-mix(in srgb, var(--ink) 85%, transparent); }
+.sv-act { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; }
+@media (max-width: 599px) { ul.sv-keys { grid-template-columns: 1fr; } .sv-keys li { min-height: 0; flex-direction: row; align-items: center; gap: 14px; } .sv-keys b { margin-top: 0; } }
