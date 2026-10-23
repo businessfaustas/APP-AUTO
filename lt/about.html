@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=8fd3220e4a">
+  <link rel="stylesheet" href="../styles.css?v=469387c973">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
 </head>
@@ -121,23 +121,48 @@
 <section class="section inquiry" aria-labelledby="cta-h">
   <span class="slash slash-3" aria-hidden="true"></span>
   <div class="wrap inquiry-grid">
-    <div>
+    <div class="inq-copy">
       <p class="eyebrow eyebrow-accent" data-reveal>UŽKLAUSA</p>
-      <h2 class="h2 no-rule" id="cta-h" data-reveal>Atsiųskite nuotraukas — <br>kainą gausite raštu</h2>
-      <p class="muted" data-reveal>Palikite kontaktus ir parašykite, ką norite padaryti. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
+      <h2 class="h2 no-rule" id="cta-h" data-reveal>Papasakokite apie automobilį — <br>kainą gausite raštu</h2>
+      <p class="muted" data-reveal>Užpildykite tris trumpus laukus. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
+      <ol class="inq-steps" data-reveal><li><span>01</span>Automobilis</li><li><span>02</span>Paslauga</li><li><span>03</span>Kontaktai</li></ol>
       <p class="small muted" data-reveal>arba skambinkite <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
-    <form class="quick" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
+    <form class="quick inq-form" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Gauta. Atsakysime per vieną darbo dieną, pirmadienį–penktadienį."
           data-err="Nepavyko išsiųsti. Paskambinkite +370 62405636."
           data-sending="Siunčiama…">
       <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Greita užklausa — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="LT"><div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
-      <input type="hidden" name="service" value="">
-      <div class="field"><label for="q-name-x">Vardas</label><input id="q-name-x" name="name" type="text" required autocomplete="name"></div>
-      <div class="field"><label for="q-phone-x">Telefonas</label><input id="q-phone-x" name="phone" type="tel" required autocomplete="tel"></div>
-      <div class="field field-wide"><label for="q-car-x">Automobilis ir ką norite padaryti</label><input id="q-car-x" name="message" type="text" required></div>
+      <p class="inq-k"><span>01</span>Automobilis</p>
+      <div class="inq-car">
+        <div class="q-fl"><input id="qb-marke" name="marke" type="text" placeholder=" " required autocomplete="off"><label for="qb-marke">Markė</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-modelis" name="modelis" type="text" placeholder=" " required autocomplete="off"><label for="qb-modelis">Modelis</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-metai" name="metai" type="text" placeholder=" " required inputmode="numeric" maxlength="4" autocomplete="off"><label for="qb-metai">Metai</label><i aria-hidden="true"></i></div>
+      </div>
+      <p class="inq-k"><span>02</span>Paslauga</p>
+      <div class="q-svcs inq-svcs" role="radiogroup" aria-label="Paslauga"><label class="q-svc"><input type="radio" name="service" value="custom-orders" data-label="Individualūs užsakymai" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/boat-fishon-1200.jpg" srcset="../images/web/boat-fishon-600.jpg 600w, ../images/web/boat-fishon-1200.jpg 1200w, ../images/web/boat-fishon-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Valtis su fishon.lt užrašu" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Individualūs užsakymai</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="full-vehicle-projects" data-label="Viso automobilio projektai" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/mustang-green-1200.jpg" srcset="../images/web/mustang-green-600.jpg 600w, ../images/web/mustang-green-1200.jpg 1200w, ../images/web/mustang-green-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Žalias Ford Mustang su juodomis detalėmis" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Viso automobilio projektai</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="oem-emission-labels" data-label="OEM emisijos etiketės" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="1200" alt="Emisijos etiketės pavyzdys" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">OEM emisijos etiketės</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="wrapping-livery-design" data-label="Apklijavimas ir grafikos dizainas" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/giulia-side-1200.jpg" srcset="../images/web/giulia-side-600.jpg 600w, ../images/web/giulia-side-1200.jpg 1200w, ../images/web/giulia-side-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Pilka Alfa Romeo Giulia su geltona grafika" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Apklijavimas ir grafikos dizainas</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="custom-decals" data-label="Individualūs lipdukai" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/challenger-392-rear-1200.jpg" srcset="../images/web/challenger-392-rear-600.jpg 600w, ../images/web/challenger-392-rear-1200.jpg 1200w, ../images/web/challenger-392-rear-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Dodge Challenger galas su 392 SRT užrašu ir juostomis" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Individualūs lipdukai</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="engraved-badges" data-label="Graviruoti ženkleliai" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/badge-mustang-1200.jpg" srcset="../images/web/badge-mustang-600.jpg 600w, ../images/web/badge-mustang-1200.jpg 1200w, ../images/web/badge-mustang-1512.jpg 1512w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="1600" alt="Ženklelis ant automobilio bagažinės dangčio" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Graviruoti ženkleliai</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc q-svc-none"><input type="radio" name="service" value="not-sure" data-label="Dar nežinau" required>
+          <span class="q-svc-media"><span class="q-svc-q" aria-hidden="true">?</span></span>
+          <span class="q-svc-name">Dar nežinau</span><span class="q-svc-tick" aria-hidden="true"></span></label></div>
+      <p class="inq-k"><span>03</span>Kontaktai ir pastabos</p>
+      <div class="inq-car inq-two">
+        <div class="q-fl"><input id="qb-name" name="name" type="text" placeholder=" " required autocomplete="name"><label for="qb-name">Vardas</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-phone" name="phone" type="tel" placeholder=" " required autocomplete="tel"><label for="qb-phone">Telefonas</label><i aria-hidden="true"></i></div>
+      </div>
+      <div class="q-fl q-fl-area"><textarea id="qb-message" name="message" rows="3" placeholder=" "></textarea><label for="qb-message">Komentaras – spalva, vieta, terminai… (nebūtina)</label><i aria-hidden="true"></i></div>
       <div class="quick-foot">
-        <button type="submit" class="btn btn-accent">Siųsti užklausą</button>
+        <button type="submit" class="btn btn-accent inq-send">Siųsti užklausą</button>
         <a class="link-arrow" href="contact.html#quote">Pilna užklausa <span aria-hidden="true">→</span></a>
       </div>
       <p class="q-status small" role="status" data-quick-status></p>

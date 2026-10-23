@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=8fd3220e4a">
+  <link rel="stylesheet" href="../styles.css?v=469387c973">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
   <!-- TODO: add streetAddress, postalCode, email, openingHours once supplied -->
@@ -364,23 +364,48 @@
 <section class="section inquiry" aria-labelledby="cta-h">
   <span class="slash slash-3" aria-hidden="true"></span>
   <div class="wrap inquiry-grid">
-    <div>
+    <div class="inq-copy">
       <p class="eyebrow eyebrow-accent" data-reveal>ENQUIRY</p>
-      <h2 class="h2 no-rule" id="cta-h" data-reveal>Send photos. <br>Get a price in writing.</h2>
-      <p class="muted" data-reveal>Leave your details and tell us what you want done. We reply within one working day, Monday to Friday.</p>
+      <h2 class="h2 no-rule" id="cta-h" data-reveal>Tell us about the car. <br>Get a price in writing.</h2>
+      <p class="muted" data-reveal>Three short parts. We reply within one working day, Monday to Friday.</p>
+      <ol class="inq-steps" data-reveal><li><span>01</span>The car</li><li><span>02</span>The service</li><li><span>03</span>Your details</li></ol>
       <p class="small muted" data-reveal>or call <a href="tel:+37062405636">+370 62405636</a></p>
     </div>
-    <form class="quick" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
+    <form class="quick inq-form" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
           data-err="That didn&#x27;t send. Please call +370 62405636."
           data-sending="Sending…">
       <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Greita užklausa — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="EN"><div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
-      <input type="hidden" name="service" value="">
-      <div class="field"><label for="q-name-x">Name</label><input id="q-name-x" name="name" type="text" required autocomplete="name"></div>
-      <div class="field"><label for="q-phone-x">Phone</label><input id="q-phone-x" name="phone" type="tel" required autocomplete="tel"></div>
-      <div class="field field-wide"><label for="q-car-x">Car and what you want done</label><input id="q-car-x" name="message" type="text" required></div>
+      <p class="inq-k"><span>01</span>Car</p>
+      <div class="inq-car">
+        <div class="q-fl"><input id="qb-marke" name="marke" type="text" placeholder=" " required autocomplete="off"><label for="qb-marke">Make</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-modelis" name="modelis" type="text" placeholder=" " required autocomplete="off"><label for="qb-modelis">Model</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-metai" name="metai" type="text" placeholder=" " required inputmode="numeric" maxlength="4" autocomplete="off"><label for="qb-metai">Year</label><i aria-hidden="true"></i></div>
+      </div>
+      <p class="inq-k"><span>02</span>Service</p>
+      <div class="q-svcs inq-svcs" role="radiogroup" aria-label="Service"><label class="q-svc"><input type="radio" name="service" value="custom-orders" data-label="Custom orders" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/boat-fishon-1200.jpg" srcset="../images/web/boat-fishon-600.jpg 600w, ../images/web/boat-fishon-1200.jpg 1200w, ../images/web/boat-fishon-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Boat with fishon.lt lettering" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Custom orders</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="full-vehicle-projects" data-label="Full vehicle projects" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/mustang-green-1200.jpg" srcset="../images/web/mustang-green-600.jpg 600w, ../images/web/mustang-green-1200.jpg 1200w, ../images/web/mustang-green-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Green Ford Mustang with black details" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Full vehicle projects</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="oem-emission-labels" data-label="OEM emission control labels" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/oem-label-1200.jpg" srcset="../images/web/oem-label-600.jpg 600w, ../images/web/oem-label-1200.jpg 1200w, ../images/web/oem-label-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="1200" alt="Sample emission control label" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">OEM emission control labels</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="wrapping-livery-design" data-label="Wrapping and livery design" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/giulia-side-1200.jpg" srcset="../images/web/giulia-side-600.jpg 600w, ../images/web/giulia-side-1200.jpg 1200w, ../images/web/giulia-side-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Grey Alfa Romeo Giulia with a yellow livery" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Wrapping and livery design</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="custom-decals" data-label="Custom vehicle decals" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/challenger-392-rear-1200.jpg" srcset="../images/web/challenger-392-rear-600.jpg 600w, ../images/web/challenger-392-rear-1200.jpg 1200w, ../images/web/challenger-392-rear-2000.jpg 2000w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="900" alt="Rear of a Dodge Challenger with 392 SRT lettering and stripes" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Custom vehicle decals</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc"><input type="radio" name="service" value="engraved-badges" data-label="Engraved badges" required>
+          <span class="q-svc-media"><img class="pic" style="--ar:16/10" src="../images/web/badge-mustang-1200.jpg" srcset="../images/web/badge-mustang-600.jpg 600w, ../images/web/badge-mustang-1200.jpg 1200w, ../images/web/badge-mustang-1512.jpg 1512w" sizes="(min-width: 1000px) 12vw, 45vw" width="1200" height="1600" alt="Badge on a boot lid" loading="lazy" decoding="async"></span>
+          <span class="q-svc-name">Engraved badges</span><span class="q-svc-tick" aria-hidden="true"></span></label><label class="q-svc q-svc-none"><input type="radio" name="service" value="not-sure" data-label="Not sure yet" required>
+          <span class="q-svc-media"><span class="q-svc-q" aria-hidden="true">?</span></span>
+          <span class="q-svc-name">Not sure yet</span><span class="q-svc-tick" aria-hidden="true"></span></label></div>
+      <p class="inq-k"><span>03</span>Details and notes</p>
+      <div class="inq-car inq-two">
+        <div class="q-fl"><input id="qb-name" name="name" type="text" placeholder=" " required autocomplete="name"><label for="qb-name">Name</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-phone" name="phone" type="tel" placeholder=" " required autocomplete="tel"><label for="qb-phone">Phone</label><i aria-hidden="true"></i></div>
+      </div>
+      <div class="q-fl q-fl-area"><textarea id="qb-message" name="message" rows="3" placeholder=" "></textarea><label for="qb-message">Comment – colour, placement, timing… (optional)</label><i aria-hidden="true"></i></div>
       <div class="quick-foot">
-        <button type="submit" class="btn btn-accent">Send enquiry</button>
+        <button type="submit" class="btn btn-accent inq-send">Send enquiry</button>
         <a class="link-arrow" href="contact.html#quote">Full request form <span aria-hidden="true">→</span></a>
       </div>
       <p class="q-status small" role="status" data-quick-status></p>

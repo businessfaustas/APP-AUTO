@@ -44,7 +44,7 @@ Both forms send to [Web3Forms](https://web3forms.com): the 3-step quote form on 
 - **The endpoint** is `FORM_ENDPOINT` at the top of `main.js`.
 - **Email subjects**: "Užklausa kainai — autaplate.com" (quote form) and "Greita užklausa — autaplate.com" (quick form). The sender name is "AUTAPLATE svetainė".
 - **Quote form fields**: `vehicle`, `service` (sent as the service name), `message`, `name`, `email` and `phone`. Replying to the email goes to the customer's address.
-- **Quick form fields**: `name`, `phone`, `message` and, on a service page, `service`.
+- **Quick form fields** (enquiry block at the bottom of every page): `marke`, `modelis`, `metai`, `service` (picture tiles, preselected on service pages), `name`, `phone`, `message` (comment, optional).
 - **Added to every enquiry**: `kalba` (LT or EN, so you know which language to reply in) and `puslapis` (the page it was sent from).
 - **Spam**: `botcheck` is the Web3Forms honeypot (a hidden checkbox, which browser autofill never ticks).
 - **When a send fails**, the message on the page shows the reason in brackets, e.g. `(Invalid access key)`.

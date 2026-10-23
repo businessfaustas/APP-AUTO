@@ -2349,3 +2349,23 @@ ul.sv-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); ga
 @media (max-width: 699px) { .pd-ways { grid-template-columns: 1fr; } }
 .pd-specs { margin-top: var(--s-3); }
 .ab-map { margin-top: 0; }
+
+/* ================================================================== enquiry block on every page: car, service tiles, contact, comment */
+@media (min-width: 1000px) { .inquiry-grid { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); align-items: start; } }
+.inq-steps { display: grid; gap: 8px; margin: var(--s-4) 0; padding: 0; list-style: none; }
+.inq-steps li { display: flex; align-items: center; gap: 12px; font: 700 13px/1.2 var(--f-display); text-transform: uppercase; letter-spacing: .08em; }
+.inq-steps span { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); border-radius: 50%; font-size: 11px; color: var(--accent); }
+.quick.inq-form { display: block; padding: clamp(20px, 3vw, 36px); border: 1px solid var(--line); border-top: 3px solid var(--accent); background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.inq-k { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font: 700 10px/1 var(--f-display); letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
+.inq-k span { color: var(--accent); }
+.inq-k:not(:first-of-type) { margin-top: var(--s-4); }
+.inq-car { display: grid; grid-template-columns: 1.2fr 1.2fr .7fr; gap: 0 var(--s-3); }
+.inq-two { grid-template-columns: 1fr 1fr; }
+.inq-form .q-fl { margin-bottom: var(--s-1); }
+.inq-form .q-fl input { font-size: 1.05rem; }
+.inq-svcs { margin-top: var(--s-1); }
+.inq-svcs .q-svc-name { font-size: 11px; padding: 8px 10px 10px; }
+.inq-form .q-fl-area textarea { min-height: 96px; }
+.inq-form .quick-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin-top: var(--s-3); }
+.inq-send { min-height: 54px; padding-inline: 32px; }
+@media (max-width: 599px) { .inq-car { grid-template-columns: 1fr 1fr; } .inq-car .q-fl:last-child:nth-child(3) { grid-column: 1 / -1; } .inq-two { grid-template-columns: 1fr; } .inq-send { width: 100%; justify-content: center; } }
