@@ -198,3 +198,10 @@ With "reduce motion" switched on in the operating system, nothing pins or loops,
 - The cart pages are gone. The `/api/checkout` code in `worker.js` and `data/products.json` are still there, so the shop could be switched back on later.
 - OEM emission labels carry a "restoration only" note on the services page and on the service page itself: labels are restored only from the customer's own car data (VIN), with no copies for other vehicles and no changed or falsified numbers.
 - Maps: the "Open in Google Maps" buttons (About and Contact) open the workshop link `MAPS_LINK`. The embedded maps show Klaipėda (`MAP_EMBED`) until there is a street address.
+
+## Production checks
+
+- **404**: any URL without a file gets the branded `404.html` with a real 404 status (`not_found_handling: "404-page"` in `wrangler.jsonc`).
+- **Form validation**: required fields, `type=email`, year `(19|20)[0-9]{2}`, phone `\+?[0-9 ]{6,20}` (`PHONE_PAT` in the generator), length limits on text fields and comments.
+- **Contrast**: filled red surfaces with white text use `--accent-fill` (#E00000, 4.7:1). Red text on black keeps `--accent` (#FF0000, 5:1).
+- **How the audit was run**: axe-core (WCAG 2.1 AA + best practice) on all 32 pages; a link and asset crawler; tap-target, tiny-text and overflow checks at 320 / 360 / 390 / 768 px; and Playwright tests of the menu, filters, dialog, FAQ and all four forms.

@@ -2369,3 +2369,30 @@ ul.sv-keys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); ga
 .inq-form .quick-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin-top: var(--s-3); }
 .inq-send { min-height: 54px; padding-inline: 32px; }
 @media (max-width: 599px) { .inq-car { grid-template-columns: 1fr 1fr; } .inq-car .q-fl:last-child:nth-child(3) { grid-column: 1 / -1; } .inq-two { grid-template-columns: 1fr; } .inq-send { width: 100%; justify-content: center; } }
+
+/* ================================================================== production pass: contrast, tap targets, small labels, 404 */
+/* white text on pure #FF0000 is 3.7:1; filled red surfaces that carry text use a deeper red (4.7:1). Red text on black keeps #FF0000 (5:1). */
+:root { --accent-fill: #E00000; }
+.btn-accent, .btn-accent:hover { background: var(--accent-fill); border-color: var(--accent-fill); }
+.spin-notes li.is-active .spin-n, .is-active > .spin-n { background: var(--accent-fill); }
+.tape-a, .sv-tag, .wk-all-in, .ct-phone, .q-chip[aria-pressed="true"], .fl-chip[aria-pressed="true"] .chip-n, .q-dots li.is-on span, .plate-go, .social a:hover, .social a:focus-visible, .ct-soc2 a:hover, .ct-soc2 a:focus-visible, .pd-way:hover { background-color: var(--accent-fill); border-color: var(--accent-fill); }
+.tape-set span { color: var(--ink); font-weight: 800; }
+/* tap targets: text links get at least 24px of height */
+.to-top { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 8px; }
+.link-arrow { min-height: 32px; display: inline-flex; align-items: center; }
+.footer-list a { display: inline-block; padding-block: 4px; }
+.ct-tile-k { font-size: 10px; }
+/* 404 */
+.nf { min-height: 100vh; display: grid; place-items: center; background: radial-gradient(ellipse 60% 50% at 50% 40%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%), var(--bg); }
+.nf-main { width: min(100% - 2 * var(--gutter), 640px); padding-block: var(--s-8); text-align: center; }
+.nf-brand { display: inline-block; width: 92px; margin-bottom: var(--s-4); }
+.nf-code { margin: 0; font: 900 clamp(6rem, 4rem + 10vw, 12rem)/.85 var(--f-display); letter-spacing: -.06em; color: var(--accent); }
+.nf-main .h2 { margin: var(--s-2) auto var(--s-1); max-width: none; }
+.nf-main p { margin-inline: auto; }
+.nf-main .hero-actions { justify-content: center; margin-top: var(--s-4); }
+/* keyboard focus on custom radio chips (size / finish) */
+.opt-chip input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.opt-chip input:checked + span { border-color: var(--accent); }
+/* About statement: unlit words stay readable (≥3:1 for this large text), the lighting-up still shows */
+.js .ab-say .w { color: color-mix(in srgb, var(--ink) 40%, var(--bg)); }
+.js .ab-say .w-em:not(.is-lit) { color: color-mix(in srgb, var(--accent) 78%, var(--bg)); }

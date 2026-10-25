@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=469387c973">
+  <link rel="stylesheet" href="../styles.css?v=726242c083">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
 </head>
@@ -97,7 +97,7 @@
 
       <fieldset class="q-step" data-step="1">
         <legend class="q-legend"><span aria-hidden="true">01</span>Car and service</legend>
-        <div class="q-fl"><input id="f-vehicle" name="vehicle" type="text" placeholder=" " required autocomplete="off"><label for="f-vehicle">Car — make, model, year</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="f-vehicle" name="vehicle" type="text" placeholder=" " required minlength="3" maxlength="120" autocomplete="off"><label for="f-vehicle">Car — make, model, year</label><i aria-hidden="true"></i></div>
         <p class="q-sub" id="svc-l">Which service do you need?</p>
         <div class="q-svcs" role="radiogroup" aria-labelledby="svc-l"><label class="q-svc">
             <input type="radio" name="service" value="custom-orders" data-label="Custom orders" required>
@@ -137,7 +137,7 @@
         <div class="q-chips"><button type="button" class="q-chip" aria-pressed="false" data-chip>Full wrap</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Partial wrap</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Colour change</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Stripes</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Decals</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Chrome delete</button><button type="button" class="q-chip" aria-pressed="false" data-chip>Graphic design</button></div>
         <input type="hidden" name="pasirinkta" value="" data-chips-out>
         
-        <div class="q-fl q-fl-area"><textarea id="f-message" name="message" rows="5" placeholder=" "></textarea><label for="f-message">What do you want done? Colour, placement, timing…</label><i aria-hidden="true"></i></div>
+        <div class="q-fl q-fl-area"><textarea id="f-message" name="message" rows="5" maxlength="2000" placeholder=" "></textarea><label for="f-message">What do you want done? Colour, placement, timing…</label><i aria-hidden="true"></i></div>
         <p class="q-note">You can send photos by replying to our email. They make the price more exact.</p>
         <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="button" class="btn btn-accent" data-next>Next</button></div>
       </fieldset>
@@ -145,8 +145,8 @@
       <fieldset class="q-step" data-step="3">
         <legend class="q-legend"><span aria-hidden="true">03</span>Your details</legend>
         <div class="q-grid2">
-          <div class="q-fl"><input id="f-name" name="name" type="text" placeholder=" " required autocomplete="name"><label for="f-name">Name</label><i aria-hidden="true"></i></div>
-          <div class="q-fl"><input id="f-phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="f-phone">Phone (optional)</label><i aria-hidden="true"></i></div>
+          <div class="q-fl"><input id="f-name" name="name" type="text" placeholder=" " required maxlength="80" autocomplete="name"><label for="f-name">Name</label><i aria-hidden="true"></i></div>
+          <div class="q-fl"><input id="f-phone" name="phone" type="tel" placeholder=" " autocomplete="tel" pattern="\+?[0-9 ]{6,20}" title="Enter a phone number, e.g. +370 600 00000"><label for="f-phone">Phone (optional)</label><i aria-hidden="true"></i></div>
         </div>
         <div class="q-fl"><input id="f-email" name="email" type="email" placeholder=" " required autocomplete="email"><label for="f-email">Email — we reply here</label><i aria-hidden="true"></i></div>
         <div class="q-nav"><button type="button" class="btn btn-line" data-back>Back</button><button type="submit" class="btn btn-accent q-send">Send request</button></div>
@@ -165,12 +165,12 @@
          data-sending="Sending…"></p>
     </form>
 
-    <aside class="ct-aside" aria-label="What happens next">
+    <div class="ct-aside">
       <div class="ct-next">
         <p class="eyebrow eyebrow-accent">WHAT HAPPENS NEXT</p>
         <ol class="ct-steps"><li data-reveal style="--d:0ms"><span class="ct-sn">01</span><span><b>We look at your request</b><small>We reply within one working day, Monday to Friday.</small></span></li><li data-reveal style="--d:100ms"><span class="ct-sn">02</span><span><b>A written price</b><small>You know the exact price before work starts.</small></span></li><li data-reveal style="--d:200ms"><span class="ct-sn">03</span><span><b>We agree a date</b><small>We tell you when to bring the car in.</small></span></li></ol>
       </div>
-    </aside>
+    </div>
   </div>
 </section>
 
@@ -190,7 +190,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="footer-logo" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
+      <p class="footer-logo" role="img" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
       <p class="small">ORAFOL cast film only. Design for your car. Price fixed before work starts.</p>
     </div>
     <div>

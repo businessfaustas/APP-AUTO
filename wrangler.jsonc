@@ -10,7 +10,9 @@
   "preview_urls": true,
   "assets": {
     "directory": ".",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Any URL without a file gets the branded 404.html (with a real 404 status)
+    "not_found_handling": "404-page"
   }
   // Secret for live payments (never put it in this file):
   //   Cloudflare dashboard → Workers → app-auto → Settings → Variables and secrets → STRIPE_SECRET_KEY

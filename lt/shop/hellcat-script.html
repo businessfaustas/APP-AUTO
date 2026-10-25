@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../../styles.css?v=469387c973">
+  <link rel="stylesheet" href="../../styles.css?v=726242c083">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../../main.js?v=372c4eec7a" defer></script>
 </head>
@@ -65,8 +65,8 @@
         <p class="pd-order-h">Užsisakyti</p>
         <fieldset class="pd-opt"><legend>Ilgis</legend><div class="opt-chips"><label class="opt-chip"><input type="radio" name="Ilgis" value="20 cm" checked><span>20 cm</span></label><label class="opt-chip"><input type="radio" name="Ilgis" value="30 cm"><span>30 cm</span></label></div></fieldset><fieldset class="pd-opt"><legend>Komplektas</legend><div class="opt-chips"><label class="opt-chip"><input type="radio" name="Komplektas" value="1 vnt." checked><span>1 vnt.</span></label><label class="opt-chip"><input type="radio" name="Komplektas" value="Pora (kairė + dešinė)"><span>Pora (kairė + dešinė)</span></label></div></fieldset>
         <div class="pd-order-fields">
-          <div class="field"><label for="o-name">Vardas</label><input id="o-name" name="name" type="text" required autocomplete="name"></div>
-          <div class="field"><label for="o-phone">Telefonas</label><input id="o-phone" name="phone" type="tel" required autocomplete="tel"></div>
+          <div class="field"><label for="o-name">Vardas</label><input id="o-name" name="name" type="text" required maxlength="80" autocomplete="name"></div>
+          <div class="field"><label for="o-phone">Telefonas</label><input id="o-phone" name="phone" type="tel" required autocomplete="tel" pattern="\+?[0-9 ]{6,20}" title="Įrašykite telefono numerį, pvz. +370 600 00000"></div>
           <div class="field"><label for="o-email">El. paštas (nebūtina)</label><input id="o-email" name="email" type="email" autocomplete="email"></div>
           <div class="field"><label for="o-qty">Kiekis</label><input id="o-qty" name="kiekis" type="number" value="1" min="1" max="50" inputmode="numeric"></div>
         </div>
@@ -118,7 +118,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="footer-logo" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
+      <p class="footer-logo" role="img" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
       <p class="small">Tik lieta ORAFOL plėvelė. Dizainas pagal jūsų automobilį. Kaina fiksuojama prieš darbą.</p>
     </div>
     <div>

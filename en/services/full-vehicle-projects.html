@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../../styles.css?v=469387c973">
+  <link rel="stylesheet" href="../../styles.css?v=726242c083">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../../main.js?v=372c4eec7a" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "What is included in a full colour change?", "acceptedAnswer": {"@type": "Answer", "text": "Film on every painted panel, wrapped round each edge, plus the chrome delete and trim you choose. The exact list for your car is in the written quote."}}, {"@type": "Question", "name": "Are door jambs wrapped?", "acceptedAnswer": {"@type": "Answer", "text": "Door jambs are an option, priced separately in the quote. If you want the car to look like its new colour with the doors open, they need doing."}}, {"@type": "Question", "name": "How long is the car in the workshop?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the car and the size of the job. You get the timeline with the written price, before work starts."}}]}</script>
@@ -49,7 +49,7 @@
 </header>
 <main id="main" tabindex="-1">
 
-<section class="sx" aria-labelledby="h1">
+<section class="sx">
   <div class="sx-media"><img class="pic sx-pic" src="../../images/web/mustang-green-1200.jpg" srcset="../../images/web/mustang-green-600.jpg 600w, ../../images/web/mustang-green-1200.jpg 1200w, ../../images/web/mustang-green-2000.jpg 2000w" sizes="100vw" width="1200" height="900" alt="Green Ford Mustang with black details" fetchpriority="high" decoding="async"></div>
   <span class="sx-panel" aria-hidden="true"></span><span class="slash slash-2" aria-hidden="true"></span>
   <div class="wrap sx-copy">
@@ -147,9 +147,9 @@
       <input type="hidden" name="access_key" value="0584d6c1-667b-4a8b-b382-0b58abce3a76"><input type="hidden" name="subject" value="Greita užklausa — autaplate.com"><input type="hidden" name="from_name" value="AUTAPLATE svetainė"><input type="hidden" name="kalba" value="EN"><div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" style="display:none"></div>
       <p class="inq-k"><span>01</span>Car</p>
       <div class="inq-car">
-        <div class="q-fl"><input id="qb-marke" name="marke" type="text" placeholder=" " required autocomplete="off"><label for="qb-marke">Make</label><i aria-hidden="true"></i></div>
-        <div class="q-fl"><input id="qb-modelis" name="modelis" type="text" placeholder=" " required autocomplete="off"><label for="qb-modelis">Model</label><i aria-hidden="true"></i></div>
-        <div class="q-fl"><input id="qb-metai" name="metai" type="text" placeholder=" " required inputmode="numeric" maxlength="4" autocomplete="off"><label for="qb-metai">Year</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-marke" name="marke" type="text" placeholder=" " required maxlength="60" autocomplete="off"><label for="qb-marke">Make</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-modelis" name="modelis" type="text" placeholder=" " required maxlength="60" autocomplete="off"><label for="qb-modelis">Model</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-metai" name="metai" type="text" placeholder=" " required inputmode="numeric" maxlength="4" pattern="(19|20)[0-9]{2}" title="Enter the year, e.g. 2020" autocomplete="off"><label for="qb-metai">Year</label><i aria-hidden="true"></i></div>
       </div>
       <p class="inq-k"><span>02</span>Service</p>
       <div class="q-svcs inq-svcs" role="radiogroup" aria-label="Service"><label class="q-svc"><input type="radio" name="service" value="custom-orders" data-label="Custom orders" required>
@@ -169,10 +169,10 @@
           <span class="q-svc-name">Not sure yet</span><span class="q-svc-tick" aria-hidden="true"></span></label></div>
       <p class="inq-k"><span>03</span>Details and notes</p>
       <div class="inq-car inq-two">
-        <div class="q-fl"><input id="qb-name" name="name" type="text" placeholder=" " required autocomplete="name"><label for="qb-name">Name</label><i aria-hidden="true"></i></div>
-        <div class="q-fl"><input id="qb-phone" name="phone" type="tel" placeholder=" " required autocomplete="tel"><label for="qb-phone">Phone</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-name" name="name" type="text" placeholder=" " required maxlength="80" autocomplete="name"><label for="qb-name">Name</label><i aria-hidden="true"></i></div>
+        <div class="q-fl"><input id="qb-phone" name="phone" type="tel" placeholder=" " required autocomplete="tel" pattern="\+?[0-9 ]{6,20}" title="Enter a phone number, e.g. +370 600 00000"><label for="qb-phone">Phone</label><i aria-hidden="true"></i></div>
       </div>
-      <div class="q-fl q-fl-area"><textarea id="qb-message" name="message" rows="3" placeholder=" "></textarea><label for="qb-message">Comment – colour, placement, timing… (optional)</label><i aria-hidden="true"></i></div>
+      <div class="q-fl q-fl-area"><textarea id="qb-message" name="message" rows="3" maxlength="2000" placeholder=" "></textarea><label for="qb-message">Comment – colour, placement, timing… (optional)</label><i aria-hidden="true"></i></div>
       <div class="quick-foot">
         <button type="submit" class="btn btn-accent inq-send">Send enquiry</button>
         <a class="link-arrow" href="../contact.html?service=full-vehicle-projects#quote">Full request form <span aria-hidden="true">→</span></a>
@@ -185,7 +185,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <p class="footer-logo" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
+      <p class="footer-logo" role="img" aria-label="AUTAPLATE"><svg class="mark footer-mark" viewBox="335 636 1340 664" aria-hidden="true" focusable="false"><path class="m-a" pathLength="1" d="M340 1294 L830 642 L1003 642 L1100 893 L907 893 L885 835 L551 1294 Z"/><path class="m-a m-a2" pathLength="1" d="M992 1121 L1186 1121 L1256 1294 L1053 1294 Z"/><path class="m-p" d="M1056 642 L1460 642 C1600 645 1668 730 1668 840 C1668 965 1560 1076 1405 1076 L768 1076 L872 937 L1400 937 C1450 935 1484 905 1484 858 C1484 815 1455 792 1420 792 L1112 792 Z"/></svg></p>
       <p class="small">ORAFOL cast film only. Design for your car. Price fixed before work starts.</p>
     </div>
     <div>
