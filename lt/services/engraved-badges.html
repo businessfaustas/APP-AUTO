@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../../styles.css?v=726242c083">
+  <link rel="stylesheet" href="../../styles.css?v=36e2281dcf">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../../main.js?v=372c4eec7a" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "lt", "mainEntity": [{"@type": "Question", "name": "Kokias medžiagas galite graviruoti?", "acceptedAnswer": {"@type": "Answer", "text": "Priklauso nuo to, kur ženklelis bus. Nurodykite vietą ir norimą išvaizdą – medžiagą rekomenduosime kartu su kaina."}}, {"@type": "Question", "name": "Ar galite atkurti originalų ženklelį?", "acceptedAnswer": {"@type": "Answer", "text": "Dažniausiai taip. Atsiųskite aiškias nuotraukas iš priekio ir kampu, nurodykite matmenis. Jei turite originalą, net ir pažeistą, – dar geriau."}}, {"@type": "Question", "name": "Kaip ženklelis tvirtinamas prie automobilio?", "acceptedAnswer": {"@type": "Answer", "text": "Tvirtinimą parenkame pagal vietą: plokštiems paviršiams – klijai, o kaiščiai ar laikikliai – ten, kur jie buvo originale."}}]}</script>
@@ -132,7 +132,10 @@
       <h2 class="h2 no-rule" id="cta-h" data-reveal>Papasakokite apie automobilį — <br>kainą gausite raštu</h2>
       <p class="muted" data-reveal>Užpildykite tris trumpus laukus. Atsakome per vieną darbo dieną, pirmadienį–penktadienį.</p>
       <ol class="inq-steps" data-reveal><li><span>01</span>Automobilis</li><li><span>02</span>Paslauga</li><li><span>03</span>Kontaktai</li></ol>
-      <p class="small muted" data-reveal>arba skambinkite <a href="tel:+37062405636">+370 62405636</a></p>
+      <ul class="inq-tels" data-reveal aria-label="arba skambinkite">
+        <li><a href="tel:+37062405636">+370 62405636</a><small>Užsakymai ir informacija</small></li>
+        <li><a href="tel:+37068253188">+370 68253188</a><small>Meistras – apklijavimo darbai</small></li>
+      </ul>
     </div>
     <form class="quick inq-form" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Gauta. Atsakysime per vieną darbo dieną, pirmadienį–penktadienį."
@@ -193,7 +196,8 @@
     <div>
       <p class="eyebrow">Kontaktai</p>
       <ul class="footer-list">
-        <li><a href="tel:+37062405636">+370 62405636</a></li>
+        <li class="f-tel"><a href="tel:+37062405636">+370 62405636</a><small>Užsakymai ir informacija</small></li>
+        <li class="f-tel"><a href="tel:+37068253188">+370 68253188</a><small>Meistras – apklijavimo darbai</small></li>
         <!-- TODO: email address — not supplied yet -->
         <!-- TODO: street address — not supplied yet -->
         <li>Klaipėda, Lietuva</li>

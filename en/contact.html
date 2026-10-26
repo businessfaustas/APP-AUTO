@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=726242c083">
+  <link rel="stylesheet" href="../styles.css?v=36e2281dcf">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
 </head>
@@ -58,10 +58,16 @@
       <p class="hero-actions" data-reveal style="--d:200ms"><a class="btn btn-accent" href="#quote">Fill in the request</a></p>
     </div>
     <div class="ct-side">
-      <p class="plate-cap" data-reveal style="--d:200ms">CALL US</p>
+      <p class="plate-cap" data-reveal style="--d:200ms">ORDERS AND INFORMATION</p>
       <a class="plate" href="tel:+37062405636" data-reveal style="--d:260ms" aria-label="Call +370 62405636">
         <span class="plate-eu" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="19.20" cy="12.00" r="1.05"/><circle cx="18.24" cy="15.60" r="1.05"/><circle cx="15.60" cy="18.24" r="1.05"/><circle cx="12.00" cy="19.20" r="1.05"/><circle cx="8.40" cy="18.24" r="1.05"/><circle cx="5.76" cy="15.60" r="1.05"/><circle cx="4.80" cy="12.00" r="1.05"/><circle cx="5.76" cy="8.40" r="1.05"/><circle cx="8.40" cy="5.76" r="1.05"/><circle cx="12.00" cy="4.80" r="1.05"/><circle cx="15.60" cy="5.76" r="1.05"/><circle cx="18.24" cy="8.40" r="1.05"/></svg><b>LT</b></span>
         <span class="plate-num">+370 624 05636</span>
+        <span class="plate-go" aria-hidden="true"></span>
+      </a>
+      <p class="plate-cap" data-reveal style="--d:300ms">MASTER – WRAPPING WORK</p>
+      <a class="plate plate-2" href="tel:+37068253188" data-reveal style="--d:360ms" aria-label="Call +370 68253188">
+        <span class="plate-eu" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="19.20" cy="12.00" r="1.05"/><circle cx="18.24" cy="15.60" r="1.05"/><circle cx="15.60" cy="18.24" r="1.05"/><circle cx="12.00" cy="19.20" r="1.05"/><circle cx="8.40" cy="18.24" r="1.05"/><circle cx="5.76" cy="15.60" r="1.05"/><circle cx="4.80" cy="12.00" r="1.05"/><circle cx="5.76" cy="8.40" r="1.05"/><circle cx="8.40" cy="5.76" r="1.05"/><circle cx="12.00" cy="4.80" r="1.05"/><circle cx="15.60" cy="5.76" r="1.05"/><circle cx="18.24" cy="8.40" r="1.05"/></svg><b>LT</b></span>
+        <span class="plate-num">+370 682 53188</span>
         <span class="plate-go" aria-hidden="true"></span>
       </a>
       <!-- TODO: email — add a second plate-style link, or a tile below, with a mailto: link -->
@@ -204,7 +210,8 @@
     <div>
       <p class="eyebrow">Contact</p>
       <ul class="footer-list">
-        <li><a href="tel:+37062405636">+370 62405636</a></li>
+        <li class="f-tel"><a href="tel:+37062405636">+370 62405636</a><small>Orders and information</small></li>
+        <li class="f-tel"><a href="tel:+37068253188">+370 68253188</a><small>Master – wrapping work</small></li>
         <!-- TODO: email address — not supplied yet -->
         <!-- TODO: street address — not supplied yet -->
         <li>Klaipėda, Lithuania</li>

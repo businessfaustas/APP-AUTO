@@ -23,11 +23,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&display=swap">
-  <link rel="stylesheet" href="../styles.css?v=726242c083">
+  <link rel="stylesheet" href="../styles.css?v=36e2281dcf">
   <script>(function(d){d.classList.add('js');var m='none';try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){m=sessionStorage.getItem('ap-intro')?'short':'full';sessionStorage.setItem('ap-intro','1')}}catch(e){m='short'}d.setAttribute('data-loader',m)})(document.documentElement)</script>
   <script src="../main.js?v=372c4eec7a" defer></script>
   <!-- TODO: add streetAddress, postalCode, email, openingHours once supplied -->
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AutomotiveBusiness", "name": "AUTAPLATE", "url": "https://autaplate.com/en/", "telephone": "+37062405636", "image": "https://autaplate.com/images/og.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Klaipėda", "addressCountry": "LT"}, "areaServed": "LT", "sameAs": ["https://www.facebook.com/profile.php?id=61583636107747", "https://www.instagram.com/autaplate/"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "AutomotiveBusiness", "name": "AUTAPLATE", "url": "https://autaplate.com/en/", "telephone": "+37062405636", "contactPoint": [{"@type": "ContactPoint", "telephone": "+37062405636", "contactType": "customer service", "availableLanguage": ["lt", "en"]}, {"@type": "ContactPoint", "telephone": "+37068253188", "contactType": "technical support", "availableLanguage": ["lt"]}], "image": "https://autaplate.com/images/og.jpg", "address": {"@type": "PostalAddress", "addressLocality": "Klaipėda", "addressCountry": "LT"}, "areaServed": "LT", "sameAs": ["https://www.facebook.com/profile.php?id=61583636107747", "https://www.instagram.com/autaplate/"]}</script>
 </head>
 <body>
 <div class="loader" aria-hidden="true">
@@ -369,7 +369,10 @@
       <h2 class="h2 no-rule" id="cta-h" data-reveal>Tell us about the car. <br>Get a price in writing.</h2>
       <p class="muted" data-reveal>Three short parts. We reply within one working day, Monday to Friday.</p>
       <ol class="inq-steps" data-reveal><li><span>01</span>The car</li><li><span>02</span>The service</li><li><span>03</span>Your details</li></ol>
-      <p class="small muted" data-reveal>or call <a href="tel:+37062405636">+370 62405636</a></p>
+      <ul class="inq-tels" data-reveal aria-label="or call">
+        <li><a href="tel:+37062405636">+370 62405636</a><small>Orders and information</small></li>
+        <li><a href="tel:+37068253188">+370 68253188</a><small>Master – wrapping work</small></li>
+      </ul>
     </div>
     <form class="quick inq-form" data-quick novalidate data-reveal action="https://api.web3forms.com/submit" method="POST"
           data-ok="Received. We&#x27;ll reply within one working day, Monday to Friday."
@@ -430,7 +433,8 @@
     <div>
       <p class="eyebrow">Contact</p>
       <ul class="footer-list">
-        <li><a href="tel:+37062405636">+370 62405636</a></li>
+        <li class="f-tel"><a href="tel:+37062405636">+370 62405636</a><small>Orders and information</small></li>
+        <li class="f-tel"><a href="tel:+37068253188">+370 68253188</a><small>Master – wrapping work</small></li>
         <!-- TODO: email address — not supplied yet -->
         <!-- TODO: street address — not supplied yet -->
         <li>Klaipėda, Lithuania</li>
