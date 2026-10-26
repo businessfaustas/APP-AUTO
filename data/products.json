@@ -493,6 +493,229 @@
           ]
         }
       ]
+    },
+    {
+      "id": "gt500-emblem-silver",
+      "image": "gt500-emblem-silver",
+      "lt": {
+        "name": "GT500 emblema – sidabrinė",
+        "short": "Baltas GT500 užrašas su chromo kontūru.",
+        "desc": "GT500 užrašas baltos ir chromo efekto spalvų su juodu kontūru. Tinka sparnams, galiniam dangčiui ar grotelėms."
+      },
+      "en": {
+        "name": "GT500 emblem – silver",
+        "short": "White GT500 script with a chrome outline.",
+        "desc": "GT500 script in white and chrome effect with a black outline. For fenders, the boot lid or the grille."
+      },
+      "options": [
+        {
+          "key": "size",
+          "lt": "Ilgis",
+          "en": "Length",
+          "values": [
+            {
+              "id": "15cm",
+              "label": "15 cm",
+              "price": 0
+            },
+            {
+              "id": "20cm",
+              "label": "20 cm",
+              "price": 0
+            },
+            {
+              "id": "30cm",
+              "label": "30 cm",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "lt": "Paviršius",
+          "en": "Finish",
+          "values": [
+            {
+              "id": "gloss",
+              "lt": "Blizgus",
+              "en": "Gloss",
+              "price": 0
+            },
+            {
+              "id": "matte",
+              "lt": "Matinis",
+              "en": "Matte",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gt500-emblem-red",
+      "image": "gt500-emblem-red",
+      "lt": {
+        "name": "GT500 emblema – raudona",
+        "short": "Raudono vario atspalvio GT500 užrašas su juodu kontūru.",
+        "desc": "GT500 užrašas raudono vario atspalviu su juodu kontūru – ryškus akcentas tamsiam automobiliui."
+      },
+      "en": {
+        "name": "GT500 emblem – red",
+        "short": "Red copper-tone GT500 script with a black outline.",
+        "desc": "GT500 script in a red copper tone with a black outline: a bold accent on a dark car."
+      },
+      "options": [
+        {
+          "key": "size",
+          "lt": "Ilgis",
+          "en": "Length",
+          "values": [
+            {
+              "id": "15cm",
+              "label": "15 cm",
+              "price": 0
+            },
+            {
+              "id": "20cm",
+              "label": "20 cm",
+              "price": 0
+            },
+            {
+              "id": "30cm",
+              "label": "30 cm",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "lt": "Paviršius",
+          "en": "Finish",
+          "values": [
+            {
+              "id": "gloss",
+              "lt": "Blizgus",
+              "en": "Gloss",
+              "price": 0
+            },
+            {
+              "id": "matte",
+              "lt": "Matinis",
+              "en": "Matte",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hellcat-script-silver",
+      "image": "hellcat-script-silver",
+      "lt": {
+        "name": "HELLCAT su tekstu emblema – sidabrinė",
+        "short": "Sidabrinis HELLCAT užrašas su katės galva.",
+        "desc": "Sidabrinis HELLCAT užrašas su katės galva ir juodu kontūru. Tinka sparnams ir galiniam dangčiui."
+      },
+      "en": {
+        "name": "HELLCAT emblem with script – silver",
+        "short": "Silver HELLCAT script with the cat head.",
+        "desc": "Silver HELLCAT script with the cat head and a black outline. For fenders and the boot lid."
+      },
+      "options": [
+        {
+          "key": "size",
+          "lt": "Ilgis",
+          "en": "Length",
+          "values": [
+            {
+              "id": "20cm",
+              "label": "20 cm",
+              "price": 0
+            },
+            {
+              "id": "30cm",
+              "label": "30 cm",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "lt": "Paviršius",
+          "en": "Finish",
+          "values": [
+            {
+              "id": "gloss",
+              "lt": "Blizgus",
+              "en": "Gloss",
+              "price": 0
+            },
+            {
+              "id": "matte",
+              "lt": "Matinis",
+              "en": "Matte",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demon-script-silver",
+      "image": "demon-script-silver",
+      "lt": {
+        "name": "DEMON su tekstu emblema – sidabrinė",
+        "short": "Šlifuoto sidabro DEMON užrašas su demono galva.",
+        "desc": "Šlifuoto sidabro efekto DEMON užrašas ir demono galva su tamsiu kontūru. Tinka sparnams ir galiniam dangčiui."
+      },
+      "en": {
+        "name": "DEMON emblem with script – silver",
+        "short": "Brushed-silver DEMON script with the demon head.",
+        "desc": "Brushed-silver effect DEMON script and demon head with a dark outline. For fenders and the boot lid."
+      },
+      "options": [
+        {
+          "key": "size",
+          "lt": "Ilgis",
+          "en": "Length",
+          "values": [
+            {
+              "id": "15cm",
+              "label": "15 cm",
+              "price": 0
+            },
+            {
+              "id": "20cm",
+              "label": "20 cm",
+              "price": 0
+            },
+            {
+              "id": "30cm",
+              "label": "30 cm",
+              "price": 0
+            }
+          ]
+        },
+        {
+          "key": "finish",
+          "lt": "Paviršius",
+          "en": "Finish",
+          "values": [
+            {
+              "id": "brushed",
+              "lt": "Šlifuotas",
+              "en": "Brushed",
+              "price": 0
+            },
+            {
+              "id": "gloss",
+              "lt": "Blizgus",
+              "en": "Gloss",
+              "price": 0
+            }
+          ]
+        }
+      ]
     }
   ],
   "shipping": [
