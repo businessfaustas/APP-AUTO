@@ -64,12 +64,12 @@
       "id": "shelby-script",
       "image": "shelby-script",
       "lt": {
-        "name": "SHELBY užrašas",
+        "name": "SHELBY emblema",
         "short": "Šlifuoto metalo efekto užrašas su juodu kontūru.",
         "desc": "Šlifuoto aliuminio efekto plėvelė su juodu kontūru. Klijuojamas ant durų, galinio dangčio ar priekinio buferio."
       },
       "en": {
-        "name": "SHELBY script",
+        "name": "SHELBY emblem",
         "short": "Brushed-metal look script with a black outline.",
         "desc": "Brushed-aluminium effect film with a black outline. For doors, the boot lid or the front bumper."
       },
@@ -102,12 +102,12 @@
       "id": "hellcat-head",
       "image": "hellcat-head",
       "lt": {
-        "name": "Hellcat galva",
+        "name": "HELLCAT emblema",
         "short": "Bordo spalvos katės galva su juodu kontūru.",
         "desc": "Bordo metalizuota plėvelė su juodu kontūru. Klasikinis ženklas sparnams arba galiniam stiklui."
       },
       "en": {
-        "name": "Hellcat head",
+        "name": "HELLCAT emblem",
         "short": "Burgundy cat head with a black outline.",
         "desc": "Burgundy metallic film with a black outline. The classic mark for fenders or the rear window."
       },
@@ -160,12 +160,12 @@
       "id": "hellcat-script",
       "image": "hellcat-script",
       "lt": {
-        "name": "HELLCAT užrašas su galva",
+        "name": "HELLCAT su tekstu emblema",
         "short": "Grafito užrašas su raudona katės galva.",
         "desc": "Dviejų spalvų lipdukas: grafito pilkas užrašas ir raudona katės galva. Tinka sparnams ir galiniam dangčiui."
       },
       "en": {
-        "name": "HELLCAT script with head",
+        "name": "HELLCAT emblem with script",
         "short": "Graphite script with a red cat head.",
         "desc": "Two-colour decal: graphite grey script and a red cat head. For fenders and the boot lid."
       },
@@ -212,12 +212,12 @@
       "id": "demon-head-silver",
       "image": "demon-head-silver",
       "lt": {
-        "name": "Demon galva – sidabrinė",
+        "name": "Demon emblema – sidabrinė",
         "short": "Sidabrinė demono galva ant juodo pagrindo.",
         "desc": "Šlifuoto sidabro efekto demono galva su juodu pagrindu ir kontūru. Tinka sparnams, galiniam dangčiui ar salonui."
       },
       "en": {
-        "name": "Demon head – silver",
+        "name": "Demon emblem – silver",
         "short": "Silver demon head on a black base.",
         "desc": "Brushed-silver demon head with a black base and outline. Fits fenders, the boot lid or the interior."
       },
@@ -269,12 +269,12 @@
       "id": "demon-head-graphite",
       "image": "demon-head-graphite",
       "lt": {
-        "name": "Demon galva – grafito",
+        "name": "Demon emblema – grafito",
         "short": "Grafito pilkos spalvos demono galva su juodu kontūru.",
         "desc": "Matinė grafito pilka demono galva su juodu kontūru – santūresnis variantas tamsiems automobiliams."
       },
       "en": {
-        "name": "Demon head – graphite",
+        "name": "Demon emblem – graphite",
         "short": "Graphite grey demon head with a black outline.",
         "desc": "Matte graphite grey demon head with a black outline: the quieter option for dark cars."
       },
@@ -326,12 +326,12 @@
       "id": "demon-script",
       "image": "demon-script",
       "lt": {
-        "name": "DEMON užrašas su galva",
+        "name": "DEMON su tekstu emblema",
         "short": "Sidabrinis DEMON užrašas su raudona demono galva.",
         "desc": "Dviejų spalvų emblema: sidabrinis DEMON užrašas ir raudona demono galva su juodu kontūru. Tinka sparnams ir galiniam dangčiui."
       },
       "en": {
-        "name": "DEMON script with head",
+        "name": "DEMON emblem with script",
         "short": "Silver DEMON script with a red demon head.",
         "desc": "Two-colour emblem: silver DEMON script and a red demon head with a black outline. For fenders and the boot lid."
       },
