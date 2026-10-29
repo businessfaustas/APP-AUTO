@@ -2411,7 +2411,8 @@ ul.inq-tels { display: grid; gap: 10px; margin: 0 0 var(--s-2); padding: 0; list
 .hx-h1 { font-size: clamp(1.6rem, .35rem + 2.45vw, 3rem); }
 /* one service per line at every width (phones otherwise run two lines together) */
 .hx-h1 .line { display: block; }
-/* hero headline: a squared, slanted racing face (Exo 2 Black Italic) */
-.hx-h1, .hx-h1 em { font-family: "Exo 2", var(--f-display); font-style: italic; font-weight: 900; letter-spacing: .01em; }
-.hx-h1 { font-size: clamp(1.7rem, .45rem + 2.6vw, 3.2rem); line-height: 1.04; }
-.hx-h1 .line { padding-right: .14em; }   /* room for the slant, so the last letter isn't clipped by the reveal mask */
+/* hero headline: tall condensed display face (Anton) */
+.hx-h1, .hx-h1 em { font-family: "Anton", "Oswald", var(--f-display); font-style: normal; font-weight: 400; letter-spacing: .01em; }
+.hx-h1 { font-size: clamp(2.2rem, .6rem + 3.4vw, 4.2rem); line-height: 1.02; }
+/* room for Ų/Į ogoneks and Ū/Ė marks inside the line reveal mask */
+.hx-h1 .line { padding-block: .1em .14em; margin-block: -.1em -.14em; }
