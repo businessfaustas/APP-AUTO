@@ -2405,3 +2405,9 @@ ul.inq-tels { display: grid; gap: 10px; margin: 0 0 var(--s-2); padding: 0; list
 .inq-tels a:hover { color: var(--accent); }
 .inq-tels small { font-size: 12px; color: var(--muted); }
 .plate-2 { margin-bottom: var(--s-1); }
+/* hero headline: three service lines, sized so the longest ("Automobilių apklijavimas") stays clear of the car */
+.hx-h1 { font-size: clamp(1.75rem, .55rem + 2.75vw, 3.35rem); line-height: 1.06; }
+.hx-h1 em { font-weight: 800; }
+.hx-h1 { font-size: clamp(1.6rem, .35rem + 2.45vw, 3rem); }
+/* one service per line at every width (phones otherwise run two lines together) */
+.hx-h1 .line { display: block; }
