@@ -21,13 +21,15 @@ function priceLine(line, lang) {
   if (!p) return null;
   const qty = Math.floor(Number(line.qty));
   if (!(qty >= 1 && qty <= 50)) return null;
-  let unit = 0; const picked = [];
+  let unit = 0, mult = 1; const picked = [];
   for (const opt of p.options) {
     const v = opt.values.find((x) => x.id === (line.opts || {})[opt.key]);
     if (!v) return null;
     unit += v.price; picked.push(label(v, lang));
+    if (v.multiplier) mult *= v.multiplier;   // "Komplektas (K+D)" = two badges: double the price
   }
-  return { name: `${p[lang].name} — ${picked.join(', ')}`, unit, qty };
+  unit *= mult;
+  return { name: `${p[lang].name} — ${picked.join(' · ')}`, unit, qty };
 }
 
 export function quote(body) {

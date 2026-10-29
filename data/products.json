@@ -18,42 +18,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "8cm",
-              "label": "8 cm",
-              "price": 990
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
             },
             {
-              "id": "12cm",
-              "label": "12 cm",
-              "price": 1290
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
             },
             {
-              "id": "18cm",
-              "label": "18 cm",
-              "price": 1690
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "matte",
-              "lt": "Matinis",
-              "en": "Matte",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "gloss",
-              "lt": "Blizgus",
-              "en": "Gloss",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -75,24 +77,45 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "15cm",
-              "label": "15 cm",
-              "price": 1490
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
             },
             {
-              "id": "25cm",
-              "label": "25 cm",
-              "price": 1990
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
             },
             {
-              "id": "40cm",
-              "label": "40 cm",
-              "price": 2690
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
             }
           ]
         }
@@ -112,23 +135,6 @@
         "desc": "Burgundy metallic film with a black outline. The classic mark for fenders or the rear window."
       },
       "options": [
-        {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
-          "values": [
-            {
-              "id": "8cm",
-              "label": "8 cm",
-              "price": 1190
-            },
-            {
-              "id": "12cm",
-              "label": "12 cm",
-              "price": 1590
-            }
-          ]
-        },
         {
           "key": "colour",
           "lt": "Spalva",
@@ -153,6 +159,49 @@
               "price": 200
             }
           ]
+        },
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
+            }
+          ]
         }
       ]
     },
@@ -171,38 +220,45 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "20cm",
-              "label": "20 cm",
-              "price": 1790
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
             },
             {
-              "id": "30cm",
-              "label": "30 cm",
-              "price": 2290
-            }
-          ]
-        },
-        {
-          "key": "qty-set",
-          "lt": "Komplektas",
-          "en": "Set",
-          "values": [
-            {
-              "id": "single",
-              "lt": "1 vnt.",
-              "en": "Single",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
               "id": "pair",
-              "lt": "Pora (kairė + dešinė)",
-              "en": "Pair (left + right)",
-              "price": 1500
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
             }
           ]
         }
@@ -223,42 +279,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "8cm",
-              "label": "8 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "12cm",
-              "label": "12 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "18cm",
-              "label": "18 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "silver",
-              "lt": "Sidabrinis",
-              "en": "Silver",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "chrome",
-              "lt": "Chromo efektas",
-              "en": "Chrome effect",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -280,42 +338,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "8cm",
-              "label": "8 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "12cm",
-              "label": "12 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "18cm",
-              "label": "18 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "matte",
-              "lt": "Matinis",
-              "en": "Matte",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "satin",
-              "lt": "Satininis",
-              "en": "Satin",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -336,28 +396,6 @@
         "desc": "Two-colour emblem: silver DEMON script and a red demon head with a black outline. For fenders and the boot lid."
       },
       "options": [
-        {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
-          "values": [
-            {
-              "id": "15cm",
-              "label": "15 cm",
-              "price": 0
-            },
-            {
-              "id": "20cm",
-              "label": "20 cm",
-              "price": 0
-            },
-            {
-              "id": "30cm",
-              "label": "30 cm",
-              "price": 0
-            }
-          ]
-        },
         {
           "key": "colour",
           "lt": "Galvos spalva",
@@ -382,6 +420,49 @@
               "price": 0
             }
           ]
+        },
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
+            }
+          ]
         }
       ]
     },
@@ -400,42 +481,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "8cm",
-              "label": "8 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "12cm",
-              "label": "12 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "16cm",
-              "label": "16 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "brushed",
-              "lt": "Šlifuotas",
-              "en": "Brushed",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "black",
-              "lt": "Juodas",
-              "en": "Black",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -457,37 +540,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Dydis",
-          "en": "Size",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "6×11cm",
-              "label": "6 × 11 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "8×14cm",
-              "label": "8 × 14 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "brushed",
-              "lt": "Šlifuotas",
-              "en": "Brushed",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "black",
-              "lt": "Juodas",
-              "en": "Black",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -509,42 +599,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "15cm",
-              "label": "15 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "20cm",
-              "label": "20 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "30cm",
-              "label": "30 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "gloss",
-              "lt": "Blizgus",
-              "en": "Gloss",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "matte",
-              "lt": "Matinis",
-              "en": "Matte",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -566,42 +658,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "15cm",
-              "label": "15 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "20cm",
-              "label": "20 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "30cm",
-              "label": "30 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "gloss",
-              "lt": "Blizgus",
-              "en": "Gloss",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "matte",
-              "lt": "Matinis",
-              "en": "Matte",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -623,37 +717,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "20cm",
-              "label": "20 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "30cm",
-              "label": "30 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "gloss",
-              "lt": "Blizgus",
-              "en": "Gloss",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "matte",
-              "lt": "Matinis",
-              "en": "Matte",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]
@@ -675,42 +776,44 @@
       },
       "options": [
         {
-          "key": "size",
-          "lt": "Ilgis",
-          "en": "Length",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "15cm",
-              "label": "15 cm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "20cm",
-              "label": "20 cm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
             },
             {
-              "id": "30cm",
-              "label": "30 cm",
-              "price": 0
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         },
         {
-          "key": "finish",
-          "lt": "Paviršius",
-          "en": "Finish",
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
           "values": [
             {
-              "id": "brushed",
-              "lt": "Šlifuotas",
-              "en": "Brushed",
+              "id": "3mm",
+              "label": "3 mm",
               "price": 0
             },
             {
-              "id": "gloss",
-              "lt": "Blizgus",
-              "en": "Gloss",
+              "id": "5mm",
+              "label": "5 mm",
               "price": 0
             }
           ]

@@ -476,6 +476,17 @@ const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
       drive();
     }
   }
+  /* ---------------------------------------------------------------- emblem order: one readable line for the email
+     e.g. "Demon 170 emblema — Kairė · 3 mm", rebuilt whenever an option changes */
+  $$('[data-order-line]').forEach((out) => {
+    const f = out.closest('form');
+    const sync = () => {
+      const picked = $$('.pd-opt input:checked', f).map((r) => r.value);
+      out.value = out.dataset.orderLine + (picked.length ? ' — ' + picked.join(' · ') : '');
+    };
+    $$('.pd-opt input', f).forEach((r) => r.addEventListener('change', sync));
+    sync();
+  });
   /* ---------------------------------------------------------------- quick enquiry forms (every page) */
   $$('[data-quick]').forEach((qf) => {
     const st = $('[data-quick-status]', qf);
