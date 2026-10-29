@@ -2411,23 +2411,3 @@ ul.inq-tels { display: grid; gap: 10px; margin: 0 0 var(--s-2); padding: 0; list
 .hx-h1 { font-size: clamp(1.6rem, .35rem + 2.45vw, 3rem); }
 /* one service per line at every width (phones otherwise run two lines together) */
 .hx-h1 .line { display: block; }
-/* hero headline: tall condensed display face (Anton) */
-.hx-h1, .hx-h1 em { font-family: "Anton", "Oswald", var(--f-display); font-style: normal; font-weight: 400; letter-spacing: .01em; }
-.hx-h1 { font-size: clamp(2.2rem, .6rem + 3.4vw, 4.2rem); line-height: 1.02; }
-/* room for Ų/Į ogoneks and Ū/Ė marks inside the line reveal mask */
-.hx-h1 .line { padding-block: .1em .14em; margin-block: -.1em -.14em; }
-/* bigger hero headline: the text column gets more of the width, the car shifts right */
-.hx-h1 { font-size: clamp(2.9rem, 1rem + 4.2vw, 5.4rem); line-height: 1; }
-@media (min-width: 900px) {
-  .hx-grid { grid-template-columns: 1.15fr 1fr; }
-  .hx-car { margin-left: -4%; margin-right: calc(var(--gutter) * -1.5); }
-}
-@media (min-width: 900px) { .hx-car { margin-left: 2%; } }
-/* bigger headline needs more black: the red panel and its stripes start further right */
-@media (min-width: 900px) {
-  .hx-panel { width: 44%; clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%); }
-  .hs-1, .hs-2 { width: 44%; }
-  .hs-1 { clip-path: polygon(30% 0, 30.9% 0, .9% 100%, 0 100%); }
-  .hs-2 { clip-path: polygon(30% 0, 30.35% 0, .35% 100%, 0 100%); }
-}
-@media (min-width: 900px) { .hx-h1 { font-size: clamp(2.6rem, 5vw, 4.8rem); } }
