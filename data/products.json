@@ -170,6 +170,53 @@
       }
     },
     {
+      "id": "hellcat-head-silver",
+      "image": "hellcat-head-silver",
+      "lt": {
+        "name": "HELLCAT emblema – sidabrinė",
+        "short": "Šlifuoto sidabro katės galva su juodu kontūru.",
+        "desc": "Šlifuoto sidabro efekto HELLCAT katės galva su juodu kontūru. Tinka sparnams, galiniam dangčiui ar grotelėms."
+      },
+      "en": {
+        "name": "HELLCAT emblem – silver",
+        "short": "Brushed-silver cat head with a black outline.",
+        "desc": "A brushed-silver HELLCAT cat head with a black outline. For fenders, the boot lid or the grille."
+      },
+      "options": [
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        }
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "7,6",
+        "width_cm": "8,6"
+      }
+    },
+    {
       "id": "hellcat-script",
       "image": "hellcat-script",
       "lt": {
@@ -897,6 +944,53 @@
         "thickness_mm": "0,4",
         "height_cm": "3,1",
         "width_cm": "15"
+      }
+    },
+    {
+      "id": "zl1-emblem",
+      "image": "zl1-emblem",
+      "lt": {
+        "name": "ZL1 emblema",
+        "short": "Sidabrinis ZL1 užrašas su raudonu akcentu.",
+        "desc": "ZL1 užrašas sidabro efektu su raudonu vienetu ant juodo pagrindo. Tinka sparnams ir galiniam dangčiui."
+      },
+      "en": {
+        "name": "ZL1 emblem",
+        "short": "Silver ZL1 lettering with a red accent.",
+        "desc": "Silver-effect ZL1 lettering with a red \"1\" on a black base. For fenders and the boot lid."
+      },
+      "options": [
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        }
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "1,7",
+        "width_cm": "9,6"
       }
     }
   ],
