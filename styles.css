@@ -2411,3 +2411,6 @@ ul.inq-tels { display: grid; gap: 10px; margin: 0 0 var(--s-2); padding: 0; list
 .hx-h1 { font-size: clamp(1.6rem, .35rem + 2.45vw, 3rem); }
 /* one service per line at every width (phones otherwise run two lines together) */
 .hx-h1 .line { display: block; }
+
+/* Badge specs: full-width row for the fitting note */
+.pd-specs .wide { grid-column: 1 / -1; }

@@ -42,25 +42,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "9,7",
+        "width_cm": "8"
+      }
     },
     {
       "id": "shelby-script",
@@ -101,25 +89,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,1",
+        "height_cm": "4",
+        "width_cm": "23"
+      }
     },
     {
       "id": "hellcat-head",
@@ -185,25 +161,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "7,6",
+        "width_cm": "8,6"
+      }
     },
     {
       "id": "hellcat-script",
@@ -244,25 +208,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,5",
+        "height_cm": "3",
+        "width_cm": "13,2"
+      }
     },
     {
       "id": "demon-head-silver",
@@ -303,25 +255,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "9,3",
+        "width_cm": "8"
+      }
     },
     {
       "id": "demon-head-graphite",
@@ -362,25 +302,60 @@
               "multiplier": 2
             }
           ]
-        },
+        }
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "9,3",
+        "width_cm": "8"
+      }
+    },
+    {
+      "id": "demon-head-red",
+      "image": "demon-head-red",
+      "lt": {
+        "name": "Demon emblema – raudona",
+        "short": "Raudona demono galva su juodu kontūru.",
+        "desc": "Raudonos spalvos demono galva su juodu kontūru – ryškus akcentas sparnams ar galiniam dangčiui."
+      },
+      "en": {
+        "name": "Demon emblem – red",
+        "short": "Red demon head with a black outline.",
+        "desc": "A red demon head with a black outline – a bold accent for fenders or the boot lid."
+      },
+      "options": [
         {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "3mm",
-              "label": "3 mm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "5mm",
-              "label": "5 mm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "9,3",
+        "width_cm": "8"
+      }
     },
     {
       "id": "demon-script",
@@ -446,36 +421,24 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "3,4",
+        "width_cm": "14,8"
+      }
     },
     {
       "id": "cobra-emblem",
       "image": "cobra-emblem",
       "lt": {
-        "name": "Cobra emblema",
+        "name": "Shelby Snake emblema",
         "short": "Šlifuoto metalo efekto kobra su juodu kontūru.",
         "desc": "Šlifuoto aliuminio efekto kobros emblema su juodais kontūrais. Klasika Shelby ir Mustang automobiliams – sparnams, groteles ar galiniam dangčiui."
       },
       "en": {
-        "name": "Cobra emblem",
+        "name": "Shelby Snake emblem",
         "short": "Brushed-metal look cobra with a black outline.",
         "desc": "Brushed-aluminium effect cobra emblem with black outlines. A classic for Shelby and Mustang cars: fenders, grille or boot lid."
       },
@@ -505,25 +468,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,1",
+        "height_cm": "11",
+        "width_cm": "8"
+      }
     },
     {
       "id": "gt500-cobra-plate",
@@ -564,25 +515,60 @@
               "multiplier": 2
             }
           ]
-        },
+        }
+      ],
+      "size": {
+        "thickness_mm": "0,1",
+        "height_cm": "9",
+        "width_cm": "5"
+      }
+    },
+    {
+      "id": "gt350-emblem",
+      "image": "gt350-emblem",
+      "lt": {
+        "name": "GT350 emblema",
+        "short": "Šlifuoto sidabro GT350 užrašas su juodu kontūru.",
+        "desc": "GT350 užrašas šlifuoto sidabro efektu su juodu kontūru. Tinka sparnams ir galiniam dangčiui."
+      },
+      "en": {
+        "name": "GT350 emblem",
+        "short": "Brushed-silver GT350 lettering with a black outline.",
+        "desc": "GT350 lettering in a brushed-silver finish with a black outline. For fenders and the boot lid."
+      },
+      "options": [
         {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "3mm",
-              "label": "3 mm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "5mm",
-              "label": "5 mm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,1",
+        "height_cm": "1,5",
+        "width_cm": "14"
+      }
     },
     {
       "id": "gt500-emblem-silver",
@@ -623,38 +609,26 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,5",
+        "height_cm": "1,5",
+        "width_cm": "14"
+      }
     },
     {
       "id": "gt500-emblem-red",
       "image": "gt500-emblem-red",
       "lt": {
         "name": "GT500 emblema – raudona",
-        "short": "Raudono vario atspalvio GT500 užrašas su juodu kontūru.",
-        "desc": "GT500 užrašas raudono vario atspalviu su juodu kontūru – ryškus akcentas tamsiam automobiliui."
+        "short": "Raudonas GT500 užrašas su juodu kontūru.",
+        "desc": "Raudonas GT500 užrašas su dvigubu juodu kontūru – ryškus akcentas tamsiam automobiliui."
       },
       "en": {
         "name": "GT500 emblem – red",
-        "short": "Red copper-tone GT500 script with a black outline.",
-        "desc": "GT500 script in a red copper tone with a black outline: a bold accent on a dark car."
+        "short": "Red GT500 lettering with a black outline.",
+        "desc": "Red GT500 lettering with a double black outline – a bold accent on a dark car."
       },
       "options": [
         {
@@ -682,25 +656,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,5",
+        "height_cm": "1,5",
+        "width_cm": "14"
+      }
     },
     {
       "id": "hellcat-script-silver",
@@ -741,25 +703,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,5",
+        "height_cm": "3",
+        "width_cm": "13,2"
+      }
     },
     {
       "id": "demon-script-silver",
@@ -800,36 +750,24 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "3,4",
+        "width_cm": "14,8"
+      }
     },
     {
       "id": "mustang-horse",
       "image": "mustang-horse",
       "lt": {
-        "name": "Mustang žirgo emblema",
+        "name": "Dark Horse emblema",
         "short": "Sidabrinio rėmelio skydas su žirgo galva.",
         "desc": "Skydo formos emblema: sidabrinis rėmelis ir tamsi žirgo galva su linijų rašto detale. Tinka sparnams, galiniam dangčiui ar grotelėms."
       },
       "en": {
-        "name": "Mustang horse emblem",
+        "name": "Dark Horse emblem",
         "short": "Silver-framed shield with a horse head.",
         "desc": "Shield-shaped emblem: a silver frame and a dark horse head with line-pattern detailing. For fenders, the boot lid or the grille."
       },
@@ -859,25 +797,13 @@
               "multiplier": 2
             }
           ]
-        },
-        {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
-          "values": [
-            {
-              "id": "3mm",
-              "label": "3 mm",
-              "price": 0
-            },
-            {
-              "id": "5mm",
-              "label": "5 mm",
-              "price": 0
-            }
-          ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,3",
+        "height_cm": "10",
+        "width_cm": "8,2"
+      }
     },
     {
       "id": "gtd-emblem",
@@ -918,25 +844,60 @@
               "multiplier": 2
             }
           ]
-        },
+        }
+      ],
+      "size": {
+        "thickness_mm": "0,2",
+        "height_cm": "2,5",
+        "width_cm": "12,5"
+      }
+    },
+    {
+      "id": "emblem-2-3t",
+      "image": "emblem-2-3t",
+      "lt": {
+        "name": "2,3T emblema",
+        "short": "Matinis grafito 2,3T užrašas.",
+        "desc": "Matinio grafito spalvos 2,3T užrašas be blizgesio – santūrus akcentas galiniam dangčiui ar sparnams."
+      },
+      "en": {
+        "name": "2.3T emblem",
+        "short": "Matte graphite 2.3T lettering.",
+        "desc": "Matte graphite 2.3T lettering with no shine – a subtle accent for the boot lid or fenders."
+      },
+      "options": [
         {
-          "key": "thickness",
-          "lt": "Storis",
-          "en": "Thickness",
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
           "values": [
             {
-              "id": "3mm",
-              "label": "3 mm",
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
               "price": 0
             },
             {
-              "id": "5mm",
-              "label": "5 mm",
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
               "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
             }
           ]
         }
-      ]
+      ],
+      "size": {
+        "thickness_mm": "0,4",
+        "height_cm": "3,1",
+        "width_cm": "15"
+      }
     }
   ],
   "shipping": [
