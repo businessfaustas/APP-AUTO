@@ -819,6 +819,124 @@
           ]
         }
       ]
+    },
+    {
+      "id": "mustang-horse",
+      "image": "mustang-horse",
+      "lt": {
+        "name": "Mustang žirgo emblema",
+        "short": "Sidabrinio rėmelio skydas su žirgo galva.",
+        "desc": "Skydo formos emblema: sidabrinis rėmelis ir tamsi žirgo galva su linijų rašto detale. Tinka sparnams, galiniam dangčiui ar grotelėms."
+      },
+      "en": {
+        "name": "Mustang horse emblem",
+        "short": "Silver-framed shield with a horse head.",
+        "desc": "Shield-shaped emblem: a silver frame and a dark horse head with line-pattern detailing. For fenders, the boot lid or the grille."
+      },
+      "options": [
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gtd-emblem",
+      "image": "gtd-emblem",
+      "lt": {
+        "name": "GTD emblema",
+        "short": "Juodas GTD užrašas su chromo kontūru.",
+        "desc": "GTD užrašas – juodas centras ir dvigubas chromo efekto kontūras. Tinka sparnams ir galiniam dangčiui."
+      },
+      "en": {
+        "name": "GTD emblem",
+        "short": "Black GTD lettering with a chrome outline.",
+        "desc": "GTD lettering with a black centre and a double chrome-effect outline. For fenders and the boot lid."
+      },
+      "options": [
+        {
+          "key": "side",
+          "lt": "Pusė",
+          "en": "Side",
+          "values": [
+            {
+              "id": "left",
+              "lt": "Kairė",
+              "en": "Left",
+              "price": 0
+            },
+            {
+              "id": "right",
+              "lt": "Dešinė",
+              "en": "Right",
+              "price": 0
+            },
+            {
+              "id": "pair",
+              "lt": "Komplektas (K+D)",
+              "en": "Pair (L+R)",
+              "price": 0,
+              "multiplier": 2
+            }
+          ]
+        },
+        {
+          "key": "thickness",
+          "lt": "Storis",
+          "en": "Thickness",
+          "values": [
+            {
+              "id": "3mm",
+              "label": "3 mm",
+              "price": 0
+            },
+            {
+              "id": "5mm",
+              "label": "5 mm",
+              "price": 0
+            }
+          ]
+        }
+      ]
     }
   ],
   "shipping": [
