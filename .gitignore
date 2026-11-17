@@ -1,3 +1,4 @@
 preview/
 .wrangler/
 node_modules/
+tools/node_modules/

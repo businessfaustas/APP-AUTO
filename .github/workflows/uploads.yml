@@ -1,0 +1,34 @@
+# Turns uploads from the /admin page into finished pages.
+# The Worker commits photos + a queue file to data/queue/; this builds the images and pages
+# (tools/build.mjs), commits the result and Cloudflare publishes it.
+name: Process uploads
+on:
+  push:
+    paths: ['data/queue/**']
+  workflow_dispatch:
+concurrency:
+  group: process-uploads
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # newest commit, so back-to-back uploads build in order
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefix tools --no-audit --no-fund
+      - run: node tools/build.mjs
+      - name: Commit the result
+        run: |
+          git config user.name "AUTAPLATE uploads"
+          git config user.email "uploads@autaplate.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
+          git commit -m "Publish uploads"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"

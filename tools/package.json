@@ -1,0 +1,7 @@
+{
+  "name": "autaplate-tools",
+  "private": true,
+  "type": "module",
+  "description": "Build step for the /admin uploads (runs in GitHub Actions)",
+  "dependencies": { "sharp": "0.33.5" }
+}

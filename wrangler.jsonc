@@ -14,6 +14,10 @@
     // Any URL without a file gets the branded 404.html (with a real 404 status)
     "not_found_handling": "404-page"
   }
+  // /admin upload page → commits to this repo/branch (the branch Cloudflare publishes from).
+  "vars": { "GITHUB_REPO": "businessfaustas/APP-AUTO", "GITHUB_BRANCH": "claude/compassionate-edison-m3odyu" },
+  // Secrets for the upload page (set in the dashboard, never here): ADMIN_PASSWORDS ("Name:password,Name2:password2")
+  // and GITHUB_TOKEN (fine-grained token, Contents: read and write on this repo). See README → "Upload page".
   // Secret for live payments (never put it in this file):
   //   Cloudflare dashboard → Workers → app-auto → Settings → Variables and secrets → STRIPE_SECRET_KEY
 }
