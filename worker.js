@@ -6,8 +6,6 @@
      - With the STRIPE_SECRET_KEY secret set: creates a Stripe Checkout session and returns its URL.
      - Without it: returns { test: true } and the site shows a "test order" confirmation. */
 import catalog from './data/products.json';
-import serviceList from './data/services.json';
-import { handleAdmin } from './admin-api.js';
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
   status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' },
@@ -90,7 +88,6 @@ export default {
       try { return json({ url: await stripeSession(q, env, url.origin) }); }
       catch (err) { console.error('checkout', err.message); return json({ error: 'payment' }, 502); }
     }
-    if (url.pathname.startsWith('/api/admin/')) return handleAdmin(request, env, url, { services: serviceList.services });
     if (url.pathname.startsWith('/api/')) return json({ error: 'not found' }, 404);
     return env.ASSETS.fetch(request);
   },
